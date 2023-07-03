@@ -1,0 +1,27 @@
+name: Build and Publish
+on: [push]
+jobs:
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+    - uses: actions/checkout@v2
+    - name: vite build
+      run: |
+        npm install
+        npm run build
+    - name: Set Project Vars
+      run: |
+        echo "email=boolioncube@gmail.com" >> $GITHUB_ENV
+        echo "name=BoolionBuildBot" >> $GITHUB_ENV
+    - name: Build Vue
+      shell: bash
+      run: |
+        cd dist
+        ln -s index.html 404.html
+        git config --global user.email ${{ env.email }}
+        git config --global user.name ${{ env.name }}
+        git init
+        git add -A
+        git commit -m "autoPublish: ${{ github.sha }}"
+        git push -f https://${{ github.repository_owner }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}}.git master:gh-pages

@@ -1,0 +1,21 @@
+{
+  "eslint.probe": [
+    "javascript",
+    "typescript",
+    "vue"
+  ],
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "css.lint.unknownAtRules": "ignore",
+  "[vue]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+  "cSpell.words": [
+    "Harddisk",
+    "linebreak",
+    "mdue",
+    "Parens",
+    "tailwindcss",
+    "Xtransform"
+  ],
+}
