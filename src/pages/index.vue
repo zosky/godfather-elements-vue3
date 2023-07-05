@@ -1,34 +1,38 @@
 <route lang="json">
-{
-  "meta": {
-    "title": "Home"
-  }
-}
+{ "meta": { "title": "Home" }}
 </route>
 
 <script setup>
 useHead({ title: 'Home' })
 const dataStore = inject('$dataStore')
+const games = computed(()=>{
+  const p = dataStore?.user?.points
+  const s = dataStore?.sort ?? 'cost'
+  const i = dataStore?.ignoredGames ?? []
+  const h = dataStore?.haveGames ?? []
+  const f = dataStore?.filters
+  const se = dataStore?.search
+  return dataStore?.games
+    ?.filter(g => // filter:uxToggles + remembered
+      ( !p ? g.enabled 
+        : (f.gamesOn && g.enabled && g.cost >= p) || 
+          (f.gamesOnCan && g.enabled && g.cost <= p) ||
+          (f.gamesOff && !g.enabled && g.cost >= p) ||
+          (f.gamesOffCan && !g.enabled && g.cost <= p) ) 
+        && !i.includes(g._id) && !h.includes(g._id) // not have/ignore
+        && ( se?.length ? g.name.toLowerCase().includes(se.toLowerCase()) : true ) 
+    ) 
+    // ?.filter(g=> !i.includes(g._id) && !h.includes(g._id) ) // not ignored && not have
+    ?.sort((a,b)=> 
+      s=='cost' ? a.cost>b.cost? 1 :-1  
+        : s=='date' ? a.updatedAt > b.updatedAt ? 1: -1 
+          : s=='name' ? a.name > b.name ? 1 : -1 
+            : true)
+})
 </script>
 
 <template>
-  <div class="bg-gray-50">
-    <div
-      class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8">
-      <h2
-        class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-        {{ dataStore.welcome }}
-        <br />
-        <span class="text-indigo-600">Vite + <Vuejs /> + <Tailwind /></span>
-      </h2>
-      <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-        <div class="inline-flex rounded-md shadow">
-          <router-link
-            to="/about"
-            class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out hover:bg-indigo-500 focus:outline-none">Next Page</router-link>
-        </div>
-        <ButtonRepo />
-      </div>
-    </div>
-  </div>
+  <section class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-2 px-2">
+    <GameCard v-for="game of games" :key="game._id" :game="game" />
+  </section>
 </template>
