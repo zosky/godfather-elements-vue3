@@ -2,4 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
+body { @apply bg-black text-purple-700 }
 svg { @apply inline }
