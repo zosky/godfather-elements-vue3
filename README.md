@@ -1,29 +1,11 @@
-# changeLog
-- *23.01.11* mdue global/appWide icons w/handRolled resolver
-  - add `'Bleh'`' to global icons in `~/vite.config.mdue.ts`
-  - of (still can do): `import { Bleh } from 'mdue'`
-  - eaither way: use link normal
-  - `/*in*/ <template> /*use*/ <Bleh />`
-- *23.01.10* consistant unPluggin (auth)generated file + mdue
-  - all unPluggin files now @ `src/auto-(blah).d.ts`
-  - mdue included (hero icons removed)
-  - `components/DataStore.ts` 
-    - exported (getters,dataStore,methods)
-    - provided appWide / injected where needed _(ex@home)_
-- *22.11.12* eslint+prettier+lint-on-save
-  - installed eslint, prettier, and all links between
-  - enabled vscode lint-on-save
-  - linted everything
-- *22.11.4* init
-  - +github dependabot
-  - +buildbot
-    - **... but pages disabled for private repos**
-    - example @ `.github/workflows/deploy.yml` 
-    - rename and push to (re)activate
-    - ~~removed netlify~~
-  - [props@bottom](#props) 
+# godfather loyalty rewards "alt"
 
-# Vite, Vue3, Tailwind CSS (single-page app)
+a vue3 reImagining of the streamElements storeFront.
+# changeLog
+
+- 23-07-04 - alpha/PoC complete
+
+# a Vite, Vue3, Tailwind CSS (single-page app)
 
 ![Vite, Vue, Tailwind CSS](https://user-images.githubusercontent.com/11320080/111277027-a9384c00-8640-11eb-8323-21889bd7c609.png)
 
