@@ -1,7 +1,7 @@
 <script setup>
-useHead({
-  title: '404',
-})
+useHead({ title: '404=>302',})
+const router = useRouter()
+router.replace({name:'/'})
 </script>
 
 <template>
