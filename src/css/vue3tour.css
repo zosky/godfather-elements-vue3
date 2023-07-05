@@ -1,0 +1,28 @@
+body.v-tour--active { @apply pointer-events-none }
+.v-tour { @apply pointer-events-auto }
+.v-tour__target--highlighted { @apply shadow-sm shadow-green-500 animate-pulse pointer-events-auto z-[9999] rounded-md bg-green-950 p-1 }
+.v-tour__target--relative { @apply relative }
+.v-step[data-v-da2d894c] { @apply bg-pink-900 text-yellow-500 max-w-prose border border-pink-600 pointer-events-auto text-center z-[10000] rounded-xl bg-opacity-90 }
+.v-step--sticky[data-v-da2d894c] { @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 }
+.v-step--sticky .v-step__arrow[data-v-da2d894c] { @apply hidden }
+.v-step__arrow[data-v-da2d894c], .v-step__arrow[data-v-da2d894c]:before { @apply absolute w-2.5 h-2.5 bg-inherit }
+.v-step__arrow[data-v-da2d894c] { @apply hidden }
+.v-step__arrow--dark[data-v-da2d894c]:before { @apply bg-purple-950 }
+.v-step__arrow[data-v-da2d894c]:before { @apply visible rotate-45; content: ''; }
+.v-step[data-popper-placement^='top'] > .v-step__arrow[data-v-da2d894c] { bottom: -5px; left: calc(50% - 10px);}
+.v-step[data-popper-placement^='bottom'] > .v-step__arrow[data-v-da2d894c] { top: -5px; left: calc(50% - 10px);}
+.v-step[data-popper-placement^='right'] > .v-step__arrow[data-v-da2d894c] { left: -5px; top: calc(50% - 10px);}
+.v-step[data-popper-placement^='left'] > .v-step__arrow[data-v-da2d894c] { right: -5px; top: calc(50% - 10px);}
+.v-step__header[data-v-da2d894c] { @apply mb-1 p-1 bg-black bg-opacity-25 w-full }
+.v-step__content[data-v-da2d894c] { @apply m-2 leading-none }
+.v-step__button[data-v-da2d894c] { @apply bg-transparent border border-pink-500 text-yellow-300 rounded-md 
+    font-extrabold cursor-pointer inline-block text-sm leading-none
+    m-1 p-2 text-center transition-all align-middle whitespace-nowrap
+}
+.v-step__button[data-v-da2d894c]:hover { @apply bg-pink-800 text-yellow-500 }
+.mask[data-v-da2d894c] { @apply absolute top-0 right-0 left-0 bottom-0 bg-black bg-opacity-50 }
+.mask .tour-focus-container[data-v-da2d894c] { @apply 
+    rounded-md transition-opacity opacity-100 shadow-pink-400 
+    pointer-events-auto shadow-md 
+    absolute left-0 top-0 w-full h-full 
+}
