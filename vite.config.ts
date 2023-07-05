@@ -7,6 +7,7 @@ import Components from 'unplugin-vue-components/vite'
 import { HeadlessUiResolver } from 'unplugin-vue-components/resolvers'
 import eslintPlugin from 'vite-plugin-eslint'
 import { MyMdueIconResolver } from './vite.config.mdue'
+import { viteSingleFile } from 'vite-plugin-singlefile'
 
 export default defineConfig({
   base: '/godfather-elements-vue3/', //project name req for ghPages
@@ -16,6 +17,7 @@ export default defineConfig({
       dts: 'src/auto-router.d.ts' 
     }),
     vue(),
+    viteSingleFile(),
     Components({ 
       resolvers: [HeadlessUiResolver(),MyMdueIconResolver],
       dts: 'src/auto-components.d.ts'
