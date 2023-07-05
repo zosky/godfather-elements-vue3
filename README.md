@@ -3,7 +3,7 @@
 a vue3 reImagining of the streamElements storeFront.
 # changeLog
 
-- 23-07-04 - alpha/PoC complete
+- 23-07-04 - alpha/PoC complete.
 
 # **made using**: a Vite, Vue3, Tailwind CSS (single-page app)
 
