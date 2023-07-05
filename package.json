@@ -31,7 +31,7 @@
     "typescript": "^4.8.2",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.4",
-    "unplugin-vue-router": "^0.2.0",
+    "unplugin-vue-router": "^0.6.4",
     "vite": "^3.0.9",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-singlefile": "^0.13.5",
