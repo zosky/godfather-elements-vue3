@@ -19,7 +19,7 @@ jobs:
         git config --global user.email "${{ github.actor }}"
         git config --global user.name "${{ github.actor }}@users.noreply.github.com"
     - run: npm i
-    - run: npm run build --base="/godfather-elements-vue3/"
+    - run: npm run build"
     - name: ghPages (w/404hack)
       run: |
         cd dist
