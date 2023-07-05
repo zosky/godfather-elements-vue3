@@ -9,7 +9,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 import { MyMdueIconResolver } from './vite.config.mdue'
 
 export default defineConfig({
-  // base: '/',
+  base: '/godfather-elements-vue3/', //project name req for ghPages
   server: { open: true },
   plugins: [
     VueRouter({ 
