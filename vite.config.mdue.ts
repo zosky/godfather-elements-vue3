@@ -5,6 +5,9 @@
 const globalIcons = [
   'Vuejs',
   'Tailwind',
+  'EyeOff',
+  'Steam',
+  'HeartOutline'
 ]
 
 export const MyMdueIconResolver = componentName => {

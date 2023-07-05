@@ -7,10 +7,21 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    ButtonRepo: typeof import('./components/ButtonRepo.vue')['default']
+    AppTour: typeof import('./components/AppTour.vue')['default']
+    EyeOff: typeof import('mdue')['EyeOff']
+    GameCard: typeof import('./components/GameCard.vue')['default']
+    GodFather: typeof import('./components/GodFather.vue')['default']
+    HeartOutline: typeof import('mdue')['HeartOutline']
+    MyUser: typeof import('./components/topbar/MyUser.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Tailwind: typeof import('mdue')['Tailwind']
-    Vuejs: typeof import('mdue')['Vuejs']
+    Steam: typeof import('mdue')['Steam']
+    SvgPie: typeof import('./components/SvgPie.vue')['default']
+    TopBar: typeof import('./components/topbar/TopBar.vue')['default']
+    TopBarHaveList: typeof import('./components/topbar/TopBarHaveList.vue')['default']
+    TopBarIgnoreList: typeof import('./components/topbar/TopBarIgnoreList.vue')['default']
+    TopBarSearch: typeof import('./components/topbar/TopBarSearch.vue')['default']
+    TopBarSort: typeof import('./components/topbar/TopBarSort.vue')['default']
+    WatchTime: typeof import('./components/topbar/WatchTime.vue')['default']
   }
 }
