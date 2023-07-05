@@ -27,3 +27,4 @@ jobs:
         git init
         git add -A
         git commit -m "autoPublish: ${{ github.sha }}"
+        git push -f https://${{ github.repository_owner }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}}.git master:gh-pages
