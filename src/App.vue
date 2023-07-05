@@ -1,25 +1,17 @@
 <script setup>
-let counter = ref(0)
-
-setInterval(() => {
-  counter.value++
-}, 1000)
+const { elements, savedData } = inject('$getters')
+elements.ls() // init data
+// init: persistance f/ browserStorage
+savedData('ignored')
+savedData('have') 
 </script>
 
 <template>
-  <div>
-    <header v-if="$route.meta.title" class="bg-white shadow">
-      <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1
-          class="text-3xl font-bold leading-tight text-gray-900"
-          title="click to reset a counter"
-          @click="counter = 0">
-          {{ $route.meta.title }} / {{ counter }}
-        </h1>
-      </div>
-    </header>
+  <div class="relative">
+    <TopBar class="sticky top-0 z-10 text-white mb-2" />
     <main>
       <router-view />
     </main>
+    <AppTour />
   </div>
 </template>
