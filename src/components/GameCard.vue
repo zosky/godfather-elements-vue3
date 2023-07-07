@@ -19,7 +19,7 @@ const have = id => {
   else dataStore.haveGames = [id]
   localStorage.setItem('have', JSON.stringify(dataStore.haveGames))
 }
-const goSteam = n => { window.open('steam', `https://store.steampowered.com/search/?term=${encodeURIComponent(n)}`)}
+const goSteam = n => { window.open(`https://store.steampowered.com/search/?term=${encodeURIComponent(n)}`, 'steam')}
 </script>
 
 <template>
@@ -40,9 +40,13 @@ const goSteam = n => { window.open('steam', `https://store.steampowered.com/sear
         class="flex flex-row justify-between items-center pl-0 pr-2 w-full rounded-b-xl bg-opacity-90"
         :class="!p || p >= game.cost ? 'bg-purple-900 text-yellow-400' : 'bg-yellow-300 text-red-600'">
         <div class="flex flex-row gap-1 items-center">
-          <button v-if="game?.description?.toLowerCase()?.includes('steam')" id="steamSearch" :title="`searchSteam:${game.name}`">
-            <Steam class="h-6 w-6 -mt-4 -mb-3" @click="goSteam(game.name)" />
-          </button>
+          <a
+            v-if="game?.description?.toLowerCase()?.includes('steam')" id="steamSearch"
+            :title="`searchSteam:${game.name}`" 
+            :href="goSteam(game.name)"
+            target="steam">
+            <Steam class="h-6 w-6 -mt-4 -mb-3" />
+          </a>
           <h2 v-else :title="game?.description" v-text="'⛔'" />
           <div class="text-xs leading-none" v-text="game?.name" />
         </div>
