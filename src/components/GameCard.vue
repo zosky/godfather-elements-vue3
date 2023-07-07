@@ -19,7 +19,7 @@ const have = id => {
   else dataStore.haveGames = [id]
   localStorage.setItem('have', JSON.stringify(dataStore.haveGames))
 }
-const goSteam = n => { window.open(`https://store.steampowered.com/search/?term=${encodeURIComponent(n)}`, 'steam')}
+const goSteam = n => `https://store.steampowered.com/search/?term=${encodeURIComponent(n)}`
 </script>
 
 <template>
