@@ -4,8 +4,8 @@ const route = useRoute()
 const router = useRouter()
 const dataStore = inject('$dataStore')
 const liveLog = inject('$liveLog')
-
-fetch('/gaHistory.json')
+const prodShim = import.meta.env.PROD ? '/godfather-elements-vue3' : ''
+fetch(`${prodShim}/gaHistory.json`)
   .then(r=> r.json() )
   .then(r=> dataStore.gaHistory = r )
 
