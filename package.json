@@ -1,6 +1,6 @@
 {
   "name": "godfather-rewards-vue3",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
