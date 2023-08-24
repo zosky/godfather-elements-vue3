@@ -5,7 +5,9 @@
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "gaJSON": "cp ../*-catalogue/br-json-data/streamGAlog.json ./public/gaHistory.json"
+    "gaJSON": "cp ../*-catalogue/br-json-data/streamGAlog.json ./public/gaHistory.json",
+    "cacheUP": "git add ./public/gaHistory.json ; npm version patch -m 'gaCache+=$(date +%b%d)' ; git push",
+    "cacheGO": "npm run gaJSON ; npm run cacheGO"
   },
   "dependencies": {
     "@types/tmi.js": "^1.8.3",
