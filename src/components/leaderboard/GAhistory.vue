@@ -5,9 +5,13 @@ const router = useRouter()
 const dataStore = inject('$dataStore')
 const liveLog = inject('$liveLog')
 const prodShim = import.meta.env.PROD ? '/godfather-elements-vue3' : ''
-fetch(`${prodShim}/gaHistory.json`)
-  .then(r=> r.json() )
-  .then(r=> dataStore.gaHistory = r )
+const getCache = ()=>{
+  fetch(`${prodShim}/gaHistory.json`)
+    .then(r=> r.json() )
+    .then(r=> dataStore.gaHistory = r )
+}
+setInterval(getCache, 24*60*60*1000 /*1d*/ ) // reGet cache every 24
+getCache() // init cache
 
 const cacheDataOn = computed(()=> dataStore?.cacheDataOn ?? true )
 const liveDataOn = computed(()=> dataStore?.liveDataOn ?? true )

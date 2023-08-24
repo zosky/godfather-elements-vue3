@@ -32,6 +32,7 @@ watchEffect(()=>{ const d = liveDataOn.value ; liveDataOn.cacheDataOn = d })
       <div class="flex flex-row gap-1 text-sm select-none">
         <label
           id="cacheData"
+          title="data in the app (updated daily)"
           :class="{'bg-purple-800 text-purple-300':cacheDataOn}" 
           class="bg-opacity-50 ring-1 py-1 px-2 rounded-lg ring-purple-700 mr-1" >
           cache:<b>{{ historyArr?.length ?? 0 }}</b>
@@ -39,6 +40,7 @@ watchEffect(()=>{ const d = liveDataOn.value ; liveDataOn.cacheDataOn = d })
         </label>
         <label
           id="liveData"
+          title="data from the stream chat"
           :class="{'bg-purple-800 text-purple-300':liveDataOn}" 
           class="bg-opacity-50 ring-1 py-1 px-2 rounded-lg ring-purple-700">
           live:<b>{{ liveArr?.length ?? 0 }}</b>
