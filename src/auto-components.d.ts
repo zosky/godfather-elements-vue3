@@ -8,20 +8,28 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AppTour: typeof import('./components/AppTour.vue')['default']
+    Clams: typeof import('./components/Clams.vue')['default']
+    ClamsHaveNoValue: typeof import('./components/ClamsHaveNoValue.vue')['default']
     EyeOff: typeof import('mdue')['EyeOff']
+    GAhistory: typeof import('./components/leaderboard/GAhistory.vue')['default']
+    GAhistoryUser: typeof import('./components/leaderboard/GAhistoryUser.vue')['default']
     GameCard: typeof import('./components/GameCard.vue')['default']
+    GAstats: typeof import('./components/leaderboard/GAstats.vue')['default']
     GodFather: typeof import('./components/GodFather.vue')['default']
     HeartOutline: typeof import('mdue')['HeartOutline']
+    LiveLog: typeof import('./components/leaderboard/LiveLog.vue')['default']
     MyUser: typeof import('./components/topbar/MyUser.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Steam: typeof import('mdue')['Steam']
     SvgPie: typeof import('./components/SvgPie.vue')['default']
     TopBar: typeof import('./components/topbar/TopBar.vue')['default']
+    TopBarGAcount: typeof import('./components/topbar/TopBarGAcount.vue')['default']
     TopBarHaveList: typeof import('./components/topbar/TopBarHaveList.vue')['default']
     TopBarIgnoreList: typeof import('./components/topbar/TopBarIgnoreList.vue')['default']
     TopBarSearch: typeof import('./components/topbar/TopBarSearch.vue')['default']
     TopBarSort: typeof import('./components/topbar/TopBarSort.vue')['default']
     WatchTime: typeof import('./components/topbar/WatchTime.vue')['default']
+    YouAreHere: typeof import('./components/leaderboard/YouAreHere.vue')['default']
   }
 }

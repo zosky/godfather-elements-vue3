@@ -2,7 +2,7 @@
 import { Loading } from 'mdue'
 useHead({ title: '404=>302',})
 const router = useRouter()
-router.replace({name:'/'})
+router.replace({name:'/giveaways'})
 </script>
 
 <template>

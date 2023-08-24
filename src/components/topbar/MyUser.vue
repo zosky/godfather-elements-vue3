@@ -27,7 +27,9 @@ const logout = () => {
       class="-mr-5 pr-6 bg-transparent text-right" />
     <div v-else-if="eUser?.username" class="flex flex-row-reverse justify-end gap-3 items-center ml-1">
       <label title="twitch user. MIDDLE click to change" @click.middle="logout()" v-text="eUser?.username" />
-      <label id="points" title="clams" v-text="eUser?.points/1000 + 'k🐚'" />
+      <label id="points">
+        <Clams :clams="eUser?.points" :class="dataStore.konami?'money':'clams'" />
+      </label>
       <label id="rank" title="leaderBoard rank" v-text="eUser?.rank + '📈'" />
       <WatchTime id="watchtime" title="watchTime"/>
     </div>

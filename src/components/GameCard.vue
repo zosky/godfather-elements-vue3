@@ -58,7 +58,11 @@ const goSteam = n => `https://store.steampowered.com/search/?term=${encodeURICom
             <div v-text="game?.quantity?.current" />
             <ContentCopy />
           </div>
-          <div id="cost" class="font-bold" v-text="game?.cost/1000 + 'k'" />
+          <Clams 
+            id="cost" 
+            :clams="game.cost" 
+            :class="dataStore?.konami?'money':'clams'" 
+            class="font-bold text-right justify-end min-w-max" />
           <SvgPie v-if="p < game.cost" :n="p" :d="game?.cost" />
         </div>
       </div>

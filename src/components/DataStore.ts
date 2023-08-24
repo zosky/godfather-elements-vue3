@@ -26,7 +26,13 @@ const getters = {
       .then( d => { 
         dataStorage.user = d
         return d
-      })
+      }),
+    leaderboard: (p=0) => {
+      const lAPI = `https://api.streamelements.com/kappa/v2/points/61e8d63d3d12f65a5584b351/top/25?offset=${p}`
+      fetch( lAPI )
+        .then( r => r.json() )
+        .then( r => { dataStorage.leaderboard = r })
+    }
   }
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,6 +44,15 @@ const dataStorage: Record<string,any> = reactive({
 const methods = { 
   Cap1stLetter: (string:string) => string.charAt(0).toUpperCase() + string.slice(1), 
   // ^props https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+  KonamiCode: ()=>{ 
+    dataStorage.konami = !dataStorage?.konami ?? true     
+    if(dataStorage.konami) { 
+      alert('"clams have no real world value"')
+      localStorage.setItem('konami',dataStorage.konami) // "save"
+    } else { 
+      localStorage.removeItem('konami')
+    }
+  }
 }
 
 export { dataStorage, getters, methods }

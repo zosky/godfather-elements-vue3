@@ -9,6 +9,7 @@ savedData('have')
 <template>
   <div class="relative">
     <TopBar class="sticky top-0 z-10 text-white mb-2" />
+    <ClamsHaveNoValue />
     <main>
       <router-view />
     </main>

@@ -4,3 +4,9 @@
 
 body { @apply bg-black text-purple-700 }
 svg { @apply inline }
+
+.clams:after { content:'🐚'; @apply opacity-75 }
+.money:after { content:'🪙'; @apply opacity-75 }
+.bills:after { content:'💸'; @apply opacity-75 }
+.number:after { content:'#'; @apply opacity-75 }
+.percent:after { content:'%'; @apply opacity-75 }

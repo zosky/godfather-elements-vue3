@@ -1,9 +1,9 @@
 <route lang="json">
-{ "meta": { "title": "Home" }}
+{ "meta": { "title": "store" }}
 </route>
 
 <script setup>
-useHead({ title: 'Home' })
+useHead({ title: 'store' })
 const dataStore = inject('$dataStore')
 const games = computed(()=>{
   const p = dataStore?.user?.points

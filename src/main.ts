@@ -5,7 +5,9 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { createHead } from '@vueuse/head'
 import { getters, dataStorage, methods } from './components/DataStore'
+import { liveLog } from './components/twitchIRC'
 import Vue3Tour from 'vue3-tour'
+import KonamiCode from 'vue3-konami-code'
 
 const app = createApp(App)
 const head = createHead()
@@ -17,7 +19,9 @@ const router = createRouter({
 app.use(router)
 app.use(head)
 app.use(Vue3Tour)
+app.use(KonamiCode, {onKonamiCodeEntered: methods.KonamiCode })
 app.provide('$getters', getters) // pump in dataStore chunks
 app.provide('$dataStore', dataStorage)
 app.provide('$methods', methods)
+app.provide('$liveLog', liveLog)
 app.mount(document.body)

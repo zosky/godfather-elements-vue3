@@ -1,8 +1,9 @@
 <script setup>
-import { HelpCircleOutline } from 'mdue'
+import { HelpCircleOutline, ControllerClassicOutline } from 'mdue'
 import TopBarIgnoreList from './TopBarIgnoreList.vue'
 
 const dataStore = inject('$dataStore')
+dataStore.konami = localStorage.getItem('konami') // persist
 const games = computed(()=>{
   const p = dataStore?.user?.points
   const i = dataStore?.ignoredGames ?? []
@@ -31,30 +32,40 @@ const urls = {
       id="elementsLink" :src="urls.elementLogo"
       class="pr-2 h-8 self-center hover:scale-110 origin-center transition-transform" role="button"
       @click="goTime(urls.elements)"/>
-    <div class="flex flex-row justify-between w-full">
-      <div class="select-none items-center flex flex-row align-middle place-items-end gap-x-2 " >
-        <label
-          v-for="(v,k) of games"
-          :id="k" :key="k"
-          :title="`${v?.length} ${k}`"
-          :class="{
-            'flex flex-row self-center gap-0.5': true,
-            'hidden': !v?.length,
-            'opacity-50':!dataStore?.filters?.[k],
+    <div class="flex flex-row justify-between w-full items-center">
+      <button
+        v-if="$route.path!='/store'" id="gameList"
+        title="gamesList" class="flex flex-row items-center"
+        @click="$router.push('/store')">
+        <ControllerClassicOutline class="text-4xl" />
+        <div v-text="games?.gamesOn?.length ?? ''" />
+      </button>
+      <template v-else>
+        <div class="select-none items-center flex flex-row align-middle place-items-end gap-x-2 " >
+          <label
+            v-for="(v,k) of games"
+            :id="k" :key="k"
+            :title="`${v?.length} ${k}`"
+            :class="{
+              'flex flex-row self-center gap-0.5': true,
+              'hidden': !v?.length,
+              'opacity-50':!dataStore?.filters?.[k],
             // 'text-xs': !k.includes('Can')
-          }">
-          <div v-text="!k.includes('Can') ? v?.length- games[`${k}Can`]?.length : v?.length " />
-          <div v-text=" icons[k] " />
-          <input v-model="dataStore.filters[k]" type="checkbox" class="hidden" />
-        </label>
-        <TopBarHaveList id="have" @click="$router.push('have')" />
-        <TopBarIgnoreList id="ignore" @click="$router.push('ignored')" />
-      </div>
-      <div class="flex flex-row gap-2">
-        <TopBarSort id="sort" />
-        <TopBarSearch id="search" />
-      </div>
+            }">
+            <div v-text="!k.includes('Can') ? v?.length- games[`${k}Can`]?.length : v?.length " />
+            <div v-text=" icons[k] " />
+            <input v-model="dataStore.filters[k]" type="checkbox" class="hidden" />
+          </label>
+          <TopBarHaveList id="have" @click="$router.push('have')" />
+          <TopBarIgnoreList id="ignore" @click="$router.push('ignored')" />
+        </div>
+        <div class="flex flex-row gap-2">
+          <TopBarSort id="sort" />
+          <TopBarSearch id="search" />
+        </div>
+      </template>
       <div class="flex flex-row gap-2 items-center">
+        <TopBarGAcount id="topNavGA" @click="$router.push('/giveaways')" />
         <MyUser id="user" />
         <h3 id="help" title="(re)start tour"><HelpCircleOutline @click="$tours['myTour'].start()" /></h3>
       </div>
