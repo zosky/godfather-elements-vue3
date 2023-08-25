@@ -6,7 +6,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "cacheGET": "cp ../*-catalogue/br-json-data/streamGAlog.json ./public/gaHistory.json",
-    "cacheUP": "git add ./public/gaHistory.json ; git commit -m 'gaCache+=$(date +%b%d)' ; npm version patch ; git push",
+    "cacheUP": "git add ./public/gaHistory.json ; git commit -m \"gaCache+=$(date +%b%d)\" ; git push",
     "cache": "npm run cacheGET ; npm run cacheUP"
   },
   "dependencies": {
