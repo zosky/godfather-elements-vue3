@@ -54,7 +54,7 @@ const userPerDay = computed(()=>{
             {{ userHistory.length }}<GiftOutline />
           </div>
           <div class="flex flex-row min-w-max items-center gap-0.5">
-            ~<Clams :clams="userTTL / userPerDay.length" /><CalendarToday />{{userPerDay.length}} =
+            ~<Clams :clams="(userTTL / userPerDay.length).toFixed(1)" /><CalendarToday />{{userPerDay.length}} =
           </div>
         </div>
         <Clams :clams="userTTL" class="font-bold" /> 
