@@ -100,16 +100,15 @@ watchEffect(()=>{
     </div>
     <div
       id="table">
-      <div class="opacity-90 px-4 flex justify-between bg-white bg-opacity-10">
+      <div class="opacity-90 px-4 flex justify-between bg-white bg-opacity-10 min-w-max">
         <div>
           <input
             v-model="listCount" type="number"
             min="10" :max="gaTop.length"
-            class="bg-transparent border-0 underline w-16 text-right m-0 p-0"/> top winners 
+            class="bg-transparent border-0 underline w-16 text-right m-0 p-0"/> 
+          <span class="text-xs" v-text="'top winners'" />
         </div>
-        <div>
-          [{{ gaTop.length }}🌎]
-        </div>
+        <b v-text="`${ gaTop.length }🧑‍🤝‍🧑`" />
       </div>
       <button
         v-for="(u,ux) of gaTop.slice(0,listCount)"
