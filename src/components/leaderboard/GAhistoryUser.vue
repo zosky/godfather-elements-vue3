@@ -60,9 +60,6 @@ const userPerDay = computed(()=>{
         <Clams :clams="userTTL" class="font-bold" /> 
       </h6>
     </div>
-    <!-- <pre>
-      {{ userPerDay }}
-    </pre> -->
     <details v-for="(day,dx) of userPerDay" :key="day.day" :open="!dx">
       <summary class="flex flex-row justify-between w-full pl-2 pr-4 my-0.5 bg-purple-950 bg-opacity-50 border-b border-purple-600 border-opacity-25 rounded-r-xl">
         <div v-text="moment(day.day,'YYMMDD').format('MMM Do')" />
