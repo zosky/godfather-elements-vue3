@@ -3,6 +3,15 @@
 a vue3 reImagining of the streamElements storeFront.
 # changeLog
 
+- 23-08-25 - "cacheMaker backEnd"
+  - `scripts/logGiveAways.js`: listens to streamChat headless
+    - save-as JSON per hr @ `./public/gaHistory.json` like `cache[user][time] = clams`
+  - ui perDay
+    - user winnings per day
+    - my winning per gaType
+- 23-08-22 - beta/PoC giveAway dashboard
+  - `cachedData` recorded *@myLocal & pushed daily
+  - tmi.js (inApp) listens for more/fresh/current
 - 23-07-04 - alpha/PoC complete.
 
 # **made using**: a Vite, Vue3, Tailwind CSS (single-page app)
