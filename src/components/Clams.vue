@@ -5,7 +5,7 @@ const showAsMoney = computed(()=> dataStore?.konami)
 const money = computed(()=> (props.clams/100)*2 )
 const vals = computed(()=>{
   const n = props.clams
-  const v = n >= 1000 ? `${n/1000}k` : n
+  const v = n >= 1000 ? `${(n/1000).toFixed(1)}k` : n
   const m = (money.value/100).toFixed(money.value>=1000?0:2)
   const t = showAsMoney?.value ? m : v
   const d = '\n*but 🐚 have no real world value'
