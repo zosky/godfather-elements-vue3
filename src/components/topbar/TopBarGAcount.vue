@@ -1,5 +1,5 @@
 <script setup>
-import { GiftOutline, ViewListOutline } from 'mdue'
+import { GiftOutline, CodeJson, Twitch } from 'mdue'
 const dataStore = inject('$dataStore')
 const liveLog = inject('$liveLog')
 const cacheDataOn = ref(true)
@@ -17,8 +17,22 @@ const gaCount = computed(()=>{
 
 <template>
   <button title="giveAways: live & cached" class="flex flex-row items-center gap-1">
-    <ViewListOutline />
-    <GiftOutline />
-    {{ gaCount ?? 'noneYet' }}
+    <div class="text-xs leading-none">
+      <label>
+        <CodeJson /><Clams :clams="historyArr?.length" />
+      </label>
+      <label>
+        <Twitch /><Clams :clams="liveArr?.length" />
+      </label>
+    </div>
+    <label class="text-xl">
+      <GiftOutline /><Clams :clams="gaCount" />
+    </label>
   </button>
 </template>
+
+<style scoped>
+section { @apply p-1 flex flex-row gap-0 rounded-xl px-3 }
+label { @apply min-w-max flex flex-row-reverse items-center gap-0.5 px-1 }
+
+</style>

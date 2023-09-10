@@ -26,8 +26,13 @@ const urls = {
 </script>
 
 <template>
-  <header class="flex flex-row w-full px-3 bg-purple-950 bg-opacity-75 shadow-sm shadow-purple-500 h-10">
-    <GodFather id="logo" class="colorRotate w-32 -mt-3 -mb-6 -ml-3 -mr-5 hover:scale-125 hover:translate-x-3 hover:translate-y-6 origin-top-left transition-transform" role="button" @click="goTime(urls.twitch)" />
+  <header class="flex flex-row flex-wrap md:flex-nowrap w-full px-3 bg-purple-950 bg-opacity-75 shadow-sm shadow-purple-500">
+    <GodFather
+      id="logo" class="colorRotate 
+      w-10  mt-2
+      md:w-32 md:-mt-3 md:-mb-6 md:-ml-3 md:-mr-5 
+      hover:scale-125 hover:translate-x-3 hover:translate-y-6 origin-top-left transition-transform"
+      role="button" @click="goTime(urls.twitch)" />
     <img
       id="elementsLink" :src="urls.elementLogo"
       class="pr-2 h-8 self-center hover:scale-110 origin-center transition-transform" role="button"
@@ -65,6 +70,7 @@ const urls = {
         </div>
       </template>
       <div class="flex flex-row gap-2 items-center">
+        <TopBarEntries />
         <TopBarGAcount id="topNavGA" @click="$router.push('/giveaways')" />
         <MyUser id="user" />
         <h3 id="help" title="(re)start tour"><HelpCircleOutline @click="$tours['myTour'].start()" /></h3>

@@ -13,9 +13,6 @@
         </div>
       </div>
       <GAhistory class="w-full" />
-      <!-- <div class="flex flex-col items-center w-full md:w-auto md:items-start mt-5">
-        <GAstats />
-      </div> -->
     </div>
   </div>
 </template>

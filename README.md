@@ -2,7 +2,12 @@
 
 a vue3 reImagining of the streamElements storeFront.
 # changeLog
-
+- 23-09-10 - input & output
+  - extended for logging/showing entries (`!hitsquad`)
+    - new json file appended hourly - uploaded to the app daily
+    - app watches streamChat to collect more data realTime
+  - new clamsPerDay component
+  - new homePage layout (more responsive/mobile friendly)
 - 23-08-25 - "cacheMaker backEnd"
   - `scripts/logGiveAways.js`: listens to streamChat headless
     - save-as JSON per hr @ `./public/gaHistory.json` like `cache[user][time] = clams`

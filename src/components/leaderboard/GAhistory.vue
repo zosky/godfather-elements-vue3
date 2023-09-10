@@ -72,10 +72,10 @@ watchEffect(()=>{
 </script>
 
 <template>
-  <div class="grid grid-cols-2 px-4 w-full md:max-w-[50%]">
+  <div class="flex flex-row flex-wrap px-4 w-full self-center mx-auto">
     <div
       id="searchDataForUser"
-      class="flex flex-row col-span-2 mt-4 mb-2">
+      class="w-full flex flex-row flex-wrap sm:flex-nowrap col-span-2 mt-4 mb-2">
       <div class="flex flex-col">
         <label class="opacity-75" v-text="`from: ${ moment(times?.start,'X').format('YY-MM-DD HH:mm') }`" />
         <input
@@ -99,8 +99,8 @@ watchEffect(()=>{
       </div>
     </div>
     <div
-      id="table">
-      <div class="opacity-90 px-4 flex justify-between bg-white bg-opacity-10 min-w-max">
+      id="table" class="w-full md:w-1/3">
+      <div class="opacity-90 px-4 flex justify-between bg-white bg-opacity-10 w-full">
         <div>
           <input
             v-model="listCount" type="number"
@@ -113,7 +113,7 @@ watchEffect(()=>{
       <button
         v-for="(u,ux) of gaTop.slice(0,listCount)"
         :key="ux" 
-        class="flex flex-row justify-between gap-2 w-full px-2"
+        class="flex flex-row justify-between gap-2 w-full px-2 w-full"
         :class="{ 
           'animate-pulse': u.user == me,
           'bg-purple-900 text-purple-100': thisUser.user == u.user
@@ -131,6 +131,7 @@ watchEffect(()=>{
     </div>
     <GAhistoryUser 
       id="userHistory"
+      class="w-full md:w-1/3"
       :user="thisUser?.user ?? dataStore?.user?.username ?? gaTop?.[0]?.user" 
       :start="startTime" 
       :end="endTime"
