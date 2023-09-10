@@ -3,6 +3,8 @@ import moment from 'moment'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const liveLog: Record<string,any> = reactive({})
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const liveEntries: Record<string,any> = reactive({})
 const clientStatus = reactive({ connected:false })
 
 // Register our connect handlers
@@ -25,6 +27,13 @@ function onMessageHandler (target:any, context:any, msg:string) {
     } else { 
       console.log(winTime, 'err', msg)
     }
+  } else { 
+    if (msg.match(/^(!hitsquad)/i)?.[1]) {
+      const t = moment().format('X')
+      const u = context.username
+      if(!liveEntries?.[u]) liveEntries[u] = []
+      liveEntries[u].push(t)
+    }
   }
 }
 
@@ -34,4 +43,4 @@ client.on('message', onMessageHandler)
 client.on('connected', onConnectedHandler)
 client.connect()
 
-export { liveLog }
+export { liveLog, liveEntries }

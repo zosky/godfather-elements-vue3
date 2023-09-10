@@ -10,3 +10,6 @@ svg { @apply inline }
 .bills:after { content:'💸'; @apply opacity-75 }
 .number:after { content:'#'; @apply opacity-75 }
 .percent:after { content:'%'; @apply opacity-75 }
+
+.noScrollbar::-webkit-scrollbar { display: none; /*chrome*/ }
+.noScrollbar { -ms-overflow-style: none;  /* IE and Edge */ scrollbar-width: none;  /* Firefox */ }

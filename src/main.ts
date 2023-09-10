@@ -5,7 +5,7 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { createHead } from '@vueuse/head'
 import { getters, dataStorage, methods } from './components/DataStore'
-import { liveLog } from './components/twitchIRC'
+import { liveLog, liveEntries } from './components/twitchIRC'
 import Vue3Tour from 'vue3-tour'
 import KonamiCode from 'vue3-konami-code'
 
@@ -24,4 +24,5 @@ app.provide('$getters', getters) // pump in dataStore chunks
 app.provide('$dataStore', dataStorage)
 app.provide('$methods', methods)
 app.provide('$liveLog', liveLog)
+app.provide('$liveEntries', liveEntries)
 app.mount(document.body)
