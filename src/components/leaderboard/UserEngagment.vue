@@ -30,7 +30,11 @@ const myEntries = computed(()=> {
   myHits.smallHits = myHits.hitDistance.filter(t=>t<=bigHits)
   myHits.hitAvg = Math.round( (myHits.smallHits.reduce((a,c)=>a+=c,0) / myHits.smallHits.length)/60 )
   myHits.arr = myD
-    .map((a,ax)=>a={time:a,dist:myHits.hitDistance?.[ax-1]})
+    .map((time,ax)=>time={
+      time,
+      dist:myHits.hitDistance?.[ax-1],
+      date : moment(time,'X').format('YYMMDD'),
+    })
   return myHits
 })
 const maxHours= ref(24)
