@@ -57,13 +57,15 @@ const smallHitAvg = computed(()=>{
         <div
           v-if="h?.date != allD?.[hx-1]?.date" class="w-full border-t border-purple-900 pt-1 opacity-50"
           v-text="moment(h?.date,'YYMMDD').format('MMM Do')" />
-        <div v-if="h?.dist" :class="{'text-sm opacity-50 bg-white rounded-xl px-2 bg-opacity-30':h?.dist>bigHits}">
-          <span v-text="Math.round(h.dist/(h.dist>bigHits?60*60:60)) + (h.dist>bigHits ? 'h' :'')" />
+        <label 
+          v-if="h?.dist" 
+          :title="`!hitsquad @ ${moment(h.time,'X').format('HH:mm')}`" :class="{'text-sm opacity-50 bg-white rounded-xl px-2 bg-opacity-30':h?.dist>bigHits}">
+          <span v-text="(h.dist/(h.dist>bigHits?60*60:60)).toFixed(h.dist>bigHits?1:0) + (h.dist>bigHits ? 'h' :'')" />
           <span v-if="h.dist>bigHits" v-text="'💤'"/>
           <span v-else class="opacity-25" v-text="'🕳️'"/>
-        </div>
+        </label>
         <template v-else-if="h?.clams">
-          <span class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">{{ h?.clams }}🐚</span>
+          <label :title="`+${h.clams}🐚 @ ${moment(h.time,'X').format('HH:mm')}`" class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">{{ h?.clams }}🐚</label>
         </template>
         <span v-else class="opacity-50" >f/~{{ moment(h.time,'X').fromNow() }}</span>
       </template>
