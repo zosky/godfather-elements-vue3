@@ -1,8 +1,27 @@
 <script setup>
 import moment from 'moment'
-defineProps({
+const props = defineProps({
   p: { type: Object, default: ()=>{return {}}},
+  w: { type: Object, default: ()=>{return []}},
   bigHits: { type: Number, default: 60*60 } // 1hr in seconds
+})
+
+const allD = computed(()=>{
+  const newD = []
+  if (props?.p?.arr?.length) newD.push(...props.p.arr)
+  if (props?.w?.length) newD.push(...props.w)
+  return newD?.sort((a,b)=>a.time<b.time?-1:1)
+})
+const hits = computed(()=>{
+  const d = allD.value?.map(d=>d=d?.dist)?.filter(t=>t)
+  const big = d?.filter( t => t > props.bigHits )
+  const small = d?.filter( t => t <= props.bigHits )
+  return { big, small, d }
+})
+const smallHitAvg = computed(()=>{
+  const g = hits.value?.small ?? []
+  const hitAvg = Math.round( (g?.reduce((a,c)=>a+=c,0) / g?.length)/60 )
+  return hitAvg
 })
 </script>
 
@@ -20,22 +39,34 @@ defineProps({
       <div class="bg-purple-800 opacity-50 rounded-l-full pl-2 pr-1 text-purple-500 w-3/4 flex flex-row justify-between gap-1 items-center">
         <div class="min-w-max font-bold" v-text="`${p?.hits}🎟️`" />
         <div v-if="p?.lastHr.length" class="min-w-max" :class="p?.lastHr.length < 6 ? 'text-purple-500' : 'text-yellow-300'" v-text="`${p?.lastHr.length}${p?.lastHr.length>5?'🔥':'🕐'}`"/>
-        <div class="min-w-max" :class="p?.hitAvg < 10 ? 'text-yellow-300 text-sm font-bold': 'text-xs' " v-text="`~${p?.hitAvg}m${p?.hitAvg<10?'🔥':'➰'}`"/>
-        <div v-if="p?.bigHits.length" class="min-w-max text-xs " v-text="p?.bigHits.length ? `~${p?.bigHits.length}💤` : ''"/>
+        <div class="min-w-max" :class="smallHitAvg < 10 ? 'text-yellow-300 text-sm font-bold': 'text-xs' " v-text="`~${smallHitAvg}m${smallHitAvg<10?'🔥':'➰'}`"/>
+        <div v-if="hits?.big?.length" class="min-w-max text-xs " v-text="hits?.big?.length ? `~${hits?.big?.length}💤` : ''"/>
         <div v-else-if="!p?.lastHr?.length" class="min-w-max text-xs " v-text="'🐪'"/>
         <div v-else-if="p?.lastHr" class="min-w-max text-xs " v-text="'🤖?'"/>
       </div>
       <div class="pl-1 pr-2 text-xs rounded-r-full w-1/2 mr-0.5">
         <span v-text="p?.user"/>
       </div>
+      <div class="flex flex-row justify-evenly gap-1 w-1/3 px-2">
+        <span class="min-w-max">{{ w.length }}🎁 </span>
+        <Clams :clams="w.reduce((a,c)=>a+=c.clams,0)" class="clams min-w-max" />
+      </div>
     </summary>
     <div class="text-xs font-mono text-purple-200 break-words flex flex-row flex-wrap items-center justify-center py-1 px-2">
-      <div v-for="(h,hx) of p?.hitDistance" :key="hx" :class="{'text-sm opacity-50 bg-white rounded-xl px-2 bg-opacity-30':h>bigHits}">
-        {{ Math.round(h/(h>bigHits?60*60:60)) }}{{  h>bigHits ? 'h' :'' }}
-        <span v-if="h>bigHits" v-text="'💤'"/>
-        <span v-else class="opacity-25" v-text="'🕳️'"/>
-        <span v-if="hx +1 == p?.hitDistance?.length " v-text="' [last ' + moment().diff(moment(p.lastHr.at(-1),'X'),'m') + 'm ago]'"  />
-      </div>
+      <template v-for="(h,hx) of allD" :key="hx">
+        <div
+          v-if="h?.date != allD?.[hx-1]?.date" class="w-full border-t border-purple-900 pt-1 opacity-50"
+          v-text="moment(h?.date,'YYMMDD').format('MMM Do')" />
+        <div v-if="h?.dist" :class="{'text-sm opacity-50 bg-white rounded-xl px-2 bg-opacity-30':h?.dist>bigHits}">
+          <span v-text="Math.round(h.dist/(h.dist>bigHits?60*60:60)) + (h.dist>bigHits ? 'h' :'')" />
+          <span v-if="h.dist>bigHits" v-text="'💤'"/>
+          <span v-else class="opacity-25" v-text="'🕳️'"/>
+        </div>
+        <template v-else-if="h?.clams">
+          <span class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">{{ h?.clams }}🐚</span>
+        </template>
+        <span v-else class="opacity-50" >f/~{{ moment(h.time,'X').fromNow() }}</span>
+      </template>
     </div>
   </details>
 </template>

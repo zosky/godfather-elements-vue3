@@ -29,9 +29,31 @@ const myEntries = computed(()=> {
   myHits.bigHits = myHits.hitDistance.filter(t=>t>bigHits)
   myHits.smallHits = myHits.hitDistance.filter(t=>t<=bigHits)
   myHits.hitAvg = Math.round( (myHits.smallHits.reduce((a,c)=>a+=c,0) / myHits.smallHits.length)/60 )
+  myHits.arr = myD
+    .map((a,ax)=>a={time:a,dist:myHits.hitDistance?.[ax-1]})
   return myHits
 })
 const maxHours= ref(24)
+const liveLog = inject('$liveLog')
+const cacheDataOn = computed(()=> dataStore?.cacheDataOn ?? true )
+const liveDataOn = computed(()=> dataStore?.liveDataOn ?? true )
+const gaHistory = computed(()=> dataStore?.gaHistory ?? {} )
+const myWins = computed(()=>{
+  const u = me.value
+  const h = cacheDataOn.value ? gaHistory.value?.[u] : {}
+  const l = liveDataOn.value ? liveLog?.[u] : {}
+  const allD = { ...h, ...l }
+  return Object.entries(allD)
+    .map(w=>w={
+      time:w[0], clams:w[1],
+      date: moment(w[0],'X').format('YYMMDD'),
+      dateStr: moment(w[0],'X').format('HH:mm'),
+      hrsAgo: parseInt(moment().diff(moment(w[0],'X'),'hours'),10)
+    })
+    .filter( w => w.hrsAgo < maxHours.value )
+    .sort((a,b)=> a.time>b.time?-1:1 ) // desc
+})
+
 </script>
 
 <template>
@@ -46,7 +68,10 @@ const maxHours= ref(24)
       </label>
     </div>
     <div class="m-2">
-      <EngPlayer :p="myEntries" class="max-w-prose ml-2" open disabled />
+      <EngPlayer
+        :p="myEntries" :w="myWins"
+        class="max-w-prose ml-2" open
+        disabled />
     </div>
   </div>
 </template>
