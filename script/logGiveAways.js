@@ -47,4 +47,4 @@ setInterval( ()=>{
   const engUcount = Object.keys(engagement).length
   const engTTL = Object.values(engagement).flat().length
   console.log( moment().format('hh:mm'), '🧑‍🤝‍🧑:', bankUserCount, `[${engUcount}]`, '🐚:', bankTTL, '🎁:', bankGAcount, '🎟️', engTTL )
-}, /*per 1h*/ 60*60*1000 )
+}, /*per 1h*/ 10*60*1000 )
