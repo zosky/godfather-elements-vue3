@@ -5,7 +5,6 @@ const props = defineProps({
   w: { type: Object, default: ()=>{return []}},
   bigHits: { type: Number, default: 60*60 } // 1hr in seconds
 })
-
 const allD = computed(()=>{
   const newD = []
   if (props?.p?.arr?.length) newD.push(...props.p.arr)
@@ -65,7 +64,9 @@ const smallHitAvg = computed(()=>{
           <span v-else class="opacity-25" v-text="'🕳️'"/>
         </label>
         <template v-else-if="h?.clams">
-          <label :title="`+${h.clams}🐚 @ ${moment(h.time,'X').format('HH:mm')}`" class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">{{ h?.clams }}🐚</label>
+          <label :title="`+${h.clams}🐚 @ ${moment(h.time,'X').format('HH:mm')}`" class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">
+            <Clams :clams="h?.clams" class="clams" />
+          </label>
         </template>
         <span v-else class="opacity-50" >f/~{{ moment(h.time,'X').fromNow() }}</span>
       </template>

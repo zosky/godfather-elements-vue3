@@ -81,14 +81,12 @@ watchEffect(()=>{
         <input
           v-model="startTime"
           type="datetime-local"
-          :min="firstTime" :max="endTime ?? lastTime"
           class="m-0 p-0 border-0 bg-transparent" :placeholder="`first known win`" />
       </div>
       <div class="flex flex-col">
         <label class="opacity-75" v-text="`to: now`" />
         <input
           v-model="endTime" type="datetime-local"
-          :min="startTime ?? firstTime" :max="lastTime"
           class="m-0 p-0 border-0 bg-transparent" :placeholder="'last known win'" />
       </div>
       <div>

@@ -89,7 +89,7 @@ const gamers = computed(()=> {
 </script>
 
 <template>
-  <div class="grid grid-cols-4 gap-x-2 gap-y-1 p-2">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-x-2 gap-y-1 p-2">
     <div class="col-span-full flex flex-row justify-between items-end pt-4">
       <div class="flex flex-row gap-1">
         <div class="opacity-75">💾 since {{ moment().diff( moment(firstTime,'X'), 'hours') }}hrs</div>
