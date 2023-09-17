@@ -11,10 +11,12 @@
   "dependencies": {
     "@types/tmi.js": "^1.8.3",
     "@vueuse/head": "^0.7.9",
+    "apexcharts": "^3.42.0",
     "moment": "^2.29.4",
     "tmi.js": "^1.8.5",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5",
+    "vue3-apexcharts": "^1.4.4",
     "vue3-konami-code": "^1.0.0",
     "vue3-tour": "^0.3.4"
   },
