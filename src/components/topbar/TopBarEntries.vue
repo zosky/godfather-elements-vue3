@@ -8,10 +8,10 @@ const objToArr = arr => Object.values(arr).flat()
 const historyArr = computed(()=> objToArr(dataStore?.gaEntries??{}))
 const liveArr = computed(()=> objToArr(liveEntries))
 const gaCount = computed(()=>{
-  const h = []
-  if (cacheDataOn.value) h.push(...historyArr.value)
-  if (liveDataOn.value) h.push(...liveArr.value)
-  return h.length
+  let h = 0
+  if (cacheDataOn.value) h += historyArr.value.length
+  if (liveDataOn.value) h += liveArr.value.length
+  return h
 })
 
 </script>
