@@ -1,4 +1,5 @@
 <script setup>
+import { SwordCross, Upload, Download, CommentQuestion } from 'mdue'
 import moment from 'moment'
 const props = defineProps({
   p: { type: Object, default: ()=>{return {}}},
@@ -22,6 +23,10 @@ const smallHitAvg = computed(()=>{
   const hitAvg = Math.round( (g?.reduce((a,c)=>a+=c,0) / g?.length)/60 )
   return hitAvg
 })
+const clamMap = { showdownWin: 300, showdownLose: 150, trivia: 250 }
+const gameIcons = { showdownWin: Upload, showdownLose: Download, trivia: CommentQuestion }
+const myParticipation = computed(()=>Object.entries(clamMap)
+  .reduce((a,c)=>{ a[c[0]] = props.w?.filter(ww=>ww.clams==c[1]).length; return a },{}))
 </script>
 
 <template>
@@ -47,8 +52,27 @@ const smallHitAvg = computed(()=>{
         <span v-text="p?.user"/>
       </div>
       <div class="flex flex-row justify-evenly gap-1 w-1/3 px-2">
-        <span class="min-w-max">{{ w.length }}🎁 </span>
-        <Clams :clams="w.reduce((a,c)=>a+=c.clams,0)" class="clams min-w-max" />
+        <div class="flex flex-row items-center min-w-min gap-2">
+          <h6
+            v-if="myParticipation?.trivia" 
+            :title="`triviaWins:${myParticipation?.trivia} x ${clamMap.trivia} = ${myParticipation?.trivia * clamMap.trivia}`" 
+            class="flex flex-row items-center min-w-min">
+            <span v-text="myParticipation?.trivia" />
+            <component :is="gameIcons.trivia" />
+          </h6>
+          <h6
+            v-if="myParticipation?.showdownLose || myParticipation?.showdownWin" class="flex flex-row items-center"
+            :title="`wins: ${myParticipation?.showdownWin} / loses: ${myParticipation?.showdownLose}` " >
+            <div v-text="myParticipation?.showdownLose + myParticipation?.showdownWin" />
+            <SwordCross />
+            <SvgPie
+              :n="myParticipation?.showdownWin" :d="myParticipation?.showdownLose + myParticipation?.showdownWin"
+              :color="myParticipation?.showdownWin > myParticipation?.showdownLose ? '#BF40BF' : 'purple' "  
+              :bg-color="myParticipation?.showdownWin >= myParticipation?.showdownLose ? 'purple' : 'red'" />
+          </h6>
+          <span v-if="w.length" class="min-w-max">{{ w.length }}🎁 </span>
+          <Clams v-if="w.length" :clams="w.reduce((a,c)=>a+=c.clams,0)" class="clams min-w-max" />
+        </div>
       </div>
     </summary>
     <div class="text-xs font-mono text-purple-200 break-words flex flex-row flex-wrap items-center justify-center py-1 px-2">
