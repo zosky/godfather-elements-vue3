@@ -24,7 +24,6 @@ const smallHitAvg = computed(()=>{
   return hitAvg
 })
 const clamMap = { showdownWin: 300, showdownLose: 150, trivia: 250 }
-const gameIcons = { showdownWin: Upload, showdownLose: Download, trivia: CommentQuestion }
 const myParticipation = computed(()=>Object.entries(clamMap)
   .reduce((a,c)=>{ a[c[0]] = props.w?.filter(ww=>ww.clams==c[1]).length; return a },{}))
 </script>
@@ -58,7 +57,7 @@ const myParticipation = computed(()=>Object.entries(clamMap)
             :title="`triviaWins:${myParticipation?.trivia} x ${clamMap.trivia} = ${myParticipation?.trivia * clamMap.trivia}`" 
             class="flex flex-row items-center min-w-min">
             <span v-text="myParticipation?.trivia" />
-            <component :is="gameIcons.trivia" />
+            <CommentQuestion />
           </h6>
           <h6
             v-if="myParticipation?.showdownLose || myParticipation?.showdownWin" class="flex flex-row items-center"
