@@ -1,5 +1,5 @@
 <script setup>
-import { SwordCross, Upload, Download, CommentQuestion } from 'mdue'
+import { SwordCross, CommentQuestion } from 'mdue'
 import moment from 'moment'
 const props = defineProps({
   p: { type: Object, default: ()=>{return {}}},
