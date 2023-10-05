@@ -21,7 +21,8 @@ function onMessageHandler (target:any, context:any, msg:string) {
     const winner = clamsAwarded?.[1]
     const amount = parseInt(clamsAwarded?.[2]??'0',10)
     const winTime = moment().format('X')
-    if(winner && amount) { 
+    const isTrivia = msg.includes('Trivia ')
+    if(winner && amount && !isTrivia) { 
       if (!liveLog?.[winner]) liveLog[winner] = {}
       liveLog[winner][winTime] = amount
     } else { 
