@@ -40,7 +40,7 @@ const myParticipation = computed(()=>Object.entries(clamMap)
         'opacity-50': !p?.lastHr?.length
       }">
       <div class="bg-purple-800 opacity-50 rounded-l-full pl-2 pr-1 text-purple-500 w-3/4 flex flex-row justify-between gap-1 items-center">
-        <div class="min-w-max font-bold" v-text="`${p?.hits}🎟️`" />
+        <div class="min-w-max font-bold" v-text="`${allD?.length}🎟️`" />
         <div v-if="p?.lastHr.length" class="min-w-max" :class="p?.lastHr.length < 6 ? 'text-purple-500' : 'text-yellow-300'" v-text="`${p?.lastHr.length}${p?.lastHr.length>5?'🔥':'🕐'}`"/>
         <div class="min-w-max" :class="smallHitAvg < 10 ? 'text-yellow-300 text-sm font-bold': 'text-xs' " v-text="`~${smallHitAvg}m${smallHitAvg<10?'🔥':'➰'}`"/>
         <div v-if="hits?.big?.length" class="min-w-max text-xs " v-text="hits?.big?.length ? `~${hits?.big?.length}💤` : ''"/>
