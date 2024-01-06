@@ -1,12 +1,14 @@
 {
   "name": "godfather-rewards-vue3",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "cacheLOG": "node ./scripts/logGiveAways.js",
-    "cacheUP": "git add ./public/*.json ; git commit -m \"gaCache+=$(date +%b%d)\" ; git push"
+    "cacheSplit": "node ./script/logSplitByMonth.js",
+    "cacheUP": "npm run cacheSplit ; npm run gitJSON",
+    "gitJSON": "git add ./public/*.json ; git commit -m \"gaCache+=$(date +%b%d)\" ; git push"
   },
   "dependencies": {
     "@types/tmi.js": "^1.8.3",
