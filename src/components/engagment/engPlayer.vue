@@ -23,7 +23,7 @@ const smallHitAvg = computed(()=>{
   const hitAvg = Math.round( (g?.reduce((a,c)=>a+=c,0) / g?.length)/60 )
   return hitAvg
 })
-const clamMap = { showdownWin: 300, showdownLose: 150, trivia: 250 }
+const clamMap = { showdownWin: 500, showdownLose: 250, trivia: 250 }
 const myParticipation = computed(()=>Object.entries(clamMap)
   .reduce((a,c)=>{ a[c[0]] = props.w?.filter(ww=>ww.clams==c[1]).length; return a },{}))
 </script>
@@ -52,13 +52,6 @@ const myParticipation = computed(()=>Object.entries(clamMap)
       </div>
       <div class="flex flex-row justify-evenly gap-1 w-1/3 px-2">
         <div class="flex flex-row items-center min-w-min gap-2">
-          <h6
-            v-if="myParticipation?.trivia" 
-            :title="`triviaWins:${myParticipation?.trivia} x ${clamMap.trivia} = ${myParticipation?.trivia * clamMap.trivia}`" 
-            class="flex flex-row items-center min-w-min">
-            <span v-text="myParticipation?.trivia" />
-            <CommentQuestion />
-          </h6>
           <h6
             v-if="myParticipation?.showdownLose || myParticipation?.showdownWin" class="flex flex-row items-center"
             :title="`wins: ${myParticipation?.showdownWin} / loses: ${myParticipation?.showdownLose}` " >

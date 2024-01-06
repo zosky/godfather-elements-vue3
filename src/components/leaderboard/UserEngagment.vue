@@ -1,20 +1,10 @@
 <script setup>
 import moment from 'moment'
-
-const prodShim = import.meta.env.PROD ? '/godfather-elements-vue3' : ''
 const bigHits = 60*60 // 1hr in seconds
 const dataStore = inject('$dataStore')
 const me = computed(()=> dataStore?.user?.username )
 const entries = computed(()=>dataStore?.gaEntries )
 const liveEntries = inject('$liveEntries')
-
-const getCache = ()=>{
-  if(!dataStore?.gaEntries)
-    fetch(`${prodShim}/gaEntries.json`)
-      .then(r=> r.json() )
-      .then(r=> dataStore.gaEntries = r )
-}
-getCache()
 
 const myEntries = computed(()=> { 
   let myD = Object.values(entries.value?.[me.value] ?? {})

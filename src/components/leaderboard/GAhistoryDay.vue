@@ -3,6 +3,7 @@ import moment from 'moment'
 const liveLog = inject('$liveLog')
 const dataStore = inject('$dataStore')
 const showTTLs = ref(false)
+const showAll = ref(true)
 const showMe = ref(dataStore?.user?.username?true:false)
 const me = computed(()=> dataStore?.user?.username )
 const gaHistory = computed(()=>dataStore?.gaHistory??{})
@@ -89,6 +90,10 @@ const myWins = computed(()=> Object.entries( gaData.value.find(g=>g[0]==me?.valu
         <input v-model="showMe" type="checkbox" name="myWins" class="hidden">
       </label>
       <label>
+        {{ showAll ? 'hide':'do' }}all
+        <input v-model="showAll" type="checkbox" name="showAll" class="hidden">
+      </label>
+      <label>
         {{ showTTLs ? 'hide':'do' }}TheMaths
         <input v-model="showTTLs" type="checkbox" name="showTTLs" class="hidden">
       </label>
@@ -115,7 +120,7 @@ const myWins = computed(()=> Object.entries( gaData.value.find(g=>g[0]==me?.valu
               class="flex flex-row w-full items-center gap-1 font-mono text-purple-400"
               :class=" showTTLs ?'justify-between' : 'justify-end '">
               <div v-if="showMe" class="text-xs min-w-max mine" v-text="Object.values(myWins).map(e=>e?.[v]).reduce((a,c)=>a+=c??0,0) || ''" />
-              <div class="text-xs x min-w-max" v-text="Object.values(perDay).map(e=>e?.[v]).reduce((a,c)=>a+=c??0,0)" />
+              <div v-if="showAll" class="text-xs x min-w-max" v-text="Object.values(perDay).map(e=>e?.[v]).reduce((a,c)=>a+=c??0,0)" />
               <Clams v-if="showTTLs" :clams="v * Object.values(perDay).map(e=>e?.[v]).reduce((a,c)=>a+=c??0,0)" class="pl-2 min-w-max" :class="currency" />
             </div>
           </div>
@@ -131,7 +136,7 @@ const myWins = computed(()=> Object.entries( gaData.value.find(g=>g[0]==me?.valu
           <div
             class="flex flex-row justify-between w-full items-center px-2 pr-2 pl-4 font-mono gap-1">
             <div v-if="showMe" class="mine text-xs x" v-text="Object.values(myWins?.[day]??{}).reduce((a,c)=>a+=c,0)" />
-            <div class="text-xs x" v-text="Object.values(gas).reduce((a,c)=> a += c, 0 )" />
+            <div v-if="showAll" class="text-xs x" v-text="Object.values(gas).reduce((a,c)=> a += c, 0 )" />
             <Clams v-if="showMe && myWins?.[day]" :clams="Object.entries(myWins?.[day])?.map(e=>parseInt(e[0],10)*e[1])?.reduce((a,c)=>a+=c,0)" class="mine" :class="currency" />
             <Clams v-else-if="!showMe" :clams="Object.entries(gas)?.reduce((a,c)=> a += parseInt(c[0],10) * c[1] ,0)" :class="currency" class="min-w-max font-bold" />
           </div>
@@ -147,7 +152,7 @@ const myWins = computed(()=> Object.entries( gaData.value.find(g=>g[0]==me?.valu
             :class=" showTTLs || showMe ?'justify-between' : 'justify-end '"
             class="flex flex-row items-center w-full  gap-1 font-mono">
             <div v-if="showMe" class="text-xs min-w-max text-purple-300" v-text="myWins?.[day]?.[v] ?? ''" />
-            <div v-if="gas?.[v]" class="text-xs x min-w-max" v-text="gas?.[v]" />
+            <div v-if="gas?.[v] && showAll" class="text-xs x min-w-max" v-text="gas?.[v]" />
             <Clams
               v-if="showTTLs && gas?.[v]"  :clams="gas?.[v] * v"
               class="font-bold min-w-max" :class="currency" />

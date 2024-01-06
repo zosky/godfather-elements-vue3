@@ -10,6 +10,8 @@ declare module '@vue/runtime-core' {
     AppTour: typeof import('./components/AppTour.vue')['default']
     Clams: typeof import('./components/Clams.vue')['default']
     ClamsHaveNoValue: typeof import('./components/ClamsHaveNoValue.vue')['default']
+    CurrentGa: typeof import('./components/engagment/CurrentGa.vue')['default']
+    DataLoader: typeof import('./components/DataLoader.vue')['default']
     EngPlayer: typeof import('./components/engagment/engPlayer.vue')['default']
     EyeOff: typeof import('mdue')['EyeOff']
     GAhistory: typeof import('./components/leaderboard/GAhistory.vue')['default']

@@ -3,14 +3,26 @@ import moment from 'moment'
 const route = useRoute()
 const router = useRouter()
 const dataStore = inject('$dataStore')
+const { cache } = inject('$getters')
 const liveLog = inject('$liveLog')
-const prodShim = import.meta.env.PROD ? '/godfather-elements-vue3' : ''
-const getCache = ()=>{
-  fetch(`${prodShim}/gaHistory.json`)
-    .then(r=> r.json() )
-    .then(r=> dataStore.gaHistory = r )
-}
-setInterval(getCache, 24*60*60*1000 /*1d*/ ) // reGet cache every 24
+const loopLength = ( import.meta.env.PROD ? 24 : 0.2 ) *60*60*1000 /* DEV|10m PROD:1d */
+const getCache = ()=> cache('gaHistory-202401')
+  // trim liveLog
+  .then(r=>{
+    const lastLogEntry = Object.values(r).reduce((a,c)=>{
+      const ks = Object.keys(c).map(cc=>parseInt(cc,10))
+      for (const k of ks) if (k > a) a = k
+      return a
+    },1)
+    // trim live log
+    for ( const u of Object.entries(liveLog) ){
+      for (const t of Object.keys(u[1])){
+        const n = parseInt(t,10)
+        if ( n < lastLogEntry) delete liveLog[u[0]][t]
+      }
+    }
+  })
+setInterval(getCache, loopLength ) 
 getCache() // init cache
 
 const cacheDataOn = computed(()=> dataStore?.cacheDataOn ?? true )

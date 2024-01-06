@@ -70,6 +70,7 @@ const urls = {
         </div>
       </template>
       <div class="flex flex-row gap-2 items-center">
+        <DataLoader />
         <button class="min-w-max px-1" @click="$router.push('/recentWinners')" v-text="`% pie`" />
         <TopBarEntries />
         <TopBarGAcount id="topNavGA" @click="$router.push('/giveaways')" />

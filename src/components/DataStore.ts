@@ -1,6 +1,7 @@
 const elementsAPI = 'https://api.streamelements.com/kappa/v2/store/61e8d63d3d12f65a5584b351/items?source=website'
 const elementsUser = (u:string) => `https://api.streamelements.com/kappa/v2/points/61e8d63d3d12f65a5584b351/${u}`
 const JSONheader = { headers: { accept: 'application/json, text/plain, */*'}}
+const prodShim = import.meta.env.PROD ? '/godfather-elements-vue3' : ''
 
 const getters = { 
   savedData: (k:string) => { // init browserData
@@ -33,6 +34,11 @@ const getters = {
         .then( r => r.json() )
         .then( r => { dataStorage.leaderboard = r })
     }
+  },
+  cache: async (c:string) => {
+    return dataStorage?.[c] ?? fetch(`${prodShim}/${c}.json`)
+      .then(r=> r.json() )
+      .then(r=> { dataStorage[c] = r ; return r })
   }
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -2,19 +2,9 @@
 import { SwordCross, CommentQuestion } from 'mdue'
 import moment from 'moment'
 const dataStore = inject('$dataStore')
-const entries = computed(()=>dataStore?.gaEntries)
-const prodShim = import.meta.env.PROD ? '/godfather-elements-vue3' : ''
-const getCache = ()=>{
-  fetch(`${prodShim}/gaEntries.json`)
-    .then(r=> r.json() )
-    .then(r=> dataStore.gaEntries = r )
-  fetch(`${prodShim}/gaHistory.json`)
-    .then(r=> r.json() )
-    .then(r=> dataStore.gaHistory = r )
-}
-getCache()
 
-const buttonFilters = { entries: '🎟️',wins: '🎁', clams: '🐚' }
+const buttonFilters = { entries: '🎟️',ga: '🎁', games:'🕹️', clams: '🐚' }
+const clams = { ga: [100,200,400,1000,2000,2500,5000], games:[150,250,300] }
 const listSort = ref('entries')
 const findUser = ref(null)
 const maxHours= ref(48)
@@ -31,8 +21,10 @@ const findWins = u => {
   return Object.entries(allD)
     .map(w=>w={
       time:w[0], clams:w[1],
-      showdown: [300,150].includes(w[1]),
-      trivia: w[1]==250,
+      giveaway: clams.ga.includes(w[1]),
+      games: clams.games.includes(w[1]),
+      showdown: clams.games.includes(w[1]),
+      // trivia: w[1]==250,
       date: moment(w[0],'X').format('YYMMDD'),
       dateStr: moment(w[0],'X').format('HH:mm'),
       hrsAgo: parseInt(moment().diff(moment(w[0],'X'),'hours'),10)
@@ -42,9 +34,9 @@ const findWins = u => {
 }
 
 const bigHits = 60*60 // 1hr in seconds
-const firstTime = computed(()=> Object.values(entries?.value).flat().map(r=>parseInt(r,10)).reduce((a,c)=>a<c?a:c,999999999999999) )
+const firstTime = computed(()=> Object.values(dataStore?.gaEntries).flat().map(r=>parseInt(r,10)).reduce((a,c)=>a<c?a:c,999999999999999) )
 const gamers = computed(()=> { 
-  const pLen = Object.entries(entries.value)
+  const pLen = Object.entries(dataStore?.gaEntries)
     // form objects
     .filter(p=> !findUser.value ? true : 
       p[0]?.toLocaleLowerCase().includes(findUser.value?.toLocaleLowerCase()) )
@@ -62,6 +54,7 @@ const gamers = computed(()=> {
       clams: p.wins?.reduce((a,c)=>a+=c.clams,0),
       trivia: p.wins?.filter(w=>w?.trivia)?.length ?? 0,
       showdown: p.wins?.filter(w=>w?.showdown)?.length ?? 0,
+      giveaway: p.wins?.filter(w=>w?.giveaway)?.length ?? 0,
       arr: p.hitTimes
         // .filter(a => maxHours.value > parseInt(moment().diff( moment(a,'X') ),10)) 
         .map((a,ax)=>a={
@@ -98,7 +91,9 @@ const gamers = computed(()=> {
               (a?.showdown > b ?.showdown?-1:1)
               : listSort?.value == 'trivia' ? 
                 (a?.trivia > b ?.trivia?-1:1)
-                : true
+                : listSort?.value == 'ga' ? 
+                  (a?.giveaway > b ?.giveaway ?-1:1)
+                  : true
     )
 
   return pLen
@@ -124,7 +119,7 @@ const gamers = computed(()=> {
             :class="listSort == txt ? 'this' : 'that'" @click="listSort=txt"
             v-text="ico" />
           <button
-            v-for="x of ['showdown','trivia']" :key="x" 
+            v-for="x of ['showdown',/*'trivia'*/]" :key="x" 
             :class="listSort == x ? 'this' : 'that'" class="text-lg"
             @click="listSort=x" >
             <SwordCross v-if="x=='showdown'" />
