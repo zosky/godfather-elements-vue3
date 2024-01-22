@@ -37,7 +37,7 @@ const urls = {
       id="elementsLink" :src="urls.elementLogo"
       class="pr-2 h-8 self-center hover:scale-110 origin-center transition-transform" role="button"
       @click="goTime(urls.elements)"/>
-    <div class="flex flex-row justify-between w-full items-center">
+    <div class="flex flex-row justify-between w-full items-center gap-3">
       <button
         v-if="$route.path!='/store'" id="gameList"
         title="gamesList" class="flex flex-row items-center"
@@ -72,6 +72,7 @@ const urls = {
       <div class="flex flex-row gap-2 items-center">
         <DataLoader />
         <button class="min-w-max px-1" @click="$router.push('/recentWinners')" v-text="`% pie`" />
+        <TopBarRedeems @click="$router.push('/redeems')"/>
         <TopBarEntries />
         <TopBarGAcount id="topNavGA" @click="$router.push('/giveaways')" />
         <MyUser id="user" />

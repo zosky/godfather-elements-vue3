@@ -1,7 +1,7 @@
 <script setup>
 import { ContentCopy } from 'mdue'
 const dataStore = inject('$dataStore')
-defineProps({game:{type:Object,default:()=>{return {}}}})
+defineProps({game:{type:Object,default:()=>{return {}}},controls:{type:Boolean,default:true}})
 const p = computed(()=> dataStore?.user?.points )
 const ignore = id => {
   const iList = dataStore?.ignoredGames ?? []
@@ -30,9 +30,9 @@ const goSteam = n => `https://store.steampowered.com/search/?term=${encodeURICom
       !p || p >= game.cost ? 'can shadow-pink-400' : ' shadow-red-500 ring-1 ring-yellow-400 ',
       { 'opacity-25 hover:opacity-100':!game.enabled || !game?.quantity?.current }
     ]">
-    <img :src="game?.alert?.graphics?.src" :alt="game?.name" class="aspect-2 rounded-xl" >
+    <img :src="game?.alert?.graphics?.src" :alt="game?.name" class="aspect-2 rounded-xl max-w-fit w-full" >
     <div class="flex flex-col absolute bottom-0 rounded-b-xl bg-opacity-80 w-full">
-      <div class="text-lg items-end flex flex-row justify-end px-2 w-full">
+      <div v-if="controls" class="text-lg items-end flex flex-row justify-end px-2 w-full">
         <EyeOff class="btn" role="button" @click="ignore(game._id)"/>
         <HeartOutline class="btn" role="button" @click="have(game._id)"/>
       </div>

@@ -5,3 +5,6 @@ dist-ssr
 *.local
 debug.log
 .idea
+public/gaEntries.json
+public/gaHistory.json
+public/redeems.json

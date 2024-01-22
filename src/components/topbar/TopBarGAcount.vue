@@ -32,7 +32,7 @@ const gaCount = computed(()=>{
 </template>
 
 <style scoped>
-section { @apply p-1 flex flex-row gap-0 rounded-xl px-3 }
+section { @apply flex flex-row gap-0 rounded-xl px-3 }
 label { @apply min-w-max flex flex-row-reverse items-center gap-0.5 px-1 }
 
 </style>

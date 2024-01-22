@@ -1,10 +1,13 @@
 import tmi from 'tmi.js'
 import moment from 'moment'
+import { getters } from './DataStore'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const liveLog: Record<string,any> = reactive({})
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const liveEntries: Record<string,any> = reactive({})
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const liveRedeem: Record<string,any> = reactive({})
 const clientStatus = reactive({ connected:false })
 
 // Register our connect handlers
@@ -28,6 +31,18 @@ function onMessageHandler (target:any, context:any, msg:string) {
     } else { 
       console.log(winTime, 'err', msg)
     }
+  } else if (context.username == 'streamelements'){
+    const isRedeem = msg?.match(/(\w+) just redeemed (.*) PogChamp/)
+    const winner = isRedeem?.[1]
+    const game = isRedeem?.[2]
+    const time = moment().format('X')
+    if(winner && game) { 
+      if (!liveRedeem?.[winner]) liveRedeem[winner] = {}
+      liveRedeem[winner][time] = game
+      getters.elements.ls()
+    } else { 
+      console.log(time, 'err?!', msg)
+    }
   } else { 
     if (msg.match(/^(!hitsquad)/i)?.[1]) {
       const t = moment().format('X')
@@ -44,4 +59,4 @@ client.on('message', onMessageHandler)
 client.on('connected', onConnectedHandler)
 client.connect()
 
-export { liveLog, liveEntries }
+export { liveLog, liveEntries, liveRedeem }
