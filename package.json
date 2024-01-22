@@ -8,7 +8,9 @@
     "cacheLOG": "node ./scripts/logGiveAways.js",
     "cacheSplit": "node ./script/logSplitByMonth.js",
     "cacheUP": "npm run cacheSplit ; npm run gitJSON",
-    "gitJSON": "git add ./public/*.json ; git commit -m \"gaCache+=$(date +%b%d)\" ; git push"
+    "gitJSON": "git add ./public/*.json ; git commit -m \"gaCache+=$(date +%b%d.%H)\" ; git push",
+    "daily": "while true ; do npm run cacheUP ; sleep 1h ; done",
+    "gitKeyRoll": "ssh-keygen -R github.com; curl -L https://api.github.com/meta | jq -r '.ssh_keys | .[]' | sed -e 's/^/github.com /' >> ~/.ssh/known_hosts"
   },
   "dependencies": {
     "@types/tmi.js": "^1.8.3",
