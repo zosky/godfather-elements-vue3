@@ -52,6 +52,6 @@ setInterval( ()=>{
   const bankGAcount = Object.values(bank).map(u=>u=Object.keys(u)).flat().length
   const engUcount = Object.keys(engagement).length
   const engTTL = Object.values(engagement).flat().length
-  const redeemedCount = Object.values(redeems).flat().length
+  const redeemedCount = Object.values(redeems).map(u=>Object.keys(u)).flat().length
   console.log( moment().format('hh:mm'), '🧑‍🤝‍🧑', bankUserCount, `[${engUcount}]`, '🐚', bankTTL, '🎁', bankGAcount, '🎟️', engTTL, '👾', redeemedCount )
 }, /*per 1h*/ 10*60*1000 )
