@@ -64,6 +64,12 @@ const myParticipation = computed(()=>Object.entries(clamMap)
           </h6>
           <span v-if="w.length" class="min-w-max">{{ w.length }}🎁 </span>
           <Clams v-if="w.length" :clams="w.reduce((a,c)=>a+=c.clams,0)" class="clams min-w-max" />
+          <h6
+            v-if="Object.keys(p?.games??{}).length"
+            class="min-w-max" 
+            :title="Object.entries(p?.games).map(n => `📅 ${moment(n[0],'X').format('MMM DD HH:mm')} 👾 ${n[1]}`).join('\n')">
+            {{ Object.keys(p?.games)?.length }}👾
+          </h6>
         </div>
       </div>
     </summary>

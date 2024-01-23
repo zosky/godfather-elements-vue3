@@ -14,6 +14,14 @@ const liveDataOn = computed(()=> dataStore?.liveDataOn ?? true )
 const gaHistory = computed(()=> dataStore?.gaHistory ?? {} )
 const liveLog = inject('$liveLog')
 
+const redeemsHistory = computed(()=> dataStore?.redeems ?? {} )
+const redeemsLive = inject('$liveRedeem')
+const findRedeems = u => {
+  const h = redeemsHistory?.value?.[u] ?? {}
+  const l = redeemsLive?.[u] ?? {}
+  return { ...h, ...l }
+}
+
 const findWins = u => {
   const h = cacheDataOn.value ? gaHistory.value?.[u] : {}
   const l = liveDataOn.value ? liveLog?.[u] : {}
@@ -48,6 +56,7 @@ const gamers = computed(()=> {
         ?.filter(t=>t),
       lastHr: p[1].filter(t => parseInt(t,10) > parseInt(moment().subtract(1,'hour').format('X'),10)),
       wins: findWins(p[0]),
+      games: findRedeems(p[0]),
       hitTimes: p[1],
     })
     ?.map(p=>p={...p,

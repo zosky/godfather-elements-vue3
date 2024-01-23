@@ -18,7 +18,7 @@ const redeems = computed(()=> {
   const finalD = Object.entries(reducedD).map((g)=>g={name:g[0],data:g[1], count: Object.keys(g[1]).length})
   return finalD.sort((a,b)=>a.count<b.count?1:-1)
 })
-
+const totalCount = computed(()=>redeems.value?.reduce((a,c)=>a+=c?.count??0,0))
 const gameNameHashMap = computed(()=>
   dataStore?.games?.reduce((a,c)=>{
     a[c.name] = c
@@ -30,6 +30,10 @@ const gameNameHashMap = computed(()=>
 
 <template>
   <section>
+    <label class="col-span-full flex w-full justify-end" :title="`${redeems.length} people now have ${totalCount} games\nthanks to TGF`">
+      <b class="people" v-text="redeems.length" />
+      <b class="games" v-text="totalCount" />
+    </label>
     <details v-for="game of redeems" :key="game?.name">
       <summary>
         <GameCard v-if="gameNameHashMap?.[game?.name]" :game="gameNameHashMap?.[game?.name]" class="gameCard" :controls="false" />
@@ -54,4 +58,6 @@ const gameNameHashMap = computed(()=>
   .count.me::after{ content: '🙋'}
   ul { @apply p-1 flex flex-col-reverse }
   b { @apply px-1 }
+  .people::after{content:'🧑‍🤝‍🧑'}
+  .games::after{content:'👾'}
 </style>

@@ -6,6 +6,14 @@ const me = computed(()=> dataStore?.user?.username )
 const entries = computed(()=>dataStore?.gaEntries )
 const liveEntries = inject('$liveEntries')
 
+const redeemsHistory = computed(()=> dataStore?.redeems ?? {} )
+const redeemsLive = inject('$liveRedeem')
+const findRedeems = u => {
+  const h = redeemsHistory?.value?.[u] ?? {}
+  const l = redeemsLive?.[u] ?? {}
+  return { ...h, ...l }
+}
+
 const myEntries = computed(()=> { 
   let myD = Object.values(entries.value?.[me.value] ?? {})
   if(liveEntries?.[me.value]) myD.push( ... liveEntries[me.value] )
@@ -25,6 +33,7 @@ const myEntries = computed(()=> {
       dist:myHits.hitDistance?.[ax-1],
       date : moment(time,'X').format('YYMMDD'),
     })
+  myHits.games = findRedeems(me.value)
   return myHits
 })
 const maxHours= ref(24)
