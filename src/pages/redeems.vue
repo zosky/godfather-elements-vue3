@@ -42,7 +42,7 @@ const gameNameHashMap = computed(()=>
       </summary>
       <ul>
         <li v-for="(user, date) of game?.data" :key="date">
-          <span class="font-light" v-text="moment(date,'X').format('MMM DD HH:MM')" />
+          <span class="font-light" v-text="moment(date,'X').format('MMM DD HH:mm')" />
           <b v-text="user" />
         </li>
       </ul>
