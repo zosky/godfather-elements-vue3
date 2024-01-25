@@ -29,7 +29,10 @@
     "1706079490": "Monster Crown",
     "1706079523": "Guilty Gear X2 Reload",
     "1706079574": "Soulblight",
-    "1706079618": "Necroworm"
+    "1706079618": "Necroworm",
+    "1706205091": "Hot Brass",
+    "1706205218": "Starsand",
+    "1706205296": "Conan Chop Chop"
   },
   "brasildropkeys": {
     "1705583573": "Stikir"
@@ -371,7 +374,8 @@
     "1706010040": "Oddworld Abes Oddysee"
   },
   "cep_h4rd": {
-    "1706010052": "Steam Key - Random Stuff Ive Given Away"
+    "1706010052": "Steam Key - Random Stuff Ive Given Away",
+    "1706204878": "Steam Key - Random Stuff Ive Given Away"
   },
   "si_siska": {
     "1706010068": "Doughlings Invasion"
@@ -441,7 +445,8 @@
     "1706120546": "Steam Key - Random Stuff Ive Given Away"
   },
   "djnosferatu": {
-    "1706019716": "Pilgrims"
+    "1706019716": "Pilgrims",
+    "1706207286": "Quadrata"
   },
   "velessage": {
     "1706019731": "Mortal Kombat XL",
@@ -1048,7 +1053,10 @@
     "1706202595": "Book of Demons",
     "1706203003": "Rogue Lords",
     "1706203383": "Life and Suffering of Sir Brante",
-    "1706203499": "The Anacrusis"
+    "1706203499": "The Anacrusis",
+    "1706205576": "Haiku The Robot",
+    "1706206753": "Hell Pie",
+    "1706208231": "Batman Arkham Asylum GOTY"
   },
   "m4auricio2": {
     "1706196873": "Kraken Academy"
@@ -1077,5 +1085,11 @@
   },
   "loberillo21": {
     "1706202910": "Steam Key - Random Stuff Ive Given Away"
+  },
+  "smokecsz": {
+    "1706205222": "Steam Key - Random Stuff Ive Given Away"
+  },
+  "thanossoul": {
+    "1706206101": "The Pale Beyond"
   }
 }
