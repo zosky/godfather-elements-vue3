@@ -489,7 +489,8 @@
     "1706024199": "Sable"
   },
   "daniempirerevolution": {
-    "1706024584": "Necroworm"
+    "1706024584": "Necroworm",
+    "1706202174": "Starcrossed"
   },
   "boostlethal": {
     "1706024811": "The Gunk"
@@ -1042,7 +1043,12 @@
     "1706198070": "Monster Prom 2",
     "1706198974": "Swag and Sorcery",
     "1706199621": "Pawnbarian",
-    "1706200912": "Foretales"
+    "1706200912": "Foretales",
+    "1706201203": "Golden Light",
+    "1706202595": "Book of Demons",
+    "1706203003": "Rogue Lords",
+    "1706203383": "Life and Suffering of Sir Brante",
+    "1706203499": "The Anacrusis"
   },
   "m4auricio2": {
     "1706196873": "Kraken Academy"
@@ -1065,5 +1071,11 @@
   },
   "leonwubwub": {
     "1706200552": "A Jugglers Tale"
+  },
+  "bars161rus__": {
+    "1706202732": "Dead Island Definitive Edition"
+  },
+  "loberillo21": {
+    "1706202910": "Steam Key - Random Stuff Ive Given Away"
   }
 }
