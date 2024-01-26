@@ -1,5 +1,5 @@
 <script setup>
-import { HelpCircleOutline, ControllerClassicOutline } from 'mdue'
+import { HelpCircleOutline, ControllerClassicOutline, CalendarClock } from 'mdue'
 import TopBarIgnoreList from './TopBarIgnoreList.vue'
 
 const dataStore = inject('$dataStore')
@@ -38,13 +38,18 @@ const urls = {
       class="pr-2 h-8 self-center hover:scale-110 origin-center transition-transform" role="button"
       @click="goTime(urls.elements)"/>
     <div class="flex flex-row justify-between w-full items-center gap-3">
-      <button
-        v-if="$route.path!='/store'" id="gameList"
-        title="gamesList" class="flex flex-row items-center"
-        @click="$router.push('/store')">
-        <ControllerClassicOutline class="text-4xl" />
-        <div v-text="games?.gamesOn?.length ?? ''" />
-      </button>
+      <div v-if="$route.path!='/store'" class="flex flex-row gap-2">
+        <button
+          id="gameList"
+          title="gamesList" class="flex flex-row items-center"
+          @click="$router.push('/store')">
+          <ControllerClassicOutline class="text-4xl" />
+          <div v-text="games?.gamesOn?.length ?? ''" />
+        </button>
+        <button title="store updates by date" @click="$router.push('/storeUpdates')">
+          <CalendarClock class="text-2xl" />
+        </button>
+      </div>
       <template v-else>
         <div class="select-none items-center flex flex-row align-middle place-items-end gap-x-2 " >
           <label
