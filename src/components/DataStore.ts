@@ -1,3 +1,4 @@
+import moment from 'moment'
 const elementsAPI = 'https://api.streamelements.com/kappa/v2/store/61e8d63d3d12f65a5584b351/items?source=website'
 const elementsUser = (u:string) => `https://api.streamelements.com/kappa/v2/points/61e8d63d3d12f65a5584b351/${u}`
 const JSONheader = { headers: { accept: 'application/json, text/plain, */*'}}
@@ -36,7 +37,7 @@ const getters = {
     }
   },
   cache: async (c:string) => {
-    return dataStorage?.[c] ?? fetch(`${prodShim}/${c}.json`)
+    return dataStorage?.[c] ?? fetch(`${prodShim}/${c}.json?date=${moment().format('X')}`)
       .then(r=> r.json() )
       .then(r=> { dataStorage[c] = r ; return r })
   }
