@@ -27,6 +27,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Steam: typeof import('mdue')['Steam']
+    StoreUpdates: typeof import('./components/StoreUpdates.vue')['default']
     SvgPie: typeof import('./components/SvgPie.vue')['default']
     TopBar: typeof import('./components/topbar/TopBar.vue')['default']
     TopBarEntries: typeof import('./components/topbar/TopBarEntries.vue')['default']

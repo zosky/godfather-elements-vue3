@@ -26,7 +26,7 @@ const logout = () => {
       v-model.lazy="user" placeholder="twitchUser"
       class="-mr-5 pr-6 bg-transparent text-right" />
     <div v-else-if="eUser?.username" class="flex flex-row-reverse justify-end gap-3 items-center ml-1">
-      <label title="twitch user. MIDDLE click to change" @click.middle="logout()" v-text="eUser?.username" />
+      <button title="twitch user. click to change" @click="logout()" v-text="eUser?.username" />
       <label id="points">
         <Clams :clams="eUser?.points" :class="dataStore.konami?'money':'clams'" />
       </label>

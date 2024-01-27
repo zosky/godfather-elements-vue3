@@ -1,4 +1,5 @@
 <script setup>
+import { ChartDonut } from 'mdue'
 import { HelpCircleOutline, ControllerClassicOutline, CalendarClock } from 'mdue'
 import TopBarIgnoreList from './TopBarIgnoreList.vue'
 
@@ -26,17 +27,14 @@ const urls = {
 </script>
 
 <template>
-  <header class="flex flex-row flex-wrap md:flex-nowrap w-full px-3 bg-purple-950 bg-opacity-75 shadow-sm shadow-purple-500">
-    <GodFather
-      id="logo" class="colorRotate 
-      w-10  mt-2
-      md:w-32 md:-mt-3 md:-mb-6 md:-ml-3 md:-mr-5 
-      hover:scale-125 hover:translate-x-3 hover:translate-y-6 origin-top-left transition-transform"
-      role="button" @click="goTime(urls.twitch)" />
-    <img
-      id="elementsLink" :src="urls.elementLogo"
-      class="pr-2 h-8 self-center hover:scale-110 origin-center transition-transform" role="button"
-      @click="goTime(urls.elements)"/>
+  <header>
+    <button :title="`open twitch.tv/hitsquadgodfather\nin a new tab`" @click="goTime(urls.twitch)" >
+      <GodFather
+        id="logo" class="colorRotate"/>
+    </button>
+    <button :title="`open the streamElements store\n in a new tab`" @click="goTime(urls.elements)">
+      <img id="elementsLink" :src="urls.elementLogo"/>
+    </button>
     <div class="flex flex-row justify-between w-full items-center gap-3">
       <div v-if="$route.path!='/store'" class="flex flex-row gap-2">
         <button
@@ -76,7 +74,9 @@ const urls = {
       </template>
       <div class="flex flex-row gap-2 items-center">
         <DataLoader />
-        <button class="min-w-max px-1" @click="$router.push('/recentWinners')" v-text="`% pie`" />
+        <button class="min-w-max px-1 flex items-center" :title="`pieChart\nfor who collected the most clams`" @click="$router.push('/recentWinners')">
+          <ChartDonut />
+        </button>
         <TopBarRedeems @click="$router.push('/redeems')"/>
         <TopBarEntries />
         <TopBarGAcount id="topNavGA" @click="$router.push('/giveaways')" />
@@ -88,6 +88,10 @@ const urls = {
 </template>
 
 <style scoped>
+header { @apply flex flex-row flex-wrap md:flex-nowrap w-full px-3 bg-purple-950 bg-opacity-75 shadow-sm shadow-purple-500 }
+#logo { @apply w-10  mt-2 md:w-32 md:-mt-3 md:-mb-6 md:-ml-3 md:-mr-5 
+      hover:scale-125 hover:translate-x-3 hover:translate-y-6 origin-top-left transition-transform }
+#elementsLink { @apply pr-2 h-8 self-center hover:scale-110 origin-center transition-transform }
 .colorRotate { @apply text-pink-600 ; animation: filter-animation 8s infinite; }
 @keyframes filter-animation {
   0% { filter: hue-rotate(0deg); }

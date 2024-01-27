@@ -4,10 +4,9 @@ const { elements } = inject('$getters')
 elements.leaderboard(0) // get 1st page (& _total)
 const listMax = computed(()=>dataStore?.leaderboard?._total??21575)
 const uRank = computed(()=> dataStore?.user?.rank )
-
 </script>
 <template>
-  <div v-if="uRank" class="w-full p-3 relative pt-10 pb-8">
+  <h6 v-if="uRank" class="w-full p-3 relative pt-10 pb-8" :title="`current rank on the loaderboard = ${uRank}`">
     <label class="absolute left-6 pt-1 text-xs" v-text="`#1`" />
     <label class="absolute right-4 pt-1 text-xs" v-text="`#${Math.round(listMax/1000)}k`"  />
     <div class="w-full rounded-xl ring-1 ring-purple-400 h-6 from-transparent to-purple-950 bg-gradient-to-l" />
@@ -16,5 +15,5 @@ const uRank = computed(()=> dataStore?.user?.rank )
       <div class="text-sm bold" v-text="`you are here`" />
       <div class="text-xs" v-text="`[@${Math.round(uRank/listMax*10000)/100}%]`" />
     </div>
-  </div>
+  </h6>
 </template>

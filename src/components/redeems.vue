@@ -25,7 +25,7 @@ const gameNameHashMap = computed(()=>
 
 <template>
   <details open>
-    <summary>
+    <summary :title="'open/close the recent redeems'">
       <div>recentRedeems</div>
       <!-- <button @click="onlyMine=false" :class="{this:!onlyMine}">all</button> -->
       <!-- <button @click="onlyMine=true" :class="{this:onlyMine}">mine</button> -->
@@ -46,7 +46,7 @@ const gameNameHashMap = computed(()=>
 <style scoped>
   details[open] summary { @apply border-b w-full }
   .me { @apply animate-pulse }
-  summary { @apply w-full border-purple-950 opacity-75 rounded-xl py-1 px-4 m-2 flex flex-row gap-2 }
+  summary { @apply w-full border-purple-950 opacity-75 rounded-xl py-1 px-4 flex flex-row gap-2 cursor-pointer }
   details:not([open]) > summary > div::before { content: 'show '; }
 
   summary > label { @apply font-light }

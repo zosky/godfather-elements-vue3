@@ -13,11 +13,15 @@ const gaCount = computed(()=>{
   if (liveDataOn.value) h += liveArr.value.length
   return h
 })
-
+const toolTip = computed(()=>[
+  'player engagement page: shows who is !hitquad\'n how often',
+  ` - ${historyArr.value.length} from app history, updated hourly`,
+  ` - ${liveArr.value.length} collected live from stream chat, while this page has been open`
+].join('\n'))
 </script>
 
 <template>
-  <section role="button" @click="$router.push('/engagment')">
+  <button :title="toolTip" @click="$router.push('/engagment')">
     <div class="text-xs leading-none">
       <label>
         <CodeJson /><Clams :clams="historyArr?.length" />
@@ -29,10 +33,10 @@ const gaCount = computed(()=>{
     <label class="text-xl">
       <Ticket /><Clams :clams="gaCount" />
     </label>
-  </section>
+  </button>
 </template>
 
 <style scoped>
-section { @apply p-1 flex flex-row gap-0 rounded-xl px-3 }
+button { @apply p-1 flex flex-row gap-0 rounded-xl px-3 }
 label { @apply min-w-max flex flex-row-reverse items-center gap-0.5 px-1 }
 </style>

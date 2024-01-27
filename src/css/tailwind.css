@@ -13,3 +13,6 @@ svg { @apply inline }
 
 .noScrollbar::-webkit-scrollbar { display: none; /*chrome*/ }
 .noScrollbar { -ms-overflow-style: none;  /* IE and Edge */ scrollbar-width: none;  /* Firefox */ }
+
+header button { @apply rounded-xl }
+header button:hover:not(#logo) { @apply bg-opacity-25 bg-black h-14 items-center }
