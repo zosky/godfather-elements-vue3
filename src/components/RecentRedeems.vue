@@ -9,7 +9,7 @@ const redeems = computed(()=> {
   if (dataStore?.redeems?.length) allRedeems.push(...dataStore.redeems)
   return allRedeems.sort((a,b)=>a?.time>b?.time?-1:1)
 })
-const gameNameHashMap = dataStore?.gamesHashMap
+const gameNameHashMap = computed(()=>dataStore?.gamesHashMap)
 </script>
 
 <template>

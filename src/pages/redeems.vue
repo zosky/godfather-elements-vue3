@@ -4,7 +4,7 @@ import { Eye } from 'mdue'
 const liveRedeem = inject('$liveRedeem')
 const dataStore = inject('$dataStore')
 const me = computed(()=> dataStore?.user?.username )
-const gameNameHashMap = dataStore?.gamesHashMap
+const gameNameHashMap = computed(()=> dataStore?.gamesHashMap )
 const perPerson = ref(false)
 const viewSlicer = ref(56)
 const allRedeems = computed(()=>[ 
