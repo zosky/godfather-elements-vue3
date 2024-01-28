@@ -1,20 +1,20 @@
 <script setup>
 import moment from 'moment'
+import { Eye } from 'mdue'
 const liveRedeem = inject('$liveRedeem')
 const dataStore = inject('$dataStore')
 const me = computed(()=> dataStore?.user?.username )
+const gameNameHashMap = dataStore?.gamesHashMap
 const perPerson = ref(false)
+const viewSlicer = ref(56)
 const allRedeems = computed(()=>[ 
-  ...Object.entries(liveRedeem??{}), 
-  ...Object.entries(dataStore?.redeems??{})
+  ...liveRedeem ?? [], 
+  ...dataStore?.redeems ?? []
 ])
 const redeems = computed(()=> {
-  const allD = allRedeems.value
-  const reducedD = allD?.reduce((a,c)=>{
-    for (const g of Object.entries(c[1])){
-      if (!a?.[g[1]]) a[g[1]] = {}
-      a[g[1]][g[0]] = c[0]
-    }
+  const reducedD = allRedeems.value?.reduce((a,c)=>{
+    if (!a?.[c.game]) a[c.game] = {}
+    a[c.game][c.time] = c.user
     return a
   },{})
   const finalD = Object.entries(reducedD).map((g)=>g={name:g[0],data:g[1], count: Object.keys(g[1]).length})
@@ -22,10 +22,10 @@ const redeems = computed(()=> {
 })
 const redeemsPerPerson = computed(()=>{
   const allD = allRedeems.value.reduce((a,c)=>{ 
-    a[c[0]] = {} 
-    for (const g of Object.entries(c[1])){
-      if (!a?.[c[0]]?.[g[1]] ) a[c[0]][g[1]] = []
-      a?.[c[0]]?.[g[1]].push(g[0])
+    if ( c?.user ){
+      if( !a?.[c?.user] ) a[c.user] = {}
+      if( !a?.[c?.user]?.[c?.game] ) a[c.user][c.game] = []
+      a[c.user][c.game].push(c.time)
     } 
     return a
   },{})
@@ -39,34 +39,43 @@ const redeemsPerPerson = computed(()=>{
     .sort((a,b)=> a.keyCount>b.keyCount?-1:1)
   return allDarr
 })
-const totalCount = computed(()=>redeems.value?.reduce((a,c)=>a+=c?.count??0,0))
-const gameNameHashMap = computed(()=>
-  dataStore?.games?.reduce((a,c)=>{
-    a[c.name] = c
-    return a
-  },{})
-)
 </script>
 
 <template>
   <section>
-    <label class="col-span-full flex w-full justify-between pt-3">
-      <div class="flex gap-1">
-        <button class="px-2" :class="{'bg-purple-950':perPerson}" @click="perPerson=true" v-text="'perPerson'" />
-        <button class="px-2" :class="{'bg-purple-950':!perPerson}" @click="perPerson=false" v-text="'perGame'"/>
-        <label class="opacity-75 font-light" @click.prevent=""> click any {{ perPerson?'person':'game' }} to see all {{  perPerson ?'games':'people' }}</label>
+    <div class="col-span-full flex w-full justify-between pt-3 items-center">
+      <div class="flex gap-1 items-center">
+        <button
+          class="px-2" :class="{'bg-purple-950':perPerson}"
+          title='"pivot" redeems by person' @click="perPerson=true"
+          v-text="'perPerson'" />
+        <button
+          class="px-2" :class="{'bg-purple-950':!perPerson}"
+          title='"pivot" redeems by game' @click="perPerson=false"
+          v-text="'perGame'"/>
+        <label class="opacity-75 font-light" @click.prevent=""> click any {{ perPerson?'person':'game' }} to see {{  perPerson ?'their redeems':'who grabbed it' }}</label>
       </div>
-      <div :title="`${redeems.length} people now have ${totalCount} games\nthanks to TGF`">
-        <b class="people" v-text="redeems.length" />
-        <b class="games" v-text="totalCount" />
+      <div class="flex flex-row items-center gap-2" :title="`${redeems.length} people now have ${allRedeems?.length??0} games\nthanks to TGF`">
+        <div>
+          <b class="people" v-text="redeems.length??0" />
+          <b class="games" v-text="allRedeems?.length??0" />
+        </div>
+        <label>
+          <Eye class="-mr-6" />
+          <input
+            v-model="viewSlicer" type="number"
+            :max="perPerson ? redeemsPerPerson.length : redeems.length" :min="32"
+            :title="`show more or less\ncurrent max=${perPerson ? redeemsPerPerson.length : redeems.length} ${perPerson ? 'people' : 'games'}`" 
+            class="w-20 bg-transparent border-purple-900 text-right rounded-xl h-8" />
+        </label>
         <a
           class="border rounded-xl bg-purple-950 px-2 border-purple-800" href="https://streamelements.com/dashboard/account/redemptions"
           title="open the steamElements redeems page" target="steamElements"
           v-text="`my🔑s`"/>
       </div>
-    </label>
+    </div>
     <template v-if="!perPerson">
-      <details v-for="game of redeems" :key="game?.name">
+      <details v-for="game of redeems.slice(0,viewSlicer)" :key="game?.name">
         <summary>
           <GameCard v-if="gameNameHashMap?.[game?.name]" :game="gameNameHashMap?.[game?.name]" class="gameCard" :controls="false" />
           <div v-else>{{ game?.name }}</div>
@@ -81,11 +90,10 @@ const gameNameHashMap = computed(()=>
       </details>
     </template>
     <template v-else>
-      <!-- <pre>{{ redeemsPerPerson[0] }}</pre> -->
       <details
-        v-for="person of redeemsPerPerson" :key="person.user"
+        v-for="person of redeemsPerPerson.slice(0,viewSlicer)" :key="person.user"
         :class="{'border border-purple-600 rounded-xl bg-purple-950 px-1':me == person.user}">
-        <summary>
+        <summary role="button" :title="`${person.user} has grabbed ${person.gameCount} game${person.gameCount-1?'s':''} & ${person.keyCount} key${person.keyCount-1?'s':0}`">
           👾{{ person.gameCount }}
           <span v-if="person.gameCount != person.keyCount">🔑{{ person.keyCount }}</span>
           🙋{{ person.user}}
@@ -101,6 +109,10 @@ const gameNameHashMap = computed(()=>
         </div>
       </details>
     </template>
+    <button 
+      v-if="viewSlicer <= (perPerson?redeemsPerPerson.length:redeems.length)" class="bg-purple-950 text-2xl font-bold" 
+      @click="viewSlicer += 32" 
+      v-text="`+32 more [of ${perPerson?redeemsPerPerson.length - viewSlicer:redeems.length - viewSlicer}]`" />
   </section>
 </template>
 

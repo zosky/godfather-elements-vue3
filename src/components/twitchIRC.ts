@@ -7,7 +7,7 @@ const liveLog: Record<string,any> = reactive({})
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const liveEntries: Record<string,any> = reactive({})
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const liveRedeem: Record<string,any> = reactive({})
+const liveRedeem: Record<string,any> = reactive([])
 const clientStatus = reactive({ connected:false })
 
 // Register our connect handlers
@@ -37,8 +37,7 @@ function onMessageHandler (target:any, context:any, msg:string) {
     const game = isRedeem?.[2]
     const time = moment().format('X')
     if(winner && game) { 
-      if (!liveRedeem?.[winner]) liveRedeem[winner] = {}
-      liveRedeem[winner][time] = game
+      liveRedeem.push({user:winner,game,time:parseInt(time,10)})
       getters.elements.ls()
     } else { 
       console.log(time, 'err?!', msg)

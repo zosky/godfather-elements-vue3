@@ -5,7 +5,6 @@ const { readFileSync, writeFileSync } = require('fs')
 const logFileName = (t, d) => `./public/${t=='h'?'gaHistory':t=='e'?'gaEntries':t=='r'?'redeems':''}${d?'-':''}${d?d:''}.json`
 const history = JSON.parse(readFileSync(logFileName('h')))
 const entry = JSON.parse(readFileSync(logFileName('e')))
-const redeems = JSON.parse(readFileSync(logFileName('r')))
 
 const logSplitWins = async () => {
   // groupBy WINS by month
@@ -35,20 +34,6 @@ const logSplitEntries = async () => {
   return newD
 }
 
-const logSplitRedeems = async () => {
-  // groupBy redeems by month
-  const newD = Object.entries(redeems).reduce((a,c)=>{
-    for (const r of Object.entries(c[1])) {
-      const date = moment(r[0],'X').format('YYYYMM')
-      if(!a?.[date]) a[date] = {}
-      if(!a[date]?.[c[0]]) a[date][c[0]] = {}
-      a[date][c[0]][r[0]] = r[1]
-    }
-    return a
-  },{})
-  return newD
-}
-
 const fileOut = async (fType,newD) => {
   const thisMonth = moment().format('YYYYMM')
   const thisFile = logFileName(fType,thisMonth)
@@ -59,4 +44,3 @@ const fileOut = async (fType,newD) => {
 
 logSplitWins().then(d=> fileOut('h',d) )
 logSplitEntries().then(d=> fileOut('e',d) )
-logSplitRedeems().then(d=> fileOut('r',d) )

@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     HeartOutline: typeof import('mdue')['HeartOutline']
     LiveLog: typeof import('./components/leaderboard/LiveLog.vue')['default']
     MyUser: typeof import('./components/topbar/MyUser.vue')['default']
+    RecentRedeems: typeof import('./components/RecentRedeems.vue')['default']
     Redeems: typeof import('./components/redeems.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

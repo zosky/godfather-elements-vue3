@@ -14,12 +14,11 @@ const liveDataOn = computed(()=> dataStore?.liveDataOn ?? true )
 const gaHistory = computed(()=> dataStore?.gaHistory ?? {} )
 const liveLog = inject('$liveLog')
 
-const redeemsHistory = computed(()=> dataStore?.redeems ?? {} )
 const redeemsLive = inject('$liveRedeem')
 const findRedeems = u => {
-  const h = redeemsHistory?.value?.[u] ?? {}
-  const l = redeemsLive?.[u] ?? {}
-  return { ...h, ...l }
+  const h = dataStore?.redeems?.filter(r=>r.user==u) ?? []
+  const l = redeemsLive?.filter(r=>r.user == u) ?? []
+  return [ ...h, ...l ]
 }
 
 const findWins = u => {

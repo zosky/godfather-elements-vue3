@@ -21,6 +21,8 @@ const getters = {
       .then( r => r.json() )
       .then( games => { 
         dataStorage.games = games
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        dataStorage.gamesHashMap = games.reduce((a:object[],c:Record<string,any>)=>{a[c.name]=c;return a},{})
         return games 
       }),
     user: (u:string) => fetch( elementsUser(u), JSONheader)

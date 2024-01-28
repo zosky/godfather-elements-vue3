@@ -8,3 +8,4 @@ debug.log
 public/gaEntries.json
 public/gaHistory.json
 public/redeems.json
+script/fireBaseServiceKey.json

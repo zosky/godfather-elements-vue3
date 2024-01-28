@@ -1,5 +1,5 @@
 <script setup>
-import { SwordCross, CommentQuestion } from 'mdue'
+import { SwordCross } from 'mdue'
 import moment from 'moment'
 const props = defineProps({
   p: { type: Object, default: ()=>{return {}}},
@@ -67,8 +67,8 @@ const myParticipation = computed(()=>Object.entries(clamMap)
           <h6
             v-if="Object.keys(p?.games??{}).length"
             class="min-w-max" 
-            :title="Object.entries(p?.games).map(n => `📅 ${moment(n[0],'X').format('MMM DD HH:mm')} 👾 ${n[1]}`).join('\n')">
-            {{ Object.keys(p?.games)?.length }}👾
+            :title="p?.games?.map(n => `📅 ${moment(n.time,'X').format('MMM DD HH:mm')} 👾 ${n.game}`).join('\n')">
+            {{ p?.games?.length }}👾
           </h6>
         </div>
       </div>

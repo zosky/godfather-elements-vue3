@@ -24,6 +24,7 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue', '@vueuse/head', VueRouterAutoImports],
+      dirs: [ './src/components/firebase/**' ],
       dts: 'src/auto-imports.d.ts'
     }),
     eslintPlugin()

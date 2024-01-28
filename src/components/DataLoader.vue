@@ -3,9 +3,12 @@ import moment from 'moment'
 import { CalendarMonth } from 'mdue'
 const dataStore = inject('$dataStore')
 const { cache } = inject('$getters')
+// fireBase data
+const getData = inject('$getData')
+getData('redeems').then( r => dataStore.redeems = r)
 
 const dataStart = '202308'
-const dataFiles = ['gaEntries','gaHistory','redeems']
+const dataFiles = ['gaEntries','gaHistory']
 const haveMonths = moment().diff(moment(dataStart, 'YYYYMM'),'months')
 const loadedData = ref([null,true]) // init this month (arr[0] not used)
 
