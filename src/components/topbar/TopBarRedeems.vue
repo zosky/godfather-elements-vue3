@@ -1,10 +1,11 @@
 <script setup>
-import { GamepadCircleDown, Database, Twitch } from 'mdue'
+import { GamepadCircleDown, CodeJson, Twitch } from 'mdue'
 const liveRedeem = inject('$liveRedeem')
 const dataStore = inject('$dataStore')
+const historyCount = computed(()=>Object.values(dataStore?.redeems??{})?.length)
 const toolTip = computed(() => [
-  `games redeemed = ${(dataStore?.redeems?.length??0)+liveRedeem.length}`, 
-  `- ${dataStore?.redeems?.length??0} from the app's database, updated in realtime, fetched fresh each time you open the page.`,
+  `games redeemed = ${historyCount.value+liveRedeem.length}`, 
+  `- ${historyCount.value} from the app's cache, updated hourly (loaded once when you open the page).`,
   `- ${liveRedeem.length} from twitch chat, updated while this page is open.`,
 ].join('\n'))
 </script>
@@ -13,12 +14,12 @@ const toolTip = computed(() => [
   <button :title="toolTip">
     <GamepadCircleDown class="text-2xl" />
     <div class="text-lg pl-2">
-      {{ (dataStore?.redeems?.length??0) + liveRedeem.length }}
+      {{ (historyCount) + liveRedeem.length }}
     </div>
     <ul>
       <li>
-        {{ dataStore?.redeems?.length??0 }}
-        <Database />
+        {{ historyCount }}
+        <CodeJson />
       </li>
       <li>
         {{ liveRedeem.length }}

@@ -7,10 +7,12 @@ const me = computed(()=> dataStore?.user?.username )
 const gameNameHashMap = computed(()=> dataStore?.gamesHashMap )
 const perPerson = ref(false)
 const viewSlicer = ref(56)
-const allRedeems = computed(()=>[ 
-  ...liveRedeem ?? [], 
-  ...dataStore?.redeems ?? []
-])
+const allRedeems = computed(()=>{
+  const d = []
+  if (liveRedeem?.length) d.push(...liveRedeem)
+  if (dataStore?.redeems) d.push(...Object.values(dataStore.redeems))
+  return d
+})
 const redeems = computed(()=> {
   const reducedD = allRedeems.value?.reduce((a,c)=>{
     if (!a?.[c.game]) a[c.game] = {}
