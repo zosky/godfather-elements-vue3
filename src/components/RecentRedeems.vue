@@ -6,7 +6,7 @@ const me = computed(()=> dataStore?.user?.username )
 const redeems = computed(()=> {
   const allRedeems = []
   if (liveRedeem?.length) allRedeems.push(...liveRedeem)
-  if (dataStore?.redeems?.length) allRedeems.push(...dataStore.redeems)
+  if (dataStore?.redeems) allRedeems.push(...Object.values(dataStore.redeems))
   return allRedeems.sort((a,b)=>a?.time>b?.time?-1:1)
 })
 const gameNameHashMap = computed(()=>dataStore?.gamesHashMap)
