@@ -35,7 +35,7 @@ function onMessageHandler (target:any, context:any, msg:string) {
     const isRedeem = msg?.match(/(\w+) just redeemed (.*) PogChamp/)
     const winner = isRedeem?.[1]
     const game = isRedeem?.[2]
-    const time = moment().format('X')
+    const time = moment().format('x')
     if(winner && game) { 
       liveRedeem.push({user:winner,game,time:parseInt(time,10)})
       getters.elements.ls()
