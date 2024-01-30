@@ -19,7 +19,10 @@ const redeems = computed(()=> {
     a[c.game][c.time] = c.user
     return a
   },{})
-  const finalD = Object.entries(reducedD).map((g)=>g={name:g[0],data:g[1], count: Object.keys(g[1]).length})
+  const finalD = Object.entries(reducedD).map((g)=>g={
+    name:g[0],
+    data:Object.entries(g[1]).map(gg=>gg={time:gg[0],user:gg[1]}).sort((a,b)=>a.time<b.time?-1:1), 
+    count: Object.keys(g[1]).length})
   return finalD.sort((a,b)=>a.count<b.count?1:-1)
 })
 const redeemsPerPerson = computed(()=>{
@@ -84,9 +87,9 @@ const redeemsPerPerson = computed(()=>{
           <div class="count" :class="{me:Object.values(game?.data??{})?.includes(me)}" v-text="game?.count" />
         </summary>
         <ul>
-          <li v-for="(user, date) of game?.data" :key="date">
-            <span class="font-light font-mono text-xs" v-text="moment(date,'x').format('MMM DD HH:mm')" />
-            <b v-text="user" />
+          <li v-for="gameRedeem of game?.data" :key="gameRedeem.time">
+            <span class="font-light font-mono text-xs" v-text="moment(gameRedeem.time,'x').format('MMM DD HH:mm')" />
+            <b v-text="gameRedeem.user" />
           </li>
         </ul>
       </details>
@@ -105,7 +108,7 @@ const redeemsPerPerson = computed(()=>{
             <GameCard v-if="gameNameHashMap?.[game]" :game="gameNameHashMap?.[game]" class="gameCard col-span-2" :controls="false" />
             <div v-else class="col-span-2">{{ game }}</div>
             <ul class="text-right">
-              <li v-for="date of dates" :key="date" class="text-xs" v-text="moment(date,'X').format('MMM DD HH:mm')" />
+              <li v-for="date of dates" :key="date" class="text-xs" v-text="moment(date,'x').format('MMM DD HH:mm')" />
             </ul>
           </template>
         </div>
