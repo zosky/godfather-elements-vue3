@@ -975,6 +975,11 @@
     "game": "Steam Key - Random Stuff Ive Given Away"
   },
   {
+    "user": "alcamlu",
+    "time": 1706574470000,
+    "game": "Gold Rush 2"
+  },
+  {
     "user": "dikingvfx",
     "time": 1705960265000,
     "game": "Steam Key - Random Stuff Ive Given Away"
@@ -1973,6 +1978,11 @@
     "user": "mistvillage",
     "time": 1706312308000,
     "game": "Conan Chop Chop"
+  },
+  {
+    "user": "mistvillage",
+    "time": 1706575677000,
+    "game": "Space Crew Legendary Edition"
   },
   {
     "user": "daniempirerevolution",
@@ -3110,9 +3120,19 @@
     "game": "Kraken Academy"
   },
   {
+    "user": "specialhuck",
+    "time": 1706575385000,
+    "game": "Rebel Inc Escalation"
+  },
+  {
     "user": "ryskapostens",
     "time": 1706125652000,
     "game": "Rebel Inc Escalation"
+  },
+  {
+    "user": "ryskapostens",
+    "time": 1706575526000,
+    "game": "Pac Man Museum"
   },
   {
     "user": "bigmagcaster",
@@ -4810,6 +4830,11 @@
     "game": "Monster Crown"
   },
   {
+    "user": "mark17092000",
+    "time": 1706574788000,
+    "game": "Little Orpheus"
+  },
+  {
     "user": "chaostierobode",
     "time": 1706376556000,
     "game": "Kraken Academy"
@@ -5030,6 +5055,11 @@
     "game": "Hell Pie"
   },
   {
+    "user": "erdemonius",
+    "time": 1706576087000,
+    "game": "Gold Rush 2"
+  },
+  {
     "user": "zivalife",
     "time": 1706390482000,
     "game": "Gold Rush 2"
@@ -5057,6 +5087,11 @@
   {
     "user": "tennaris",
     "time": 1706391337000,
+    "game": "Gold Rush 2"
+  },
+  {
+    "user": "tennaris",
+    "time": 1706575342000,
     "game": "Gold Rush 2"
   },
   {
@@ -5438,6 +5473,16 @@
     "user": "valdemaroomaro",
     "time": 1706411153000,
     "game": "Gold Rush 2"
+  },
+  {
+    "user": "valdemaroomaro",
+    "time": 1706577471000,
+    "game": "Gold Rush 2"
+  },
+  {
+    "user": "valdemaroomaro",
+    "time": 1706577482000,
+    "game": "Gold Rush Anniversary Special Edition"
   },
   {
     "user": "slay_da_b",
@@ -6443,5 +6488,25 @@
     "user": "ackatos",
     "time": 1706571463000,
     "game": "Gold Rush 2"
+  },
+  {
+    "user": "anderson_bayonet",
+    "time": 1706574487000,
+    "game": "Starcrossed"
+  },
+  {
+    "user": "elkisatoro",
+    "time": 1706574535000,
+    "game": "Kraken Academy"
+  },
+  {
+    "user": "gatopkr",
+    "time": 1706576671000,
+    "game": "Gold Rush 2"
+  },
+  {
+    "user": "alexbarbosa1",
+    "time": 1706577806000,
+    "game": "Book of Demons"
   }
 ]
