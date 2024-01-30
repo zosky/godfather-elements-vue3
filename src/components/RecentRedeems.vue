@@ -25,7 +25,7 @@ const gameNameHashMap = computed(()=>dataStore?.gamesHashMap)
         <h2 v-else v-text="game.game"/>
         <div class="user">
           <h3 v-text="game.user" />
-          <h4 :title="moment(game.time,'X').format()" v-text="moment(game.time,'X').format('HH:mm')" />
+          <h4 :title="moment(game.time,'x').format()" v-text="moment(game.time,'x').format('HH:mm')" />
         </div>
       </article>
     </section>
