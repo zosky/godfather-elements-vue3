@@ -16,7 +16,8 @@ const liveLog = inject('$liveLog')
 
 const redeemsLive = inject('$liveRedeem')
 const findRedeems = u => {
-  const h = dataStore?.redeems?.filter(r=>r.user==u) ?? []
+  const r = Object.values(dataStore.redeems??{})
+  const h = r?.filter(r=>r.user==u) ?? []
   const l = redeemsLive?.filter(r=>r.user == u) ?? []
   return [ ...h, ...l ]
 }
