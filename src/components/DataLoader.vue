@@ -6,15 +6,15 @@ const { cache } = inject('$getters')
 
 const dataStart = '202308'
 const dataFiles = ['gaEntries','gaHistory', 'redeems']
-const haveMonths = moment().diff(moment(dataStart, 'YYYYMM'),'months')
-const loadedData = ref([null,true]) // init this month (arr[0] not used)
+const haveWeek = moment().diff(moment(dataStart, 'YYYYMM'),'weeks')
+const loadedData = ref([null,true,true]) // init this week (arr[0] not used)
 
 // selection change = merge files
 const goTime = ()=>{
   // make monkyName array
   const d = loadedData.value
   const dataON = d.reduce((a,c,ix)=>{
-    if(c) a.push(moment().subtract(ix-1,'month').format('YYYYMM'))
+    if(c) a.push(moment().subtract(ix-1,'week').format('YYYYww'))
     return a
   },[])
   // collect selected
@@ -54,13 +54,13 @@ const mergeData = (p,r) => {
       <div v-text="loadedData.filter(d=>d)?.length ?? 0"/>
     </summary>
     <section>
-      <div>each month selected will download ~9mb of data (once)</div>
-      <article v-for="month of haveMonths" :key="month" :class="'m'+ moment().subtract(month-1,'month').format('MM') ">
+      <div>each week selected will download ~3mb of data</div>
+      <article v-for="week of haveWeek" :key="week" >
         <label>
           <input
-            v-model="loadedData[month]" type="checkbox"
+            v-model="loadedData[week]" type="checkbox"
             @change="goTime" />
-          {{ moment().subtract(month-1,'month').format('YYYY MMMM') }}
+          ~{{ moment().subtract(week-1,'week').format('YY MMM DD') }}
         </label>
       </article>
     </section>
@@ -72,7 +72,7 @@ const mergeData = (p,r) => {
   details[open] summary { @apply text-purple-500 }
   summary { @apply flex flex-row text-xl justify-center items-center gap-1 }
   summary div { @apply font-bold }
-  section  { @apply bg-purple-950 bg-opacity-50 p-4 absolute top-6 rounded-xl shadow-md shadow-pink-300 }
+  section  { @apply bg-purple-950 bg-opacity-50 p-4 absolute top-6 rounded-xl shadow-md shadow-pink-300 flex-col flex-wrap }
   div { @apply italic text-xs min-w-max }
   article.m12 { @apply border-t border-t-purple-800 }
   input { @apply hidden }

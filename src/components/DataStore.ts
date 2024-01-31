@@ -39,7 +39,7 @@ const getters = {
     }
   },
   cache: async (c:string) => {
-    return dataStorage?.[c] ?? fetch(`${prodShim}/${c}.json?date=${moment().format('X')}`)
+    return dataStorage?.[c] ?? fetch(`${prodShim}/json/${c}.json?date=${moment().format('X')}`)
       .then(r=> r.json() )
       .then(r=> { dataStorage[c] = r ; return r })
   }

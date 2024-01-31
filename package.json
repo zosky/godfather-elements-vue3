@@ -1,15 +1,15 @@
 {
   "name": "godfather-rewards-vue3",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "cacheLOG": "node ./scripts/logGiveAways.js",
-    "cacheSplit": "node ./script/logSplitByMonth.js",
+    "cacheSplit": "node ./script/logSplitByWeek.js",
     "cacheUP": "npm run cacheSplit ; npm run gitJSON",
-    "gitJSON": "git add ./public/*.json ; git commit -m \"gaCache+=$(date +%b%d.%H)\" ; git push",
-    "daily": "while true ; do npm run cacheUP ; sleep 1h ; done",
+    "gitJSON": "git add ./public/json/*.json ; git commit -m \"gaCache+=$(date +%b%d.%H)\" ; git push",
+    "hourly": "while true ; do npm run cacheUP ; sleep 1h ; done",
     "gitKeyRoll": "ssh-keygen -R github.com; curl -L https://api.github.com/meta | jq -r '.ssh_keys | .[]' | sed -e 's/^/github.com /' >> ~/.ssh/known_hosts"
   },
   "dependencies": {
