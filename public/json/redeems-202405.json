@@ -1080,6 +1080,11 @@
     "game": "Souldiers"
   },
   {
+    "user": "bigmagcaster",
+    "time": 1706817611000,
+    "game": "Demon Turf"
+  },
+  {
     "user": "poullaie",
     "time": 1706439984000,
     "game": "Giana Sisters Twisted Dreams"
@@ -1403,6 +1408,11 @@
     "user": "andireb",
     "time": 1706712199000,
     "game": "Oddworld Abes Oddysee"
+  },
+  {
+    "user": "andireb",
+    "time": 1706818854000,
+    "game": "Gold Rush Anniversary Special Edition"
   },
   {
     "user": "slyislands",
@@ -1783,6 +1793,21 @@
     "user": "ice909090",
     "time": 1706732605000,
     "game": "Spirit of the Island"
+  },
+  {
+    "user": "ice909090",
+    "time": 1706819573000,
+    "game": "Brother Wings"
+  },
+  {
+    "user": "ice909090",
+    "time": 1706819607000,
+    "game": "Potatoman Seeks the Troof"
+  },
+  {
+    "user": "ice909090",
+    "time": 1706819680000,
+    "game": "Necroworm"
   },
   {
     "user": "erdemonius",
@@ -4448,5 +4473,20 @@
     "user": "m_sobkovski",
     "time": 1706813218000,
     "game": "Silent Hill Homecoming"
+  },
+  {
+    "user": "ehdemaisde8000",
+    "time": 1706817637000,
+    "game": "Gold Rush 2"
+  },
+  {
+    "user": "ehdemaisde8000",
+    "time": 1706817945000,
+    "game": "Merchant of the Skies"
+  },
+  {
+    "user": "blackkzera",
+    "time": 1706818106000,
+    "game": "Titeuf Mega Party"
   }
 ]
