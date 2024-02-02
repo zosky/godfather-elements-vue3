@@ -1005,6 +1005,11 @@
     "game": "Who Pressed Mute on Uncle Marcus"
   },
   {
+    "user": "jimmy0204123",
+    "time": 1706831704000,
+    "game": "Foretales"
+  },
+  {
     "user": "zydent",
     "time": 1706648419000,
     "game": "Gold Rush Anniversary Special Edition"
@@ -3275,6 +3280,11 @@
     "game": "Gold Rush Anniversary Special Edition"
   },
   {
+    "user": "helenaz2",
+    "time": 1706828959000,
+    "game": "Gold Rush 2"
+  },
+  {
     "user": "os_dukered",
     "time": 1706554918000,
     "game": "Fallout 4"
@@ -3353,6 +3363,11 @@
     "user": "ackatos",
     "time": 1706605220000,
     "game": "Gold Rush 2"
+  },
+  {
+    "user": "ackatos",
+    "time": 1706831439000,
+    "game": "Lovecrafts Untold Stories"
   },
   {
     "user": "anderson_bayonet",
@@ -4603,5 +4618,10 @@
     "user": "darthnomadkiller",
     "time": 1706825331000,
     "game": "Shift Happens"
+  },
+  {
+    "user": "toosemw",
+    "time": 1706829919000,
+    "game": "Kraken Academy"
   }
 ]
