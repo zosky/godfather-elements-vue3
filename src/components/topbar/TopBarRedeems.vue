@@ -32,5 +32,5 @@ const toolTip = computed(() => [
 <style scoped>
   button { @apply flex flex-row-reverse items-center px-2 }
   ul { @apply flex flex-col justify-end }
-  li { @apply text-xs leading-none text-right }
+  li { @apply text-xs leading-none text-right min-w-max }
 </style>

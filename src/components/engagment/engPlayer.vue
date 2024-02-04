@@ -67,7 +67,7 @@ const myParticipation = computed(()=>Object.entries(clamMap)
           <h6
             v-if="Object.keys(p?.games??{}).length"
             class="min-w-max" 
-            :title="p?.games?.map(n => `📅 ${moment(n.time,'X').format('MMM DD HH:mm')} 👾 ${n.game}`).join('\n')">
+            :title="p?.games?.map(n => `📅 ${moment(n.time,'x').format('MMM DD HH:mm')} 👾 ${n.game}`).join('\n')">
             {{ p?.games?.length }}👾
           </h6>
         </div>

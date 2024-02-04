@@ -17,7 +17,7 @@ dataStore.showWeeks = lastShowMonth == 'true' ? true
 
 <template>
   <button 
-    class="px-3"
+    class="px-3 min-w-max"
     :class="{isOpen:dataStore?.showWeeks}"
     :title="`[${dataStore?.showWeeks?'CLOSE':'OPEN'}] ${dataStore?.loadedData?.length} of ${Object.keys(dataStore.hashMap??{}).length} weeks loaded`"
     @click="goTime()">
