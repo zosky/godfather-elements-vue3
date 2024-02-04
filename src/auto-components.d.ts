@@ -40,6 +40,8 @@ declare module '@vue/runtime-core' {
     TopBarSort: typeof import('./components/topbar/TopBarSort.vue')['default']
     UserEngagment: typeof import('./components/leaderboard/UserEngagment.vue')['default']
     WatchTime: typeof import('./components/topbar/WatchTime.vue')['default']
+    Weekly: typeof import('./components/weekly.vue')['default']
+    WeeklyData: typeof import('./components/weeklyData.vue')['default']
     YouAreHere: typeof import('./components/leaderboard/YouAreHere.vue')['default']
   }
 }

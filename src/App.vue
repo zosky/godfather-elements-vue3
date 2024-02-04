@@ -10,6 +10,7 @@ savedData('have')
   <div class="relative">
     <TopBar class="sticky top-0 z-10 text-white mb-2" />
     <ClamsHaveNoValue />
+    <WeeklyData />
     <main>
       <router-view />
     </main>
