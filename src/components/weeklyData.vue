@@ -55,8 +55,7 @@ const calmsThisWeek = computed(()=>{
   const l = Object.values(liveLog??{})
     .map(c=> Object.values(c) )
     .flat().reduce((a,c)=>a+=c,0)
-  const u = d+l
-  return u
+  return (d??0)+(l??0)
 })
 
 
@@ -117,6 +116,9 @@ goTime() // init
 
 const mergeData = (p,r) => {
   if(!dataStore?.[p]) { dataStore[p] = r }
+  else if (p=='redeems'){ // merge arrays
+    dataStore[p] = [ ...Object.values(dataStore[p]), ...r ]
+  }
   else { 
     for(const u of Object.entries(r)){
       // merge obj(hist) or array (entries)
