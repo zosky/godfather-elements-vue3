@@ -9,9 +9,10 @@ const liveEntries = inject('$liveEntries')
 const redeemsHistory = computed(()=> dataStore?.redeems ?? {} )
 const redeemsLive = inject('$liveRedeem')
 const findRedeems = u => {
-  const h = redeemsHistory?.value?.[u] ?? {}
-  const l = redeemsLive?.[u] ?? {}
-  return { ...h, ...l }
+  const r = Object.values(dataStore.redeems??{})
+  const h = r?.filter(r=>r.user==u) ?? []
+  const l = redeemsLive?.filter(r=>r.user == u) ?? []
+  return [ ...h, ...l ]
 }
 
 const myEntries = computed(()=> { 
