@@ -58,6 +58,19 @@ const calmsThisWeek = computed(()=>{
   return (d??0)+(l??0)
 })
 
+const redeemCountThisWeek = computed(()=>{
+  const thisWeek = moment().format('YYYYww')
+  const h = dataStore?.[`redeems-${thisWeek}`]?.length ?? 0
+  const l = liveRedeem?.length ?? 0
+  return h + l
+})
+
+const entriesThisWeek = computed(()=>{
+  const thisWeek = moment().format('YYYYww')
+  const h = Object.values(dataStore?.[`gaEntries-${thisWeek}`])?.flat()?.length ?? 0
+  const l = liveArr.value ?? 0
+  return h + l
+})
 
 const hashMap = computed(()=>{
   const thisWeek = moment().format('YYYYww')
@@ -66,12 +79,12 @@ const hashMap = computed(()=>{
     dataStore.hashMap[thisWeek] = { 
       redeemsGames: redeemedGamesThisWeek?.value,
       redeemsPeople: redeemedPeopleThisWeek?.value,
-      redeemsCount: (d?.redeemsCount??0) + (liveRedeem?.length??0),
+      redeemsCount: redeemCountThisWeek.value,
       giveawaysPeople: giveawaysPeopleThisWeek?.value,
       giveawaysCount: giveawaysCountThisWeek?.value,
       giveawaysClams: calmsThisWeek?.value,  
       entriesPeople: entriesPeopleThisWeek?.value,
-      entriesCount: (d?.entriesCount??0) + (liveArr.value??0), 
+      entriesCount: entriesThisWeek?.value, 
     }}
 
   const d = Object.entries(dataStore?.hashMap??{})
