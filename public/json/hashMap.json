@@ -178,5 +178,15 @@
     "redeemsCount": 1335,
     "redeemsPeople": 598,
     "redeemsGames": 255
+  },
+  "202406": {
+    "entriesPeople": 55,
+    "entriesCount": 66,
+    "giveawaysPeople": 19,
+    "giveawaysCount": 22,
+    "giveawaysClams": 4950,
+    "redeemsCount": 3,
+    "redeemsPeople": 2,
+    "redeemsGames": 3
   }
 }
