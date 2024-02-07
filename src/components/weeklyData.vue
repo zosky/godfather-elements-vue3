@@ -75,7 +75,6 @@ const entriesThisWeek = computed(()=>{
 const hashMap = computed(()=>{
   const thisWeek = moment().format('YYYYww')
   if(dataStore?.hashMap) {
-    const d = dataStore.hashMap[thisWeek]
     dataStore.hashMap[thisWeek] = { 
       redeemsGames: redeemedGamesThisWeek?.value,
       redeemsPeople: redeemedPeopleThisWeek?.value,
