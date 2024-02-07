@@ -5,11 +5,6 @@ const files = ['gaHistory','gaEntries','redeems'].map(f=>`./public/${f}.json`)
 const bank = JSON.parse(readFileSync(files[0]))
 const engagement = JSON.parse(readFileSync(files[1]))
 const redeems = JSON.parse(readFileSync(files[2]))
-const admin = require('firebase-admin')
-const serviceAccount = require('./fireBaseServiceKey.json')
-admin.initializeApp({ credential: admin.credential.cert(serviceAccount)})
-const firestore = admin.firestore()
-
 const opts = { channels: [ '#hitsquadgodfather' ] }
 
 // Create a client with our options
@@ -43,16 +38,6 @@ function onMessageHandler (target, context, msg, self) {
   } else if (isRedeem?.[1] && isSE ) {
     if (!redeems?.[isRedeem?.[1]]) redeems[isRedeem?.[1]] = {}
     redeems[isRedeem?.[1]][timeNow] = isRedeem?.[2]
-    firestore
-      .collection('redeems')
-      .doc(timeNow)
-      .set({
-        user:isRedeem[1], 
-        game: isRedeem[2], 
-        time: parseInt(timeNow,10)
-      })
-      .then(()=> console.log( ` ☁️+\t${isRedeem[1]}\t${isRedeem[2]}`) )
-      .catch( err => console.log( `☁️⛔\t${isRedeem[1]}\t${isRedeem[2]}\n`,err))
   }
 }
 
