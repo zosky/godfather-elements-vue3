@@ -48,7 +48,7 @@ const goSteam = n => `https://store.steampowered.com/search/?term=${encodeURICom
             <Steam class="h-6 w-6 -mt-4 -mb-3" />
           </a>
           <h2 v-else :title="game?.description" v-text="'⛔'" />
-          <div class="text-xs leading-none" v-text="game?.name" />
+          <div :title="`${game?.name}\n\n ${game?.description}`" class="text-xs leading-none max-h-6 overflow-hidden" v-text="game?.name" />
         </div>
         <div class="flex flex-row gap-1 items-center">
           <div 

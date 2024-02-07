@@ -25,10 +25,11 @@ const getters = {
         dataStorage.gamesHashMap = games.reduce((a:object[],c:Record<string,any>)=>{a[c.name]=c;return a},{})
         return games 
       }),
-    user: (u:string) => fetch( elementsUser(u), JSONheader)
+    user: (u:string, me:boolean) => fetch( elementsUser(u), JSONheader)
       .then( r => r.json() )
       .then( d => { 
-        dataStorage.user = d
+        if (me) dataStorage.user = d
+        else dataStorage.theOthers[u] = d
         return d
       }),
     leaderboard: (p=0) => {
@@ -46,7 +47,7 @@ const getters = {
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const dataStorage: Record<string,any> = reactive({
-  welcome: 'Ready to dive in?' // example
+  theOthers: {} // used to hold info on other people
   /* getters will fill the rest in with stuff from APIs */
 })
 

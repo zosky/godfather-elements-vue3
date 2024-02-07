@@ -8,7 +8,7 @@ watchEffect(()=>{
   const u = user.value
   if (u) { 
     localStorage.setItem('user', u)
-    elements.user(u).then(u => { if(!u?.username) user.value = null })
+    elements.user(u,true).then(u => { if(!u?.username) user.value = null })
   }
 })
 const logout = () => { 
@@ -31,7 +31,7 @@ const logout = () => {
         <Clams :clams="eUser?.points" :class="dataStore.konami?'money':'clams'" />
       </label>
       <label id="rank" title="leaderBoard rank" v-text="eUser?.rank + '📈'" />
-      <WatchTime id="watchtime" title="watchTime"/>
+      <WatchTime id="watchtime" title="watchTime" :watchtime="eUser?.watchtime"/>
     </div>
   </div>
 </template>

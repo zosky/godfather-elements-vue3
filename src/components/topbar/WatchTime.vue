@@ -1,7 +1,10 @@
 <script setup>
-const dataStore = inject('$dataStore')
+const props = defineProps({
+  watchtime: {type:Number,default:0},
+  mini: {type:Boolean,default:false}
+})
 const watchRel = computed(()=> { 
-  const wm = dataStore?.user?.watchtime 
+  const wm = props?.watchtime
   const h = wm/60
   const d = h/24
   const m = Math.floor(d/30)
@@ -14,10 +17,18 @@ const watchRel = computed(()=> {
 </script>
 <template>
   <div class="flex flex-row gap-1">
-    <div class="mo" v-text="watchRel?.m" />
-    <div class="da" v-text="watchRel?.dr" />
-    <div class="hr" v-text="watchRel?.hr" />
-    <div class="mi" v-text="watchRel?.mr" />
+    <template v-if="mini">
+      <div v-if="watchRel?.m" class="mo" v-text="watchRel?.m" />
+      <div v-else-if="watchRel?.dr" class="da" v-text="watchRel?.dr" />
+      <div v-else-if="watchRel?.hr" class="hr" v-text="watchRel?.hr" />
+      <div v-else-if="watchRel?.mr" class="mi" v-text="watchRel?.mr" />
+    </template>
+    <template v-else>
+      <div class="mo" v-text="watchRel?.m" />
+      <div class="da" v-text="watchRel?.dr" />
+      <div class="hr" v-text="watchRel?.hr" />
+      <div class="mi" v-text="watchRel?.mr" />
+    </template>
     📺
   </div>
 </template>
