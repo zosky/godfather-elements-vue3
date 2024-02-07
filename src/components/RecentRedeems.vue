@@ -35,7 +35,7 @@ const gameNameHashMap = computed(()=>dataStore?.gamesHashMap)
 <style scoped>
   details[open] summary { @apply border-b w-full }
   .me { @apply animate-pulse }
-  summary { @apply w-full border-purple-950 opacity-75 rounded-xl py-1 px-4 flex flex-row gap-2 cursor-pointer }
+  summary { @apply w-full border-purple-950 opacity-75 rounded-xl py-1 px-4 flex flex-row gap-2 cursor-pointer hover:bg-purple-900 hover:text-purple-300 transition-colors }
   details:not([open]) > summary > div::before { content: 'show '; }
 
   summary > label { @apply font-light }
@@ -45,8 +45,8 @@ const gameNameHashMap = computed(()=>dataStore?.gamesHashMap)
   .gameCard { @apply w-full }
   .user { @apply w-full flex flex-row justify-between gap-1 p-1 }
   h2 { @apply font-bold min-w-min leading-none }
-  h3 { @apply font-light text-sm text-left  }
-  h4 { @apply font-extralight text-xs text-left }
+  h3 { @apply font-light text-sm text-left min-w-max  }
+  h4 { @apply font-extralight text-xs text-left min-w-max }
   h2::before { content: '👾'; @apply px-1 }
   h3::before { content: '🙋'; @apply px-1 }
   h4::before { content: '📅'; @apply px-1 }
