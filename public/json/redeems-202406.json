@@ -405,6 +405,11 @@
     "game": "Ogre"
   },
   {
+    "user": "r0dri1x",
+    "time": 1707269620000,
+    "game": "The Curious Tale of the Stolen Pets"
+  },
+  {
     "user": "akinoavirgem",
     "time": 1707085598000,
     "game": "Pawnbarian"
@@ -848,6 +853,16 @@
     "user": "lokosporgamess",
     "time": 1707265513000,
     "game": "Gold Rush Anniversary Special Edition"
+  },
+  {
+    "user": "lokosporgamess",
+    "time": 1707267328000,
+    "game": "Bartlows Dread Machine"
+  },
+  {
+    "user": "lokosporgamess",
+    "time": 1707267477000,
+    "game": "Draw Slasher"
   },
   {
     "user": "vipenan",
@@ -1465,6 +1480,11 @@
     "game": "Wayout"
   },
   {
+    "user": "pika_gamy",
+    "time": 1707270237000,
+    "game": "Gold Rush 2"
+  },
+  {
     "user": "helenaz2",
     "time": 1707061016000,
     "game": "Crashmetal Cyberpunk"
@@ -1733,6 +1753,16 @@
     "user": "vertigorhan",
     "time": 1707265232000,
     "game": "Draw Slasher"
+  },
+  {
+    "user": "tony_ng_303",
+    "time": 1707267188000,
+    "game": "Gold Rush 2"
+  },
+  {
+    "user": "tony_ng_303",
+    "time": 1707267210000,
+    "game": "Gold Rush Anniversary Special Edition"
   },
   {
     "user": "pandekkko",
@@ -2828,5 +2858,35 @@
     "user": "chugoz",
     "time": 1707266407000,
     "game": "Red Faction Armageddon"
+  },
+  {
+    "user": "vesperido",
+    "time": 1707267850000,
+    "game": "Love is Dead"
+  },
+  {
+    "user": "vesperido",
+    "time": 1707267962000,
+    "game": "Ogre"
+  },
+  {
+    "user": "clarakass",
+    "time": 1707268812000,
+    "game": "Twin Mirror"
+  },
+  {
+    "user": "adr_1an4",
+    "time": 1707270117000,
+    "game": "Elex 2"
+  },
+  {
+    "user": "adr_1an4",
+    "time": 1707270167000,
+    "game": "Beyond Two Souls"
+  },
+  {
+    "user": "adr_1an4",
+    "time": 1707270194000,
+    "game": "Bayonetta"
   }
 ]
