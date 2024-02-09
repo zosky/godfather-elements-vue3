@@ -2,8 +2,10 @@
 const props = defineProps({user:{type:String,default:null}})
 const { elements } = inject('$getters')
 const dataStore = inject('$dataStore')
-if (props.user && !dataStore?.theOthers?.[props.user] ) { elements.user(props.user) }
-const thisUser = computed(()=> dataStore?.theOthers?.[props.user] ?? {})
+const thisUser = computed(()=> {  
+  if (props.user && !dataStore?.theOthers?.[props.user] ) { elements.user(props.user) }  
+  return dataStore?.theOthers?.[props.user] ?? {}
+})
 </script>
 
 <template>
