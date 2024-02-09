@@ -38,6 +38,7 @@ function onMessageHandler (target:any, context:any, msg:string) {
     const time = moment().format('x')
     if(winner && game) { 
       liveRedeem.push({user:winner,game,time:parseInt(time,10)})
+      getters.elements.user(winner, false)
       getters.elements.ls()
     } else { 
       console.log(time, 'err?!', msg)
