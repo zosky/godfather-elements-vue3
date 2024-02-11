@@ -188,5 +188,15 @@
     "redeemsCount": 1504,
     "redeemsPeople": 618,
     "redeemsGames": 294
+  },
+  "202407": {
+    "entriesPeople": 169,
+    "entriesCount": 617,
+    "giveawaysPeople": 83,
+    "giveawaysCount": 161,
+    "giveawaysClams": 27650,
+    "redeemsCount": 2,
+    "redeemsPeople": 2,
+    "redeemsGames": 2
   }
 }
