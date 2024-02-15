@@ -605,6 +605,16 @@
     "game": "Eight Mini Racers"
   },
   {
+    "user": "black_cat_leo",
+    "time": 1707952046000,
+    "game": "Brother Wings"
+  },
+  {
+    "user": "black_cat_leo",
+    "time": 1707952158000,
+    "game": "Potatoman Seeks the Troof"
+  },
+  {
     "user": "redoneraistlin",
     "time": 1707695458000,
     "game": "Children of Silentown"
@@ -688,6 +698,11 @@
     "user": "lucky_gray",
     "time": 1707647591000,
     "game": "Bartlows Dread Machine"
+  },
+  {
+    "user": "lucky_gray",
+    "time": 1707953608000,
+    "game": "Patch Quest"
   },
   {
     "user": "jubilan23",
@@ -2610,6 +2625,11 @@
     "game": "Chernobyl Commando"
   },
   {
+    "user": "osmaniactr",
+    "time": 1707955277000,
+    "game": "Critical Damage"
+  },
+  {
     "user": "boriskazman",
     "time": 1707715945000,
     "game": "Children of Silentown"
@@ -3878,5 +3898,20 @@
     "user": "rmikar",
     "time": 1707950447000,
     "game": "Beacon Pines"
+  },
+  {
+    "user": "hawkfps30",
+    "time": 1707953036000,
+    "game": "Railroad Tycoon 2 Platinum"
+  },
+  {
+    "user": "hawkfps30",
+    "time": 1707953184000,
+    "game": "Railroad Tycoon 3"
+  },
+  {
+    "user": "hawkfps30",
+    "time": 1707953648000,
+    "game": "Army Men RTS"
   }
 ]
