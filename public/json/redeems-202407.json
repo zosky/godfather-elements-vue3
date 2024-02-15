@@ -140,6 +140,11 @@
     "game": "Chernobyl Commando"
   },
   {
+    "user": "miguelh1020",
+    "time": 1708019539000,
+    "game": "Love is Dead"
+  },
+  {
     "user": "okiroki",
     "time": 1707727053000,
     "game": "Children of Silentown"
@@ -223,6 +228,11 @@
     "user": "alburldador",
     "time": 1707852350000,
     "game": "The Anacrusis"
+  },
+  {
+    "user": "alburldador",
+    "time": 1708021283000,
+    "game": "Batora Lost Haven"
   },
   {
     "user": "thexmaxgame",
@@ -4378,5 +4388,10 @@
     "user": "willstocler",
     "time": 1708017758000,
     "game": "Kraken Academy"
+  },
+  {
+    "user": "willstocler",
+    "time": 1708018030000,
+    "game": "Brother Wings"
   }
 ]
