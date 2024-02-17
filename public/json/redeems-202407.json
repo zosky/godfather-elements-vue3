@@ -1245,6 +1245,11 @@
     "game": "System Shock Enhanced Edition"
   },
   {
+    "user": "exclamationmarkd",
+    "time": 1708154583000,
+    "game": "Beat Stickman Infinity Clones"
+  },
+  {
     "user": "m4auricio2",
     "time": 1707753411000,
     "game": "Patch Quest"
@@ -1283,6 +1288,11 @@
     "user": "balywa",
     "time": 1707834397000,
     "game": "Gold Rush 2"
+  },
+  {
+    "user": "balywa",
+    "time": 1708156112000,
+    "game": "Gold Rush Classic"
   },
   {
     "user": "andy_square",
@@ -2625,6 +2635,11 @@
     "game": "Beat Stickman Infinity Clones"
   },
   {
+    "user": "anderson_bayonet",
+    "time": 1708154081000,
+    "game": "System Shock 2"
+  },
+  {
     "user": "elkisatoro",
     "time": 1707835180000,
     "game": "The Blackout Club"
@@ -3350,6 +3365,11 @@
     "game": "Soulblight"
   },
   {
+    "user": "viral_strike",
+    "time": 1708154681000,
+    "game": "Twin Mirror"
+  },
+  {
     "user": "ervobia",
     "time": 1707939002000,
     "game": "There is no Light Enhanced Edition"
@@ -3805,6 +3825,21 @@
     "game": "Children of Silentown"
   },
   {
+    "user": "gonome2",
+    "time": 1708154854000,
+    "game": "Crashmetal Cyberpunk"
+  },
+  {
+    "user": "gonome2",
+    "time": 1708155160000,
+    "game": "Wolflord Werewolf Online"
+  },
+  {
+    "user": "gonome2",
+    "time": 1708155350000,
+    "game": "Giana Sisters Twisted Dreams"
+  },
+  {
     "user": "evamiloska",
     "time": 1707681229000,
     "game": "Nascar Heat 5"
@@ -3983,6 +4018,11 @@
     "user": "redgingercat",
     "time": 1707636492000,
     "game": "Biomutant"
+  },
+  {
+    "user": "redgingercat",
+    "time": 1708154097000,
+    "game": "Pixross"
   },
   {
     "user": "sttor04",
@@ -5703,5 +5743,10 @@
     "user": "advanceagent1",
     "time": 1708122378000,
     "game": "Dream Stone"
+  },
+  {
+    "user": "evgenei1987",
+    "time": 1708154065000,
+    "game": "Bloodstained Ritual of the Night"
   }
 ]
