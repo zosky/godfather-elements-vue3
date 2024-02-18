@@ -805,6 +805,11 @@
     "game": "Who Pressed Mute on Uncle Marcus"
   },
   {
+    "user": "nolsemaster",
+    "time": 1708215694000,
+    "game": "Guacamelee! Super Turbo Championship Edition"
+  },
+  {
     "user": "emononis",
     "time": 1707933152000,
     "game": "Beacon Pines"
@@ -1990,6 +1995,11 @@
     "game": "The Rescue of Mermaids"
   },
   {
+    "user": "mark17092000",
+    "time": 1708216397000,
+    "game": "Chernobyl Commando"
+  },
+  {
     "user": "luistrider",
     "time": 1707771102000,
     "game": "Pawnbarian"
@@ -2750,6 +2760,11 @@
     "game": "Children of Silentown"
   },
   {
+    "user": "emanuelml9",
+    "time": 1708216396000,
+    "game": "Deleveled"
+  },
+  {
     "user": "keet2ie",
     "time": 1707991710000,
     "game": "Children of Silentown"
@@ -3063,6 +3078,11 @@
     "user": "fano23mta",
     "time": 1707758391000,
     "game": "Scorn"
+  },
+  {
+    "user": "fano23mta",
+    "time": 1708215940000,
+    "game": "Astalon Tears of the Earth"
   },
   {
     "user": "normanatsun",
@@ -3638,6 +3658,16 @@
     "user": "aswd002",
     "time": 1707998868000,
     "game": "Reignmaker"
+  },
+  {
+    "user": "aswd002",
+    "time": 1708215770000,
+    "game": "Astalon Tears of the Earth"
+  },
+  {
+    "user": "aswd002",
+    "time": 1708215785000,
+    "game": "Beacon Pines"
   },
   {
     "user": "lostkitten01",
@@ -6458,5 +6488,10 @@
     "user": "darknei",
     "time": 1708214359000,
     "game": "Astalon Tears of the Earth"
+  },
+  {
+    "user": "iquicksilver_eternal",
+    "time": 1708214828000,
+    "game": "Dead Island Definitive Edition"
   }
 ]
