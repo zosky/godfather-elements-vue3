@@ -1,8 +1,18 @@
 [
   {
+    "user": "commissarbaneprime",
+    "time": 1708240231000,
+    "game": "Automobilista"
+  },
+  {
     "user": "higamestv",
     "time": 1708233489000,
     "game": "Batman Arkham City GOTY Edition"
+  },
+  {
+    "user": "agronom_vs_ua",
+    "time": 1708239737000,
+    "game": "Resident Evil Village"
   },
   {
     "user": "paymeinwaffles",
@@ -23,5 +33,15 @@
     "user": "justtch",
     "time": 1708234743000,
     "game": "Level Up Simulator"
+  },
+  {
+    "user": "vikusz123",
+    "time": 1708240529000,
+    "game": "Hitsquad Special"
+  },
+  {
+    "user": "nsin0825",
+    "time": 1708238465000,
+    "game": "Yakuza 4 Remastered"
   }
 ]
