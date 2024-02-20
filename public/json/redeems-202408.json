@@ -335,6 +335,11 @@
     "game": "Xel"
   },
   {
+    "user": "alkeaz",
+    "time": 1708433522000,
+    "game": "Darksiders Warmastered"
+  },
+  {
     "user": "crabyze",
     "time": 1708364233000,
     "game": "Heavenly Bodies"
@@ -873,6 +878,11 @@
     "user": "substrikemedia",
     "time": 1708264431000,
     "game": "Xmorph Defense Complete Pack"
+  },
+  {
+    "user": "elimeow",
+    "time": 1708429835000,
+    "game": "Silent Hill Homecoming"
   },
   {
     "user": "maksspion",
@@ -1420,6 +1430,16 @@
     "game": "Deep Rock Galactic"
   },
   {
+    "user": "nerevarum",
+    "time": 1708431626000,
+    "game": "Sunlight"
+  },
+  {
+    "user": "nerevarum",
+    "time": 1708431719000,
+    "game": "Xel"
+  },
+  {
     "user": "luckystar3024",
     "time": 1708249993000,
     "game": "Going Under"
@@ -1963,5 +1983,10 @@
     "user": "ralli125",
     "time": 1708429486000,
     "game": "Doughlings Invasion"
+  },
+  {
+    "user": "ralli125",
+    "time": 1708431000000,
+    "game": "Izmir and Independence Simulator"
   }
 ]
