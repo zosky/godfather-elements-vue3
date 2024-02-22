@@ -680,6 +680,21 @@
     "game": "Path of Giants"
   },
   {
+    "user": "slyislands",
+    "time": 1708567302000,
+    "game": "Kraken Academy"
+  },
+  {
+    "user": "slyislands",
+    "time": 1708567350000,
+    "game": "Who Pressed Mute on Uncle Marcus"
+  },
+  {
+    "user": "slyislands",
+    "time": 1708567388000,
+    "game": "The Serpent Rogue"
+  },
+  {
     "user": "loathsomexx",
     "time": 1708450710000,
     "game": "Life and Suffering of Sir Brante"
@@ -935,6 +950,11 @@
     "game": "Ogre"
   },
   {
+    "user": "alegreti",
+    "time": 1708564761000,
+    "game": "Kingdom Defense"
+  },
+  {
     "user": "cajkovskip",
     "time": 1708378048000,
     "game": "Destroy All Humans 2 Reprobed"
@@ -1128,6 +1148,11 @@
     "user": "progn0me",
     "time": 1708376501000,
     "game": "Regions of Ruin"
+  },
+  {
+    "user": "progn0me",
+    "time": 1708565256000,
+    "game": "Sid Meier's Ace Patrol Pacific Skies"
   },
   {
     "user": "timmy1337",
@@ -1438,6 +1463,11 @@
     "user": "maoupikathu",
     "time": 1708289184000,
     "game": "Automobilista"
+  },
+  {
+    "user": "maoupikathu",
+    "time": 1708565166000,
+    "game": "The Curious Tale of the Stolen Pets"
   },
   {
     "user": "dudagames001",
@@ -2335,6 +2365,11 @@
     "game": "Ball of Wonder"
   },
   {
+    "user": "din0ssaur0",
+    "time": 1708565186000,
+    "game": "There is no Light Enhanced Edition"
+  },
+  {
     "user": "akraysno",
     "time": 1708268661000,
     "game": "The Nightmare"
@@ -3223,5 +3258,15 @@
     "user": "jonnysonny",
     "time": 1708563218000,
     "game": "Turbo Golf Racing"
+  },
+  {
+    "user": "jonnysonny",
+    "time": 1708566944000,
+    "game": "911 Operator"
+  },
+  {
+    "user": "jonnysonny",
+    "time": 1708567713000,
+    "game": "Roadwarden"
   }
 ]
