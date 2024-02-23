@@ -4,18 +4,15 @@ const props = defineProps({
   watchtime: {type:Number,default:0},
   mini: {type:Boolean,default:false}
 })
-// time in minutes
-const chunks = { year: 525960, month: 43800, day: 1439.998416, hour: 60, minute: 1 }
 const watchRel = computed(()=> { 
-  const totalMinutes = props?.watchtime
-  let r = totalMinutes
-  const theD = {}
-  theD.y = Math.floor(r/chunks.year) ; r = r % chunks.year
-  theD.m = Math.floor(r/chunks.month); r = r % chunks.month
-  theD.dr = Math.floor(r/chunks.day) ; r = r % chunks.day
-  theD.hr = Math.floor(r/chunks.hour) ; r = r % chunks.hour
-  theD.mr = Math.round(r)
-  return theD
+  const d = moment.duration(props?.watchtime, 'minutes')
+  return { 
+    y: d.years(), 
+    m: d.months(),
+    dr: d.days(),
+    hr: d.hours(),
+    mr: d.minutes(),
+  }
 })
 
 </script>
