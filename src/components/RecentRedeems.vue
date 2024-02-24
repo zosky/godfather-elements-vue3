@@ -1,5 +1,7 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const liveRedeem = inject('$liveRedeem')
 const dataStore = inject('$dataStore')
 const me = computed(()=> dataStore?.user?.username )
@@ -25,7 +27,7 @@ const gameNameHashMap = computed(()=>dataStore?.gamesHashMap)
         <h2 v-else v-text="game.game"/>
         <div class="user">
           <h3 v-text="game.user" />
-          <h4 :title="moment(game.time,'x').format()" v-text="moment(game.time,'x').format('HH:mm')" />
+          <h4 :title="dayjs.unix(game.time/1000).format()" v-text="dayjs.unix(game.time).format('HH:mm')" />
         </div>
         <UserStats :user="game.user" />
       </article>

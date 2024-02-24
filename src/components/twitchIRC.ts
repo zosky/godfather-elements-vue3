@@ -1,6 +1,8 @@
 import tmi from 'tmi.js'
-import moment from 'moment'
 import { getters } from './DataStore'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const liveLog: Record<string,any> = reactive({})
@@ -23,7 +25,7 @@ function onMessageHandler (target:any, context:any, msg:string) {
     const clamsAwarded = msg.match(/(\w+) Has Been Sent (\d+) Clams/i)
     const winner = clamsAwarded?.[1]
     const amount = parseInt(clamsAwarded?.[2]??'0',10)
-    const winTime = moment().format('X')
+    const winTime = dayjs().format('X')
     const isTrivia = msg.includes('Trivia ')
     if(winner && amount && !isTrivia) { 
       if (!liveLog?.[winner]) liveLog[winner] = {}
@@ -35,7 +37,7 @@ function onMessageHandler (target:any, context:any, msg:string) {
     const isRedeem = msg?.match(/(\w+) just redeemed (.*) PogChamp/)
     const winner = isRedeem?.[1]
     const game = isRedeem?.[2]
-    const time = moment().format('x')
+    const time = dayjs().format('x')
     if(winner && game) { 
       liveRedeem.push({user:winner,game,time:parseInt(time,10)})
       getters.elements.user(winner, false)
@@ -45,7 +47,7 @@ function onMessageHandler (target:any, context:any, msg:string) {
     }
   } else { 
     if (msg.match(/^(!hitsquad)/i)?.[1]) {
-      const t = moment().format('X')
+      const t = dayjs().format('X')
       const u = context.username
       if(!liveEntries?.[u]) liveEntries[u] = []
       liveEntries[u].push(t)

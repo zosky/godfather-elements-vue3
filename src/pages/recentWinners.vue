@@ -1,15 +1,13 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 import apexcharts from 'vue3-apexcharts'
 const dataStore = inject('$dataStore')
-const liveEntries = inject('$liveEntries')
 const liveLog = inject('$liveLog')
-const bigHits = 60*60 // 1hr in seconds
-const me = ref('zoskyb')
 const maxHours= ref(24*7)
 const cacheDataOn = computed(()=> dataStore?.cacheDataOn ?? true )
 const liveDataOn = computed(()=> dataStore?.liveDataOn ?? true )
-const entries = computed(()=>dataStore?.gaEntries ?? {})
 const gaHistory = computed(()=> dataStore?.gaHistory ?? {} )
 
 const getCache = ()=>{
@@ -87,9 +85,9 @@ const findWins = u => {
   return Object.entries(allD)
     .map(w=>w={
       time:w[0], clams:w[1],
-      date: moment(w[0],'X').format('YYMMDD'),
-      dateStr: moment(w[0],'X').format('HH:mm'),
-      hrsAgo: parseInt(moment().diff(moment(w[0],'X'),'hours'),10)
+      date: dayjs.unix(w[0]).format('YYMMDD'),
+      dateStr: dayjs.unix(w[0]).format('HH:mm'),
+      hrsAgo: parseInt(dayjs().diff(dayjs.unix(w[0]),'hours'),10)
     })
     .filter( w => w.hrsAgo < maxHours.value )
     .sort((a,b)=> a.time>b.time?-1:1 ) // desc

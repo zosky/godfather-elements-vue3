@@ -1,5 +1,4 @@
 <script setup>
-import moment from 'moment'
 import { CalendarMonth, CalendarWeek } from 'mdue'
 const dataStore = inject('$dataStore')
 const goTime = () => {
@@ -11,8 +10,6 @@ const lastShowMonth = localStorage.getItem('showWeeks')
 dataStore.showWeeks = lastShowMonth == 'true' ? true 
   : lastShowMonth=='false'?false
     :true
-// if (!dataStore?.showWeeks){ dataStore.showWeeks = true }
-
 </script>
 
 <template>

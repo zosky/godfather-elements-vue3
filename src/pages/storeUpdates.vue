@@ -1,14 +1,16 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const dataStore = inject('$dataStore')
-const today = moment().format('YYYY-MM-DD')
+const today = dayjs().format('YYYY-MM-DD')
 const thisDate = ref(today)
 const gameUpdateMap = computed(()=>
   dataStore?.games
     ?.filter(g=> g.enabled)
     ?.sort((a,b)=>a.updatedAt>b.updatedAt?-1:1)
     ?.reduce((a,c)=>{
-      const date = moment(c.updatedAt).format('YYYY-MM-DD')
+      const date = dayjs(c.updatedAt).format('YYYY-MM-DD')
       if (!a?.[date]) a[date] = []
       a[date].push(c)
       return a
@@ -24,7 +26,7 @@ const gameUpdateMap = computed(()=>
     </select>
     <article>
       <label>
-        {{ gameUpdateMap[thisDate].length }} 👾 @ 📅 {{moment(thisDate,'YYYY-MM-DD').format('YY MMM Do')}}
+        {{ gameUpdateMap[thisDate].length }} 👾 @ 📅 {{dayjs(thisDate,'YYYY-MM-DD').format('YY MMM Do')}}
       </label>
       <article>
         <ul>

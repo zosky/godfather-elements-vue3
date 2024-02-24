@@ -1,6 +1,9 @@
 <script setup>
 import { GiftOutline, CalendarToday } from 'mdue'
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
+
 const dataStore = inject('$dataStore')
 const liveLog = inject('$liveLog')
 
@@ -24,12 +27,12 @@ const userHistory = computed(()=>{
   return Object.entries(allD)
     .map(w=>w={
       time:w[0], clams:w[1],
-      date: moment(w[0],'X').format('YYMMDD'),
-      dateStr: moment(w[0],'X').format('HH:mm')
+      date: dayjs.unix(w[0]).format('YYMMDD'),
+      dateStr: dayjs.unix(w[0]).format('HH:mm')
     })
     .filter( w => // apply date filters
-      w.time > (props.start ? moment(props.start).format('X') : props.min ) 
-      && ( !props.max ? true : w.time < moment(props.max).format('X') )
+      w.time > (props.start ? dayjs(props.start).format('X') : props.min ) 
+      && ( !props.max ? true : w.time < props.max )
     )
     .sort((a,b)=> a.time>b.time?-1:1 ) // desc
 })
@@ -62,7 +65,7 @@ const userPerDay = computed(()=>{
     </div>
     <details v-for="(day,dx) of userPerDay" :key="day.day" :open="!dx">
       <summary class="flex flex-row justify-between w-full pl-2 pr-4 my-0.5 bg-purple-950 bg-opacity-50 border-b border-purple-600 border-opacity-25 rounded-r-xl">
-        <div v-text="moment(day.day,'YYMMDD').format('MMM Do')" />
+        <div v-text="dayjs(day.day,'YYMMDD').format('MMM Do')" />
         <div class="flex flex-row justify-end w-1/2">
           <div class="flex flex-row justify-end items-center text-xs gap-0.5">
             {{ day.wins.length }}

@@ -1,6 +1,10 @@
 <script setup>
 import { SwordCross } from 'mdue'
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+import relativeTime from 'dayjs/plugin/relativeTime'
+dayjs.extend(advancedFormat)
+dayjs.extend(relativeTime)
 const props = defineProps({
   p: { type: Object, default: ()=>{return {}}},
   w: { type: Object, default: ()=>{return []}},
@@ -67,7 +71,7 @@ const myParticipation = computed(()=>Object.entries(clamMap)
           <h6
             v-if="Object.keys(p?.games??{}).length"
             class="min-w-max" 
-            :title="p?.games?.map(n => `📅 ${moment(n.time,'x').format('MMM DD HH:mm')} 👾 ${n.game}`).join('\n')">
+            :title="p?.games?.map(n => `📅 ${dayjs.unix(n.time/1000).format('MMM DD HH:mm')} 👾 ${n.game}`).join('\n')">
             {{ p?.games?.length }}👾
           </h6>
         </div>
@@ -77,20 +81,20 @@ const myParticipation = computed(()=>Object.entries(clamMap)
       <template v-for="(h,hx) of allD" :key="hx">
         <div
           v-if="h?.date != allD?.[hx-1]?.date" class="w-full border-t border-purple-900 pt-1 opacity-50"
-          v-text="moment(h?.date,'YYMMDD').format('MMM Do')" />
+          v-text="dayjs(h?.date,'YYMMDD').format('MMM Do')" />
         <label 
           v-if="h?.dist" 
-          :title="`!hitsquad @ ${moment(h.time,'X').format('HH:mm')}`" :class="{'text-sm opacity-50 bg-white rounded-xl px-2 bg-opacity-30':h?.dist>bigHits}">
+          :title="`!hitsquad @ ${dayjs.unix(h.time).format('HH:mm')}`" :class="{'text-sm opacity-50 bg-white rounded-xl px-2 bg-opacity-30':h?.dist>bigHits}">
           <span v-text="(h.dist/(h.dist>bigHits?60*60:60)).toFixed(h.dist>bigHits?1:0) + (h.dist>bigHits ? 'h' :'')" />
           <span v-if="h.dist>bigHits" v-text="'💤'"/>
           <span v-else class="opacity-25" v-text="'🕳️'"/>
         </label>
         <template v-else-if="h?.clams">
-          <label :title="`+${h.clams}🐚 @ ${moment(h.time,'X').format('HH:mm')}`" class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">
+          <label :title="`+${h.clams}🐚 @ ${dayjs.unix(h.time).format('HH:mm')}`" class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">
             <Clams :clams="h?.clams" class="clams" />
           </label>
         </template>
-        <span v-else class="opacity-50" >f/~{{ moment(h.time,'X').fromNow() }}</span>
+        <span v-else class="opacity-50" >f/~{{ dayjs.unix(h.time).fromNow() }}</span>
       </template>
     </div>
   </details>

@@ -28,10 +28,5 @@ app.provide('$methods', methods)
 app.provide('$liveLog', liveLog)
 app.provide('$liveEntries', liveEntries)
 app.provide('$liveRedeem', liveRedeem)
-// fireBase modules
-app.provide('$getData',getData)
-app.provide('$rDoc',rDoc)
-app.provide('$qData',qData)
-app.provide('$fData',fData)
 // goTime
 app.mount(document.body)

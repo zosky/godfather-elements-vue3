@@ -1,5 +1,8 @@
 const { writeFileSync, readFileSync } = require('fs')
-const moment = require('moment')
+const dayjs = require('dayjs')
+const advancedFormat = require('dayjs/plugin/advancedFormat')
+dayjs.extend(advancedFormat)
+
 const tmi = require('tmi.js')
 const files = ['gaHistory','gaEntries','redeems'].map(f=>`./public/${f}.json`)
 const bank = JSON.parse(readFileSync(files[0]))
@@ -20,7 +23,7 @@ function onConnectedHandler (addr, port) {
 
 // Called every time a message comes in
 function onMessageHandler (target, context, msg, self) {
-  const timeNow = moment().format('X')
+  const timeNow = dayjs().format('X')
   const isTGF = context.username == 'hitsquadgodfather'
   const isSE = context.username == 'streamelements'
   const clamsAwarded = isTGF ? msg.match(/(\w+) Has Been Sent (\d+) Clams/i) : []
@@ -52,5 +55,5 @@ setInterval( ()=>{
   const engUcount = Object.keys(engagement).length
   const engTTL = Object.values(engagement).flat().length
   const redeemedCount = Object.values(redeems).map(u=>Object.keys(u)).flat().length
-  console.log( moment().format('hh:mm'), '🧑‍🤝‍🧑', bankUserCount, `[${engUcount}]`, '🐚', bankTTL, '🎁', bankGAcount, '🎟️', engTTL, '👾', redeemedCount )
+  console.log( dayjs().format('hh:mm'), '🧑‍🤝‍🧑', bankUserCount, `[${engUcount}]`, '🐚', bankTTL, '🎁', bankGAcount, '🎟️', engTTL, '👾', redeemedCount )
 }, /*per 1h*/ 10*60*1000 )

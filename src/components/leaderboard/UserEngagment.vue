@@ -1,12 +1,13 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const bigHits = 60*60 // 1hr in seconds
 const dataStore = inject('$dataStore')
 const me = computed(()=> dataStore?.user?.username )
 const entries = computed(()=>dataStore?.gaEntries )
 const liveEntries = inject('$liveEntries')
 
-const redeemsHistory = computed(()=> dataStore?.redeems ?? {} )
 const redeemsLive = inject('$liveRedeem')
 const findRedeems = u => {
   const r = Object.values(dataStore.redeems??{})
@@ -18,13 +19,13 @@ const findRedeems = u => {
 const myEntries = computed(()=> { 
   let myD = Object.values(entries.value?.[me.value] ?? {})
   if(liveEntries?.[me.value]) myD.push( ... liveEntries[me.value] )
-  myD = myD.filter(d=> maxHours.value > parseInt( moment().diff(moment(d,'X'),'hours'), 10) )
+  myD = myD.filter(d=> maxHours.value > parseInt( dayjs().diff(dayjs.unix(d),'hours'), 10) )
   const myHits = { user:me.value, hits:myD.length }
   myHits.hitDistance = myD
     ?.map((t,ti)=> !ti ? 0 : parseInt(t,10) - parseInt(myD[ti-1],10) )
     ?.filter(t=>t)
   myHits.lastHr = myD
-    ?.filter(t => parseInt(t) > parseInt(moment().subtract(1,'hour').format('X'),10))
+    ?.filter(t => parseInt(t) > parseInt(dayjs().subtract(1,'hour').format('X'),10))
   myHits.bigHits = myHits.hitDistance.filter(t=>t>bigHits)
   myHits.smallHits = myHits.hitDistance.filter(t=>t<=bigHits)
   myHits.hitAvg = Math.round( (myHits.smallHits.reduce((a,c)=>a+=c,0) / myHits.smallHits.length)/60 )
@@ -32,7 +33,7 @@ const myEntries = computed(()=> {
     .map((time,ax)=>time={
       time,
       dist:myHits.hitDistance?.[ax-1],
-      date : moment(time,'X').format('YYMMDD'),
+      date : dayjs.unix(time).format('YYMMDD'),
     })
   myHits.games = findRedeems(me.value)
   return myHits
@@ -50,9 +51,9 @@ const myWins = computed(()=>{
   return Object.entries(allD)
     .map(w=>w={
       time:w[0], clams:w[1],
-      date: moment(w[0],'X').format('YYMMDD'),
-      dateStr: moment(w[0],'X').format('HH:mm'),
-      hrsAgo: parseInt(moment().diff(moment(w[0],'X'),'hours'),10)
+      date: dayjs.unix(w[0]).format('YYMMDD'),
+      dateStr: dayjs.unix(w[0]).format('HH:mm'),
+      hrsAgo: parseInt(dayjs().diff(dayjs.unix(w[0]),'hours'),10)
     })
     .filter( w => w.hrsAgo < maxHours.value )
     .sort((a,b)=> a.time>b.time?-1:1 ) // desc

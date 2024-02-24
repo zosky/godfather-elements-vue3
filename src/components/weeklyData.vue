@@ -1,30 +1,31 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+import weekOfYear from 'dayjs/plugin/weekOfYear'
+dayjs.extend(advancedFormat)
+dayjs.extend(weekOfYear)
 const dataStore = inject('$dataStore')
-const me = computed(()=> dataStore?.user?.username )
 const { cache } = inject('$getters')
 const liveRedeem = inject('$liveRedeem')
 const liveEntries = inject('$liveEntries')
 const liveLog = inject('$liveLog')
 
+const thisWeek = dayjs().format('YYYYww')
 const liveArr = computed(()=> Object.values(liveEntries).flat()?.length)
 const redeemedGamesThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
-  const d = dataStore[`redeems-${thisWeek}`].map(r=>r.game)
-  const l = liveRedeem.map(r=>r.game)
+  const d = dataStore?.[`redeems-${thisWeek}`]?.map(r=>r?.game) ?? []
+  const l = liveRedeem?.map(r=>r?.game) ?? []
   const u = Array.from(new Set([...d,...l])).length
   return u
 })
 const redeemedPeopleThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
-  const d = dataStore[`redeems-${thisWeek}`].map(r=>r.user)
-  const l = liveRedeem.map(r=>r.user)
+  const d = dataStore?.[`redeems-${thisWeek}`]?.map(r=>r.user) ?? []
+  const l = liveRedeem?.map(r=>r.user) ?? []
   const u = Array.from(new Set([...d,...l])).length
   return u
 })
 
 const entriesPeopleThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
   const d = Object.keys(dataStore?.[`gaEntries-${thisWeek}`]??{})
   const l = Object.keys(liveEntries??{})
   const u = Array.from(new Set([...d,...l])).length
@@ -32,7 +33,6 @@ const entriesPeopleThisWeek = computed(()=>{
 })
 
 const giveawaysPeopleThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
   const d = Object.keys(dataStore?.[`gaHistory-${thisWeek}`]??{})
   const l = Object.keys(liveLog??{})
   const u = Array.from(new Set([...d,...l])).length
@@ -40,7 +40,6 @@ const giveawaysPeopleThisWeek = computed(()=>{
 })
 
 const giveawaysCountThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
   const d = Object.values(dataStore?.[`gaHistory-${thisWeek}`]??{}).reduce((a,c)=>a+=Object.keys(c).length,0)
   const l = Object.values(liveLog??{}).reduce((a,c)=>a+=Object.keys(c).length,0)
   const u = d+l
@@ -48,7 +47,6 @@ const giveawaysCountThisWeek = computed(()=>{
 })
 
 const calmsThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
   const d = Object.values(dataStore?.[`gaHistory-${thisWeek}`]??{})
     .map(c => Object.values(c) )
     .flat().reduce((a,c)=>a+=c,0)
@@ -59,21 +57,18 @@ const calmsThisWeek = computed(()=>{
 })
 
 const redeemCountThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
   const h = dataStore?.[`redeems-${thisWeek}`]?.length ?? 0
   const l = liveRedeem?.length ?? 0
   return h + l
 })
 
 const entriesThisWeek = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
-  const h = Object.values(dataStore?.[`gaEntries-${thisWeek}`])?.flat()?.length ?? 0
+  const h = Object.values(dataStore?.[`gaEntries-${thisWeek}`]??{})?.flat()?.length ?? 0
   const l = liveArr.value ?? 0
   return h + l
 })
 
 const hashMap = computed(()=>{
-  const thisWeek = moment().format('YYYYww')
   if(dataStore?.hashMap) {
     dataStore.hashMap[thisWeek] = { 
       redeemsGames: redeemedGamesThisWeek?.value,
@@ -104,9 +99,9 @@ const fields = [
 const loadedData = ref({}) // init this week (arr[0] not used)
 const isOpen = ref(false) // init this week (arr[0] not used)
 
-loadedData.value[moment().format('YYYYww')] = true
-loadedData.value[moment().subtract(1,'week').format('YYYYww')] = true
-loadedData.value[moment().subtract(2,'week').format('YYYYww')] = true
+loadedData.value[dayjs().format('YYYYww')] = true
+loadedData.value[dayjs().subtract(1,'week').format('YYYYww')] = true
+loadedData.value[dayjs().subtract(2,'week').format('YYYYww')] = true
 
 const goTime = ()=>{
   // make monkyName array
@@ -150,7 +145,12 @@ const mergeData = (p,r) => {
     <label
       class="col-span-full text-center opacity-75 text-xs"
       :title="`godFather has been giving out calms & games much longer than this,\nthis is what the app can show`">
-      recording for {{hashMap?.length}} weeks since {{moment(hashMap?.at(-2)?.week,'YYYYww').format('YYYY MMM Do')}}
+      recording for {{hashMap?.length}} weeks since {{
+        hashMap?.at(-1)?.week ? dayjs()
+          .year(hashMap?.at(-1)?.week?.match(/^(....)/)?.[1])
+          .week(hashMap?.at(-1)?.week?.match(/(..)$/)?.[1])
+          .day(0)
+          .format('YYYY MMM Do') : '?' }}
     </label>
     <div v-for="field of ['week','redeems','giveaways','entries']" :key="field" class="num top" :class="field">{{ field }}</div>
     <template v-for="data of hashMap" :key="data.week">
@@ -160,7 +160,7 @@ const mergeData = (p,r) => {
         :class="{
           hidden: !isOpen && !loadedData?.[data?.week] ,
           thisWeekSelected: loadedData?.[data.week] && isOpen,
-          newMonth: moment(data.week,'YYYYww').format('DD') <= 7,
+          newMonth: dayjs(data.week,'YYYYww').format('DD') <= 7,
           week: (field=='week' && (isOpen || ( !isOpen && loadedData?.[data.week] )))
         }">
         <template v-if="field=='week'">
@@ -168,25 +168,25 @@ const mergeData = (p,r) => {
             v-if="isOpen"
             v-model="loadedData[data.week]" type="checkbox"
             @change="goTime()"/>
-          <div v-if="moment().format('YYYYww')==data.week" class="w-full text-center font-bold">
+          <div v-if="dayjs().format('YYYYww')==data.week" class="w-full text-center font-bold">
             thisWeek
           </div>
           <template v-else>
             <div
-              class="from" v-text="moment(data.week,'YYYYww').format(
-                moment(data.week,'YYYYww').format('DD') <= 7 ? 
+              class="from" v-text="data.week ? dayjs().year(data.week.match(/^(....)/)?.[1]).week(data.week.match(/(..)$/)?.[1]).day(0).format(
+                dayjs(data.week,'YYYYww').format('DD') <= 7 ? 
                   'MMM Do' : 'Do'
-              )" />
+              ) : '?'" />
             <div
-              class="to" v-text="moment(data.week,'YYYYww').add(6,'days').format(
-                moment(data.week,'YYYYww').add(6,'days').format('DD') <= 7 ?
+              class="to" v-text="data.week ? dayjs().year(data.week.match(/^(....)/)?.[1]).week(data.week.match(/(..)$/)?.[1]).day(6).format(
+                dayjs(data.week,'YYYYww').add(6,'days').format('DD') <= 7 ?
                   'MMM Do' : 'Do'
-              )" />
+              ) : '?' " />
           </template>
         </template>
         <Clams
           v-else-if="data?.[field]" :clams="data?.[field]"
-          :title="`${data?.[field]} ${field} on the week of ${moment(data.week,'YYYYww').format('MMM DD')}`"
+          :title="`${data?.[field]} ${field} on the week of ${dayjs(data.week,'YYYYww').format('MMM DD')}`"
           :class="[field,{
             clams:field=='giveawaysClams',
             people: field.includes('People'),

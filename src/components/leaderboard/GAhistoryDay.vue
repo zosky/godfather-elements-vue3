@@ -1,5 +1,7 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const liveLog = inject('$liveLog')
 const dataStore = inject('$dataStore')
 const showTTLs = ref(false)
@@ -30,9 +32,9 @@ const gaData = computed(()=>{
 const perDay = computed(()=> 
   Object.values(gaData.value).flat().map(g=> 
     Object.entries(g).map(gg=>{
-      const day = moment(gg[0],'X').format('YYMMDD')
-      const month = moment(gg[0],'X').format('YYMM')
-      const ago = moment().diff(moment(gg[0],'X'),'hours')
+      const day = dayjs.unix(gg[0]).format('YYMMDD')
+      const month = dayjs.unix(gg[0]).format('YYMM')
+      const ago = dayjs().diff(dayjs.unix(gg[0]),'hours')
       return { x: gg[0], value: gg[1], day, ago, month }
     }))
     ?.flat()
@@ -71,7 +73,7 @@ const myWins = computed(()=> Object.entries( gaData.value.find(g=>g[0]==me?.valu
   ?.map(gg=>gg={ 
     x: gg[0], 
     value: gg[1], 
-    day: moment(gg[0],'X').format('YYMMDD') 
+    day: dayjs.unix(gg[0]).format('YYMMDD') 
   }).reduce((a,c)=>{
     if(!a?.[c.day]) a[c.day]={}
     if(!a?.[c.day]?.[c.value]) a[c.day][c.value]=0
@@ -131,7 +133,7 @@ const myWins = computed(()=> Object.entries( gaData.value.find(g=>g[0]==me?.valu
         v-for="(gas, day) of perDay" :key="day"
         class="hover:bg-purple-900 hover:bg-opacity-40"
         :class="{'bg-purple-900 bg-opacity-30':day.slice(-2)=='01'}">
-        <th class="whitespace-nowrap" v-text="moment(day,'YYMMDD').format('MMM Do')" />
+        <th class="whitespace-nowrap" v-text="dayjs(day,'YYMMDD').format('MMM Do')" />
         <td class="bg-purple-950 bg-opacity-60 border-b border-purple-900 mr-4">
           <div
             class="flex flex-row justify-between w-full items-center px-2 pr-2 pl-4 font-mono gap-1">

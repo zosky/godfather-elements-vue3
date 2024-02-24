@@ -1,6 +1,8 @@
 <script setup>
 import { SwordCross, CommentQuestion } from 'mdue'
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const dataStore = inject('$dataStore')
 
 const buttonFilters = { entries: '🎟️',ga: '🎁', games:'🕹️', clams: '🐚' }
@@ -33,9 +35,9 @@ const findWins = u => {
       games: clams.games.includes(w[1]),
       showdown: clams.games.includes(w[1]),
       // trivia: w[1]==250,
-      date: moment(w[0],'X').format('YYMMDD'),
-      dateStr: moment(w[0],'X').format('HH:mm'),
-      hrsAgo: parseInt(moment().diff(moment(w[0],'X'),'hours'),10)
+      date: dayjs.unix(w[0]).format('YYMMDD'),
+      dateStr: dayjs.unix(w[0]).format('HH:mm'),
+      hrsAgo: parseInt(dayjs().diff(dayjs.unix(w[0]),'hours'),10)
     })
     .filter( w => w.hrsAgo < maxHours.value )
     .sort((a,b)=> a.time>b.time?-1:1 ) // desc
@@ -54,7 +56,7 @@ const gamers = computed(()=> {
       hitDistance: p[1]
         ?.map((t,ti)=> !ti ? 0 : parseInt(t,10) - parseInt(p[1][ti-1],10) )
         ?.filter(t=>t),
-      lastHr: p[1].filter(t => parseInt(t,10) > parseInt(moment().subtract(1,'hour').format('X'),10)),
+      lastHr: p[1].filter(t => parseInt(t,10) > parseInt(dayjs().subtract(1,'hour').format('X'),10)),
       wins: findWins(p[0]),
       games: findRedeems(p[0]),
       hitTimes: p[1],
@@ -65,12 +67,11 @@ const gamers = computed(()=> {
       showdown: p.wins?.filter(w=>w?.showdown)?.length ?? 0,
       giveaway: p.wins?.filter(w=>w?.giveaway)?.length ?? 0,
       arr: p.hitTimes
-        // .filter(a => maxHours.value > parseInt(moment().diff( moment(a,'X') ),10)) 
         .map((a,ax)=>a={
           time:a,
           dist:p.hitDistance?.[ax-1],
-          date: moment(a,'X').format('YYMMDD'),
-          hrsAgo: parseInt(moment().diff(moment(a,'X'),'hours'),10)
+          date: dayjs.unix(a).format('YYMMDD'),
+          hrsAgo: parseInt(dayjs().diff(dayjs.unix(a),'hours'),10)
         })
         .filter(a => a?.hrsAgo < maxHours?.value),
     })
@@ -113,7 +114,7 @@ const gamers = computed(()=> {
   <div class="grid grid-cols-1 md:grid-cols-3 gap-x-2 gap-y-1 p-2">
     <div class="col-span-full flex flex-row justify-between items-end pt-4">
       <div class="flex flex-row gap-1">
-        <div class="opacity-75">💾 since {{ moment().diff( moment(firstTime,'X'), 'hours') }}hrs</div>
+        <div class="opacity-75">💾 since {{ dayjs().diff( dayjs.unix(firstTime), 'hours') }}hrs</div>
         <label class="px-2">
           👁️ last
           <input v-model="maxHours" type="number" min="1" step="12" />

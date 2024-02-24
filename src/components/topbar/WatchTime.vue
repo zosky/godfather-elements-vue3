@@ -1,11 +1,13 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
+dayjs.extend(duration)
 const props = defineProps({
   watchtime: {type:Number,default:0},
   mini: {type:Boolean,default:false}
 })
 const watchRel = computed(()=> { 
-  const d = moment.duration(props?.watchtime, 'minutes')
+  const d = dayjs.duration(props?.watchtime, 'minutes')
   return { 
     y: d.years(), 
     m: d.months(),

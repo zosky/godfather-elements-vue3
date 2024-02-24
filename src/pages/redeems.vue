@@ -1,6 +1,8 @@
 <script setup>
-import moment from 'moment'
 import { Eye } from 'mdue'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const liveRedeem = inject('$liveRedeem')
 const dataStore = inject('$dataStore')
 const me = computed(()=> dataStore?.user?.username )
@@ -88,7 +90,7 @@ const redeemsPerPerson = computed(()=>{
         </summary>
         <ul>
           <li v-for="gameRedeem of game?.data" :key="gameRedeem.time">
-            <span class="font-light font-mono text-xs" v-text="moment(gameRedeem.time,'x').format('MMM DD HH:mm')" />
+            <span class="font-light font-mono text-xs" v-text="dayjs.unix(gameRedeem.time/1000).format('MMM DD HH:mm')" />
             <b v-text="gameRedeem.user" />
           </li>
         </ul>
@@ -108,7 +110,7 @@ const redeemsPerPerson = computed(()=>{
             <GameCard v-if="gameNameHashMap?.[game]" :game="gameNameHashMap?.[game]" class="gameCard col-span-2" :controls="false" />
             <div v-else class="col-span-2">{{ game }}</div>
             <ul class="text-right">
-              <li v-for="date of dates" :key="date" class="text-xs" v-text="moment(date,'x').format('MMM DD HH:mm')" />
+              <li v-for="date of dates" :key="date" class="text-xs" v-text="dayjs.unix(date/1000).format('MMM DD HH:mm')" />
             </ul>
           </template>
         </div>

@@ -1,5 +1,7 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const route = useRoute()
 const router = useRouter()
 const dataStore = inject('$dataStore')
@@ -53,10 +55,10 @@ const gaData = computed(()=>{
     ?.map(u=>u={
       user: u[0], 
       ttl: Object.entries(u[1])
-        .filter(uu=> uu[0] > moment(startTime.value??times?.start).format('X') && uu[0] < moment(endTime.value??'now').format('X') )
+        .filter(uu=> uu[0] > dayjs(startTime.value??times?.start).format('X') && uu[0] < dayjs(endTime.value??'now').format('X') )
         .reduce((a,c)=>a+=c[1],0),
       count: Object.keys(u[1])
-        .filter(uu=> uu > moment(startTime.value??times?.start).format('X') && uu < moment(endTime.value??'now').format('X') )
+        .filter(uu=> uu > dayjs(startTime.value??times?.start).format('X') && uu < dayjs(endTime.value??'now').format('X') )
         .length
     })
 })
@@ -73,7 +75,7 @@ const times = computed(()=>{
 })
 watchEffect(()=>{
   const s = times.value?.start
-  if (s) startTime.value = moment(s,'X').format()
+  if (s) startTime.value = dayjs.unix(s).format()
 })
 watchEffect(()=>{
   const u = thisUser?.value?.user
@@ -89,7 +91,7 @@ watchEffect(()=>{
       id="searchDataForUser"
       class="w-full flex flex-row flex-wrap sm:flex-nowrap col-span-2 mt-4 mb-2">
       <div class="flex flex-col">
-        <label class="opacity-75" v-text="`from: ${ moment(times?.start,'X').format('YY-MM-DD HH:mm') }`" />
+        <label class="opacity-75" v-text="`from: ${ dayjs.unix(times?.start).format('YY-MM-DD HH:mm') }`" />
         <input
           v-model="startTime"
           type="datetime-local"

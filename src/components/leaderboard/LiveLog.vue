@@ -1,5 +1,7 @@
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
 const liveLog = inject('$liveLog')
 const dataStore = inject('$dataStore')
 dataStore.search = dataStore?.search ?? null
@@ -18,7 +20,7 @@ const newWins = computed(()=>{
     return a
   },[])
   return lr?.sort((a,b)=>a.win>b.win?-1:1)
-    ?? [{ user:'none yet', win: moment().format('X'), clams: 0 }]
+    ?? [{ user:'none yet', win: dayjs.unix(), clams: 0 }]
 })
 </script>
 <template>
@@ -38,7 +40,7 @@ const newWins = computed(()=>{
         'bg-opacity-40 border-pink border-r border-l bg-purple-700 text-purple-300':newWin.clams==1000,
         'bg-opacity-40 border-pink border-r border-l bg-purple-400 text-purple-200':newWin.clams==2500,
       }" >
-      <div class="self-center font-mono min-w-max w-1/2 text-xs font-thin text-purple-500 text-right">{{ moment(newWin?.win,'X').format('HH:mm:ss') }}</div>
+      <div class="self-center font-mono min-w-max w-1/2 text-xs font-thin text-purple-500 text-right">{{ dayjs.unix(newWin?.win).format('HH:mm:ss') }}</div>
       <div class="w-full flex flex-row justify-start gap-1">
         <Clams :clams="newWin?.clams" class="w-16 text-right"/>
         <div class="font-bold">{{ newWin?.user }}</div>
