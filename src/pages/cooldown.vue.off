@@ -1,0 +1,30 @@
+<script setup>
+const dataStore = inject('$dataStore')
+const gameCooldown = computed(()=> dataStore?.games
+  ?.reduce((a,c)=>{ 
+    if(c.enabled){
+      if (c.cooldown.user && !c.cooldown.category) a.user.push(c)
+      if (c.cooldown.global) a.global.push(c)
+      if (c.cooldown.category) a.category.push(c)
+    }
+    return a
+  },{user:[],global:[],category:[]}) 
+)
+</script>
+
+<template>
+  <pre>{{ Object.entries(gameCooldown).map(g=>`${g[0]} ${g[1].length}`) }}</pre>
+  <pre>not10: {{gameCooldown.user.filter(g=>g.cooldown.user!=10).length}}
+    {{gameCooldown.user.filter(g=>g.cooldown.user!=10)?.[0]?.name}}
+    {{gameCooldown.user.filter(g=>g.cooldown.user!=10)?.[0]?.cooldown?.user / (60*60) }} hr
+  </pre>
+  <pre>
+    {{ gameCooldown.user.map(g=>`${g.name}`).sort((a,b)=>a>b?1:-1) }}
+  </pre>
+  <pre>
+    {{ gameCooldown.category.map(g=>`${g.cooldown.category}:${g.name}`).sort((a,b)=>a>b?1:-1) }}
+  </pre>
+  <pre>
+    
+  </pre>
+</template>

@@ -1,0 +1,32 @@
+<script setup>
+import dayjs from 'dayjs'
+const liveLog = inject('$liveLog')
+const dataStore = inject('$dataStore')
+const showMe = ref(dataStore?.user?.username?true:false)
+const me = computed(()=> dataStore?.user?.username )
+const gaHistory = computed(()=>dataStore?.gaHistory??{})
+const cacheDataOn = computed(()=> dataStore?.cacheDataOn ?? true )
+const liveDataOn = computed(()=> dataStore?.liveDataOn ?? true )
+const showdownLog = computed(()=>{
+  let allData = {} // merged data
+  if(cacheDataOn.value && liveDataOn.value){
+    allData = { ... gaHistory.value }
+    const live = { ... liveLog }
+    for (const u of Object.entries(live)){
+      if(!allData?.[u[0]]) allData[u[0]] = u[1]
+      else allData[u[0]] = { ...allData[u[0]], ...u[1] }
+    }
+  } else { // only 1 set
+    allData = cacheDataOn.value ? gaHistory.value 
+      : liveDataOn.value ? liveLog 
+        : null
+  }
+  // goTime
+  return Object.entries(allData ?? {})
+})
+
+</script>
+
+<template>
+  <pre>{{ showdownLog?.zoskyb }}</pre>
+</template>

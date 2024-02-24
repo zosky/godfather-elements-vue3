@@ -1,0 +1,208 @@
+<script setup>
+import moment from 'moment'
+import apexcharts from 'vue3-apexcharts'
+const dataStore = inject('$dataStore')
+const liveEntries = inject('$liveEntries')
+const liveLog = inject('$liveLog')
+const bigHits = 60*60 // 1hr in seconds
+const me = ref('zoskyb')
+const maxHours= ref(24*7)
+const cacheDataOn = computed(()=> dataStore?.cacheDataOn ?? true )
+const liveDataOn = computed(()=> dataStore?.liveDataOn ?? true )
+const entries = computed(()=>dataStore?.gaEntries ?? {})
+const gaHistory = computed(()=> dataStore?.gaHistory ?? {} )
+
+const getCache = ()=>{
+  const prodShim = import.meta.env.PROD ? '/godfather-elements-vue3' : ''
+  if(!dataStore?.gaEntries) fetch(`${prodShim}/gaEntries.json`)
+    .then(r=> r.json() )
+    .then(r=> dataStore.gaEntries = r )
+  if(!dataStore?.gaHistory) fetch(`${prodShim}/gaHistory.json`)
+    .then(r=> r.json() )
+    .then(r=> dataStore.gaHistory = r )
+}
+getCache()
+
+const wins = computed(()=>{
+  const u = me.value
+  const h = cacheDataOn.value ? gaHistory.value?.[u] : {}
+  const l = liveDataOn.value ? liveLog?.[u] : {}
+  const allD = { ...h, ...l }
+  const newD = Object.entries(allD)
+    ?.map(w=>w={
+      time:w[0], clams:w[1],
+      date: moment(w[0],'X').format('YYMMDD'),
+      x: parseInt( moment(w[0],'X').format('x') ),
+      dateStr: moment(w[0],'X').format('HH:mm'),
+      hrsAgo: parseInt(moment().diff(moment(w[0],'X'),'hours'),10)
+    })
+    ?.filter( w => w.hrsAgo < maxHours.value )
+    ?.sort((a,b)=> a.time>b.time?-1:1 ) // desc
+    ?.map(a=>[a.x, a.clams])
+    ?? []
+  return [{ name: 'wins', data: newD }]
+})
+
+const hits = computed(()=> { 
+  let myD = Object.values(entries.value?.[me.value] ?? {})
+  if(liveEntries?.[me.value]) myD.push( ... liveEntries[me.value] )
+  myD = myD.filter(d=> maxHours.value > parseInt( moment().diff(moment(d,'X'),'hours'), 10) )
+  const myHits = { user:me.value, hits:myD?.length }
+  myHits.hitDistance = myD
+    ?.map((t,ti)=> !ti ? 0 : parseInt(t,10) - parseInt(myD[ti-1],10) )
+    ?.filter(t=>t)
+  myHits.lastHr = myD
+    ?.filter(t => parseInt(t) > parseInt(moment().subtract(1,'hour').format('X'),10))
+  myHits.bigHits = myHits.hitDistance.filter(t=>t>bigHits)
+  myHits.smallHits = myHits.hitDistance.filter(t=>t<=bigHits)
+  myHits.hitAvg = Math.round( (myHits.smallHits.reduce((a,c)=>a+=c,0) / myHits.smallHits?.length)/60 )
+  myHits.arr = myD
+    .map((time,ax)=>time={
+      time,
+      dist:myHits.hitDistance?.[ax-1],
+      distMin: Math.round(myHits.hitDistance?.[ax-1]/60),
+      distHour: Math.round(myHits.hitDistance?.[ax-1]/60/60),
+      date : moment(time,'X').format('YYMMDD'),
+      x: parseInt( moment(time,'X').format('x'), 10 ),
+    })
+  return [{name:'hit distance',data:myHits.arr?.map(a=>a=[a.x,a?.distMin??0])}]
+})
+
+
+const chartOptions = computed(()=>{return {
+  chart: { 
+    height: 350,
+    type: 'scatter',
+    zoom: { type: 'xy' }
+  },
+  dataLabels: { enabled: false },
+  grid: {
+    xaxis: { lines: { show: true }},
+    yaxis: { lines: { show: true }},
+  },
+  xaxis: { 
+    type: 'datetime', 
+    min: parseInt(moment().subtract(6,'hours').format('x'), 10),
+    max: parseInt(moment().format('x'), 10),
+  },
+  yaxis: { 
+    min: 0,
+    max: hits.value?.[0].data.reduce((a,c) => a = a > c[1]?a:c[1] ,0)
+  },
+  background: { enabled: true, foreColor: '#02f', borderRadius:2, padding:1, opacity:0.9, borderWidth:1, border:'#07f' },
+
+  // yaxis: { max: 70 
+}})
+
+// const series = [
+//   { name:'zoskyb',
+//     // data: [[1324508400000, 34], [1324594800000, 54] , [1326236400000, 43]]
+//     data: [[1694723349000,300],[1694722416000,100],[1694719893000,100],[1694719864000,100],[1694715216000,300],[1694715206000,100],[1694700657000,300],[1694669955000,100],[1694665758000,150],[1694664468000,300],[1694663991000,100],[1694663303000,300],[1694662779000,100],[1694652846000,200],[1694647046000,100],[1694640297000,100]]
+//   }
+// ]
+
+
+
+// const pieData = computed(()=>topUsers.value?.map(u=>u.clams)??[])
+// const pieLabels = computed(()=>topUsers.value?.map(u=>u.name)??[])
+// const pieChart = computed(()=>{ 
+//   return {
+//     chart: { type: 'donut', foreColor: '#fff', },
+//     theme: { monochrome: { enabled: true } },    
+//     labels: pieLabels.value,
+//     plotOptions: { 
+//       pie: { 
+//         startAngle: 0, endAngle: 360,
+//         donut: {
+//           labels: { 
+//             show: true,
+//           } 
+//         },
+//       },
+//     },
+//     dataLabels: { 
+//       style: { fontSize: '10pt', fontWeight: 'bold'} ,
+//       background: { enabled: true, foreColor: '#02f', borderRadius:2, padding:1, opacity:0.9, borderWidth:1, border:'#07f' },
+//       formatter: function(val,opt){
+//         const l = opt.w.globals.labels[opt.seriesIndex]
+//         const v = val.toFixed(0)
+//         return `${l}: ${v}%`
+//         // return Object.keys(opt).join(',') //opt.w.globals.labels[opt.dataPointIndex] + ': ' + val
+//       }
+//     },
+//     fill: { type: 'gradient', },
+//     legend: { 
+//       colors: 'white', // TEXT COLOR CAN BE CHANGED HERE
+//       useSeriesColors: false,
+
+//       // style: { fontSize: '12pt', fontWeight: 'bold'} ,
+//       // background: { enabled: true, foreColor: '#02f', borderRadius:2, padding:1, opacity:0.9, borderWidth:1, border:'#07f' },
+//       formatter: function(val, opts) {
+//         return opts.w.globals.series[opts.seriesIndex] + ':' + val
+//       }
+//     },
+//     title: { text: `last 7 days: top 30 🐚 chukkers of ${allUsers.value?.length}🧑‍🤝‍🧑` },
+//     // responsive: [{ 
+//     //   breakpoint: 480, 
+//     //   options: { 
+//     //     chart: { width: 200 },
+//     //     legend: { position: 'bottom'}
+//     //   }
+//     // }]
+//   }
+// })
+
+
+const allUsers = computed(()=>{
+  const h = cacheDataOn.value ? Object.keys(gaHistory.value??{}) : []
+  const l = liveDataOn.value ? Object.keys(liveLog??{}) : []
+  const allU = Array.from(new Set([...h, ...l]))
+  return allU
+    ?.map(u=> u={name:u, clams:findWins(u)?.reduce((a,c)=>a+=c.clams,0)})
+    ?.sort((a,b)=>a.clams>b.clams?-1:1)
+
+  // return allU //.slice(0,10)
+})
+
+const topUsers = computed(()=>{
+  const slicePoint = 30
+  const allWs = allUsers.value ?? []
+  const topU = allWs?.slice(0,slicePoint)
+  const restU = { name: `${allWs.length-slicePoint}🧑‍🤝‍🧑`, clams: allWs?.slice(slicePoint).reduce((a,c)=>a+=c.clams,0) }
+  return [ ...topU, restU ]
+})
+
+const findWins = u => {
+  const h = cacheDataOn.value ? gaHistory.value?.[u] : {}
+  const l = liveDataOn.value ? liveLog?.[u] : {}
+  const allD = { ...h, ...l }
+  return Object.entries(allD)
+    .map(w=>w={
+      time:w[0], clams:w[1],
+      date: moment(w[0],'X').format('YYMMDD'),
+      dateStr: moment(w[0],'X').format('HH:mm'),
+      hrsAgo: parseInt(moment().diff(moment(w[0],'X'),'hours'),10)
+    })
+    .filter( w => w.hrsAgo < maxHours.value )
+    .sort((a,b)=> a.time>b.time?-1:1 ) // desc
+}
+
+
+</script>
+
+<template>
+  <div>
+    <label>goTime</label>
+    <!-- <pre>{{ allUsers }}</pre> -->
+    <div class="flex flex-row w-full">
+      <!-- <apexcharts :options="pieChart" :series="pieData" class="w-full" /> -->
+      <apexcharts 
+        v-if="wins?.length || hits?.length"
+        type="scatter" 
+        height="350" 
+        class="w-full"
+        :options="chartOptions" 
+        :series="[ ...wins, ...hits ]" />
+    </div>
+  </div>
+</template>
