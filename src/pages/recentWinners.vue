@@ -1,8 +1,8 @@
 <script setup>
 import dayjs from 'dayjs'
+import apexcharts from 'vue3-apexcharts'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 dayjs.extend(advancedFormat)
-import apexcharts from 'vue3-apexcharts'
 const dataStore = inject('$dataStore')
 const liveLog = inject('$liveLog')
 const maxHours= ref(24*7)
