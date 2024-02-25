@@ -208,5 +208,12 @@
     "redeemsCount": 1128,
     "redeemsPeople": 550,
     "redeemsGames": 281
+  },
+  "202409": {
+    "entriesPeople": 103,
+    "entriesCount": 218,
+    "giveawaysPeople": 21,
+    "giveawaysCount": 24,
+    "giveawaysClams": 7100
   }
 }
