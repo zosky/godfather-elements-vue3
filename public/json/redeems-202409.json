@@ -1,5 +1,10 @@
 [
   {
+    "user": "nikzor888",
+    "time": 1708855429000,
+    "game": "Magnifico"
+  },
+  {
     "user": "aimeren",
     "time": 1708844381000,
     "game": "Dog Sled Saga"
@@ -75,9 +80,19 @@
     "game": "Children of Silentown"
   },
   {
+    "user": "nunomgnunes",
+    "time": 1708855506000,
+    "game": "Hamiltons Great Adventure"
+  },
+  {
     "user": "activexyz",
     "time": 1708845985000,
     "game": "Ogre"
+  },
+  {
+    "user": "superkiller777",
+    "time": 1708854938000,
+    "game": "The Spiral Scouts"
   },
   {
     "user": "justtch",
@@ -133,5 +148,50 @@
     "user": "fulleniy",
     "time": 1708851072000,
     "game": "Golden Light"
+  },
+  {
+    "user": "titiktor",
+    "time": 1708852545000,
+    "game": "Heavenly Bodies"
+  },
+  {
+    "user": "xanthi88",
+    "time": 1708853593000,
+    "game": "Elex 2"
+  },
+  {
+    "user": "xanthi88",
+    "time": 1708853696000,
+    "game": "Batora Lost Haven"
+  },
+  {
+    "user": "xanthi88",
+    "time": 1708853757000,
+    "game": "Die Young"
+  },
+  {
+    "user": "xanthi88",
+    "time": 1708853826000,
+    "game": "Hot Brass"
+  },
+  {
+    "user": "xanthi88",
+    "time": 1708853870000,
+    "game": "Necroworm"
+  },
+  {
+    "user": "xanthi88",
+    "time": 1708853986000,
+    "game": "Critical Damage"
+  },
+  {
+    "user": "xxx_ray_xxxx",
+    "time": 1708854235000,
+    "game": "Weapon Genius"
+  },
+  {
+    "user": "indiepapas",
+    "time": 1708854396000,
+    "game": "Children of Silentown"
   }
 ]
