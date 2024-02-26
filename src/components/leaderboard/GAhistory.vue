@@ -55,10 +55,10 @@ const gaData = computed(()=>{
     ?.map(u=>u={
       user: u[0], 
       ttl: Object.entries(u[1])
-        .filter(uu=> uu[0] > dayjs(startTime.value??times?.start).format('X') && uu[0] < dayjs(endTime.value??'now').format('X') )
+        .filter(uu=> uu[0] > dayjs(startTime.value??times?.start).format('X') && uu[0] < (endTime.value ? dayjs(endTime.value).format('X') : dayjs().format('X')))
         .reduce((a,c)=>a+=c[1],0),
       count: Object.keys(u[1])
-        .filter(uu=> uu > dayjs(startTime.value??times?.start).format('X') && uu < dayjs(endTime.value??'now').format('X') )
+        .filter(uu=> uu > dayjs(startTime.value??times?.start).format('X') && uu < (endTime.value ? dayjs(endTime.value).format('X') : dayjs().format('X')) )
         .length
     })
 })

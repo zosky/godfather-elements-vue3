@@ -34,7 +34,6 @@ const userHistory = computed(()=>{
     })
     .filter( w => // apply date filters
       w.time > (props.start ? dayjs(props.start).format('X') : props.min ) 
-      && ( !props.max ? true : w.time < props.max )
     )
     .sort((a,b)=> a.time>b.time?-1:1 ) // desc
 })
