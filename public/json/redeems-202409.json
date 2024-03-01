@@ -300,6 +300,16 @@
     "game": "Draw Slasher"
   },
   {
+    "user": "maincaster",
+    "time": 1709256126000,
+    "game": "Ogre"
+  },
+  {
+    "user": "miguelh1020",
+    "time": 1709258276000,
+    "game": "Shutshimi"
+  },
+  {
     "user": "okiroki",
     "time": 1708975290000,
     "game": "Battle Academy"
@@ -428,6 +438,11 @@
     "user": "alcamlu",
     "time": 1709254377000,
     "game": "Steam Key - Random Stuff Ive Given Away"
+  },
+  {
+    "user": "alcamlu",
+    "time": 1709256079000,
+    "game": "Titeuf Mega Party"
   },
   {
     "user": "nikzor888",
@@ -775,9 +790,19 @@
     "game": "Nuc After The Blast"
   },
   {
+    "user": "daniempirerevolution",
+    "time": 1709256067000,
+    "game": "Kingdom Defense"
+  },
+  {
     "user": "boostlethal",
     "time": 1709075367000,
     "game": "Astalon Tears of the Earth"
+  },
+  {
+    "user": "boostlethal",
+    "time": 1709258502000,
+    "game": "Gold Rush 2"
   },
   {
     "user": "xulaster",
@@ -1138,6 +1163,11 @@
     "user": "exclamationmarkd",
     "time": 1709232557000,
     "game": "Shutshimi"
+  },
+  {
+    "user": "m4auricio2",
+    "time": 1709256428000,
+    "game": "A Jugglers Tale"
   },
   {
     "user": "zwjjwzz",
@@ -5053,5 +5083,40 @@
     "user": "erikaalvesdg",
     "time": 1709253701000,
     "game": "Tails Noir"
+  },
+  {
+    "user": "lbtstioben",
+    "time": 1709257570000,
+    "game": "Battle Academy"
+  },
+  {
+    "user": "lbtstioben",
+    "time": 1709257830000,
+    "game": "Beat Stickman Infinity Clones"
+  },
+  {
+    "user": "lbtstioben",
+    "time": 1709258127000,
+    "game": "Vertiginous Golf"
+  },
+  {
+    "user": "lbtstioben",
+    "time": 1709258446000,
+    "game": "Chernobyl Commando"
+  },
+  {
+    "user": "lbtstioben",
+    "time": 1709258595000,
+    "game": "The Rescue of Mermaids"
+  },
+  {
+    "user": "lbtstioben",
+    "time": 1709258686000,
+    "game": "Deleveled"
+  },
+  {
+    "user": "lbtstioben",
+    "time": 1709258854000,
+    "game": "Titeuf Mega Party"
   }
 ]
