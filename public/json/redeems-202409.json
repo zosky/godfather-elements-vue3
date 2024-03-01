@@ -1295,6 +1295,16 @@
     "game": "Souldiers"
   },
   {
+    "user": "trev_xd",
+    "time": 1709273301000,
+    "game": "Battle Academy"
+  },
+  {
+    "user": "trev_xd",
+    "time": 1709273342000,
+    "game": "Particula"
+  },
+  {
     "user": "pashakickin",
     "time": 1708939955000,
     "game": "The Gunk"
@@ -1765,6 +1775,11 @@
     "game": "Spirit of the Island"
   },
   {
+    "user": "slay_da_b",
+    "time": 1709271286000,
+    "game": "The Spiral Scouts"
+  },
+  {
     "user": "o5win",
     "time": 1709109166000,
     "game": "RPG Squad Battle"
@@ -1828,6 +1843,11 @@
     "user": "aka_beezie",
     "time": 1708975939000,
     "game": "Lighthouse Keeper"
+  },
+  {
+    "user": "kabinjp",
+    "time": 1709272492000,
+    "game": "Siege Survival: Gloria Victis"
   },
   {
     "user": "lapirado",
@@ -4925,6 +4945,11 @@
     "game": "Yakuza 4 Remastered"
   },
   {
+    "user": "logcossin6055",
+    "time": 1709272539000,
+    "game": "There is no Light Enhanced Edition"
+  },
+  {
     "user": "darktuman",
     "time": 1709100794000,
     "game": "Necromunda Hired Gun!"
@@ -5218,5 +5243,10 @@
     "user": "wopertor",
     "time": 1709265167000,
     "game": "Batman Arkham Asylum GOTY"
+  },
+  {
+    "user": "maryfaby",
+    "time": 1709273628000,
+    "game": "Core Keeper"
   }
 ]
