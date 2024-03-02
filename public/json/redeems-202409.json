@@ -965,6 +965,11 @@
     "game": "Gold Rush 2"
   },
   {
+    "user": "boostlethal",
+    "time": 1709417691000,
+    "game": "Gold Rush Anniversary Special Edition"
+  },
+  {
     "user": "xulaster",
     "time": 1708900745000,
     "game": "Rebel Inc Escalation"
@@ -2045,6 +2050,11 @@
     "game": "Cubicle Quest"
   },
   {
+    "user": "filiptoth",
+    "time": 1709416835000,
+    "game": "Battle Academy"
+  },
+  {
     "user": "ice909090",
     "time": 1709202515000,
     "game": "Pac Man Museum"
@@ -2288,6 +2298,16 @@
     "user": "saurom_lamderth",
     "time": 1709349318000,
     "game": "Reignmaker"
+  },
+  {
+    "user": "saurom_lamderth",
+    "time": 1709416368000,
+    "game": "Wolflord Werewolf Online"
+  },
+  {
+    "user": "saurom_lamderth",
+    "time": 1709417115000,
+    "game": "Oddworld Abes Exoddus"
   },
   {
     "user": "alegreti",
@@ -2815,6 +2835,11 @@
     "game": "Husk"
   },
   {
+    "user": "frenchdoe",
+    "time": 1709416831000,
+    "game": "Titeuf Mega Party"
+  },
+  {
     "user": "alemalo222",
     "time": 1709388155000,
     "game": "Lego The Lord of the Rings"
@@ -2975,6 +3000,11 @@
     "game": "Merchant of the Skies"
   },
   {
+    "user": "lightschampion",
+    "time": 1709416989000,
+    "game": "Dreamscaper"
+  },
+  {
     "user": "aswd002",
     "time": 1709388990000,
     "game": "Bioshock Infinite"
@@ -3103,6 +3133,16 @@
     "user": "baykalake",
     "time": 1709120691000,
     "game": "Guilty Gear X2 Reload"
+  },
+  {
+    "user": "baykalake",
+    "time": 1709415222000,
+    "game": "Monaco: What's Yours Is Mine"
+  },
+  {
+    "user": "baykalake",
+    "time": 1709415247000,
+    "game": "Xmorph Defense Complete Pack"
   },
   {
     "user": "yuliatlv",
@@ -6763,5 +6803,10 @@
     "user": "uchihakonan",
     "time": 1709413674000,
     "game": "Dark Pictures Anthology House of Ashes"
+  },
+  {
+    "user": "rusasuke",
+    "time": 1709416922000,
+    "game": "Dreamscaper"
   }
 ]
