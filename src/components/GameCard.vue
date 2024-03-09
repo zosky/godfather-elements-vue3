@@ -1,7 +1,8 @@
 <script setup>
-import { ContentCopy } from 'mdue'
+import { ContentCopy, LockOffOutline } from 'mdue'
+import dayjs from 'dayjs'
 const dataStore = inject('$dataStore')
-defineProps({game:{type:Object,default:()=>{return {}}},controls:{type:Boolean,default:true}})
+const props = defineProps({game:{type:Object,default:()=>{return {}}},controls:{type:Boolean,default:true}})
 const p = computed(()=> dataStore?.user?.points )
 const ignore = id => {
   const iList = dataStore?.ignoredGames ?? []
@@ -20,6 +21,15 @@ const have = id => {
   localStorage.setItem('have', JSON.stringify(dataStore.haveGames))
 }
 const goSteam = n => `https://store.steampowered.com/search/?term=${encodeURIComponent(n)}`
+const onCooldown = computed(()=>{
+  const is30Day = props?.game?.cooldown?.category == 2592000
+  if (is30Day){
+    const isRedeemed = dataStore?.['redeems-me']?.filter(g=>g.game==props?.game?.name)
+    const lastRedeem = isRedeemed?.sort((a,b)=>a.time>b.time?-1:1)?.[0]
+    const nextReedem = lastRedeem?.time ? dayjs.unix(lastRedeem?.time/1000).add(30,'days') : null
+    return nextReedem
+  }
+})
 </script>
 
 <template>
@@ -66,10 +76,18 @@ const goSteam = n => `https://store.steampowered.com/search/?term=${encodeURICom
           <SvgPie v-if="p < game.cost" :n="p" :d="game?.cost" />
         </div>
       </div>
+      <label 
+        v-if="onCooldown" class="cooldown (lastRedeem+30d)"
+        :title="`on cooldown until\n${onCooldown}`">
+        <LockOffOutline />
+        <div v-text="dayjs(onCooldown).diff(dayjs(),'days')" />
+      </label>
     </div>
   </article>
 </template>
 
 <style scoped>
 .btn { @apply hover:scale-110 hover:opacity-100 hover:text-yellow-400 transition-all opacity-60 }
+.cooldown { @apply opacity-100 text-blue-700 absolute bg-yellow-400 p-1 px-2 flex items-center rounded-xl -top-5 right-0 bg-opacity-75 font-mono font-bold }
+.cooldown div::after { content: 'd'; }
 </style>

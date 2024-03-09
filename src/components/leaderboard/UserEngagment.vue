@@ -36,6 +36,7 @@ const myEntries = computed(()=> {
       date : dayjs.unix(time).format('YYMMDD'),
     })
   myHits.games = findRedeems(me.value)
+  dataStore['redeems-me'] = myHits.games
   return myHits
 })
 const maxHours= ref(24)
@@ -73,6 +74,7 @@ const myWins = computed(()=>{
       </label>
     </div>
     <div class="m-2">
+      <UserScatter :user="me" />
       <EngPlayer
         :p="myEntries" :w="myWins"
         class="max-w-prose ml-2" open
