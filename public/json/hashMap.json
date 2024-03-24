@@ -234,12 +234,22 @@
   },
   "202412": {
     "entriesPeople": 1449,
-    "entriesCount": 141559,
+    "entriesCount": 141643,
     "giveawaysPeople": 981,
-    "giveawaysCount": 23041,
-    "giveawaysClams": 4196650,
-    "redeemsCount": 1623,
+    "giveawaysCount": 23065,
+    "giveawaysClams": 4201900,
+    "redeemsCount": 1624,
     "redeemsPeople": 628,
     "redeemsGames": 240
+  },
+  "202413": {
+    "entriesPeople": 161,
+    "entriesCount": 531,
+    "giveawaysPeople": 65,
+    "giveawaysCount": 124,
+    "giveawaysClams": 21000,
+    "redeemsCount": 2,
+    "redeemsPeople": 2,
+    "redeemsGames": 2
   }
 }
