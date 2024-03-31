@@ -19,7 +19,7 @@ watchEffect(()=>{
 </script>
 
 <template>
-  <details :open="route?.params?.games?.length?true:false" class="flex flex-row gap-1 col-span-full" :class="{'text-yellow-300':dateEdit}">
+  <details :open="route?.params?.date || route?.params?.games?.length?true:false" class="flex flex-row gap-1 col-span-full w-full" :class="{'text-yellow-300':dateEdit}">
     <summary>
       <label title="edit update name" role="button" class="flex flex-row items-center gap-1">
         <h3 :title="route?.params?.games?.length + ' games'" v-text="route?.params?.games?.length + '👾'" />
