@@ -17,13 +17,13 @@ const gamesArr = computed(()=>{
   return arr
 })
 watchEffect(()=>{
-  const a = allGames?.value
-  const r = route?.params?.games
+  const a = allGames?.value ?? []
+  const r = route?.params?.games ?? []
   const s = dataStore?.gamesMultiSearch ?? []
-  const routerMatch = r?.filter(g=>a?.includes(g))?.length 
-  const matchCount = s.value?.filter(g=>a?.includes(g))?.length
-  if (matchCount && routerMatch && (matchCount != routerMatch)) router.push({
-    name: '/store/update/[date]/[games]+',
+  const routerMatch = r?.length ? r?.filter(g=>a?.includes(g))?.length : 0
+  const matchCount = s.value?.filter(g=>a?.includes(g))?.length ?? 0
+  if (matchCount != routerMatch) router.push({
+    name: '/store/update/[[date]]/[[games]]+',
     params: { date: 'todo', games: s }
   })
 })
@@ -36,7 +36,13 @@ watchEffect(()=>{
         v-for="(g,ix) of dataStore.gamesMultiSearch" :key="ix" 
         v-model="dataStore.gamesMultiSearch[ix]" 
         class="gameSearch"
-        :class="allGames.includes(g) ? 'found':'whoDis'" />
+        :class="allGames.includes(g) ? 'found':'whoDis'" 
+        @change="$router.push({
+          name:'/store/update/[[date]]/[[games]]+',
+          params:{
+            date:$route?.params?.date,
+            games:dataStore.gamesMultiSearch
+          }})"/>
       <button @click="games=''">clear[{{gamesArr.length}}]</button>
     </div>
   </section>
