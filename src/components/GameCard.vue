@@ -1,5 +1,5 @@
 <script setup>
-import { ContentCopy, LockOffOutline } from 'mdue'
+import { ContentCopy, LockOffOutline, Cart, CartOutline } from 'mdue'
 import dayjs from 'dayjs'
 const dataStore = inject('$dataStore')
 const props = defineProps({game:{type:Object,default:()=>{return {}}},controls:{type:Boolean,default:true}})
@@ -30,6 +30,20 @@ const onCooldown = computed(()=>{
     return nextReedem
   }
 })
+const isInBasket = computed(()=>{
+  const l = dataStore?.basketGames ?? []
+  const n = props?.game?.name
+  return l.includes(n)
+})
+const basketAdd = game => {
+  if (!dataStore?.basketGames?.length) dataStore.basketGames = []
+  if (!dataStore.basketGames?.includes(game)) dataStore.basketGames.push(game)
+  localStorage.setItem('basket', JSON.stringify(dataStore.basketGames))
+}
+const basketRM = game => {
+  dataStore.basketGames = dataStore?.basketGames?.filter(g=>g!=game)
+  localStorage.setItem('basket', JSON.stringify(dataStore.basketGames))
+}
 </script>
 
 <template>
@@ -45,6 +59,8 @@ const onCooldown = computed(()=>{
       <div v-if="controls" class="text-lg items-end flex flex-row justify-end px-2 w-full">
         <EyeOff class="btn" role="button" @click="ignore(game._id)"/>
         <HeartOutline class="btn" role="button" @click="have(game._id)"/>
+        <Cart v-if="isInBasket" @click="basketRM(game?.name)" />
+        <CartOutline v-else class="btn" role="button" @click="basketAdd(game?.name)" />
       </div>
       <div
         class="flex flex-row justify-between items-center pl-0 pr-2 w-full rounded-b-xl bg-opacity-90"
