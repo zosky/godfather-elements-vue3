@@ -6,6 +6,7 @@ dayjs.extend(advancedFormat)
 const liveRedeem = inject('$liveRedeem')
 const dataStore = inject('$dataStore')
 const me = computed(()=> dataStore?.user?.username )
+const findSomething = ref('')
 const gameNameHashMap = computed(()=> dataStore?.gamesHashMap )
 const perPerson = ref(false)
 const viewSlicer = ref(56)
@@ -16,11 +17,13 @@ const allRedeems = computed(()=>{
   return d
 })
 const redeems = computed(()=> {
-  const reducedD = allRedeems.value?.reduce((a,c)=>{
-    if (!a?.[c.game]) a[c.game] = {}
-    a[c.game][c.time] = c.user
-    return a
-  },{})
+  const reducedD = allRedeems.value
+    ?.filter(g=> !findSomething.value ? true : g.game.toLowerCase().includes( findSomething.value.toLocaleLowerCase() ))
+    ?.reduce((a,c)=>{
+      if (!a?.[c.game]) a[c.game] = {}
+      a[c.game][c.time] = c.user
+      return a
+    },{})
   const finalD = Object.entries(reducedD).map((g)=>g={
     name:g[0],
     data:Object.entries(g[1]).map(gg=>gg={time:gg[0],user:gg[1]}).sort((a,b)=>a.time<b.time?-1:1), 
@@ -28,14 +31,16 @@ const redeems = computed(()=> {
   return finalD.sort((a,b)=>a.count<b.count?1:-1)
 })
 const redeemsPerPerson = computed(()=>{
-  const allD = allRedeems.value.reduce((a,c)=>{ 
-    if ( c?.user ){
-      if( !a?.[c?.user] ) a[c.user] = {}
-      if( !a?.[c?.user]?.[c?.game] ) a[c.user][c.game] = []
-      a[c.user][c.game].push(c.time)
-    } 
-    return a
-  },{})
+  const allD = allRedeems.value
+    ?.filter(g=> !findSomething.value ? true : g.user.toLowerCase().includes( findSomething.value.toLocaleLowerCase() ))
+    ?.reduce((a,c)=>{ 
+      if ( c?.user ){
+        if( !a?.[c?.user] ) a[c.user] = {}
+        if( !a?.[c?.user]?.[c?.game] ) a[c.user][c.game] = []
+        a[c.user][c.game].push(c.time)
+      } 
+      return a
+    },{})
   const allDarr = Object.entries(allD)
     .map(g=>g={ 
       user: g[0], 
@@ -45,6 +50,11 @@ const redeemsPerPerson = computed(()=>{
     })
     .sort((a,b)=> a.keyCount>b.keyCount?-1:1)
   return allDarr
+})
+// reset search
+watchEffect(()=>{ 
+  const x = perPerson.value 
+  if (x||!x) findSomething.value = '' 
 })
 </script>
 
@@ -57,9 +67,13 @@ const redeemsPerPerson = computed(()=>{
           title='"pivot" redeems by person' @click="perPerson=true"
           v-text="'perPerson'" />
         <button
-          class="px-2" :class="{'bg-purple-950':!perPerson}"
+          class="px-2" :class="{'bg-purple-950 font-bold':!perPerson}"
           title='"pivot" redeems by game' @click="perPerson=false"
           v-text="'perGame'"/>
+        <input
+          v-model="findSomething" type="search"
+          :placeholder="`🔍 ${perPerson?'🙋':'👾'}`" :title="`find ${perPerson?'player':'game'}`"
+          class="w-32" />
         <label class="opacity-75 font-light" @click.prevent=""> click any {{ perPerson?'person':'game' }} to see {{  perPerson ?'their redeems':'who grabbed it' }}</label>
       </div>
       <div class="flex flex-row items-center gap-2" :title="`${redeems.length} people now have ${allRedeems?.length??0} games\nthanks to TGF`">
@@ -73,7 +87,7 @@ const redeemsPerPerson = computed(()=>{
             v-model="viewSlicer" type="number"
             :max="perPerson ? redeemsPerPerson.length : redeems.length" :min="32"
             :title="`show more or less\ncurrent max=${perPerson ? redeemsPerPerson.length : redeems.length} ${perPerson ? 'people' : 'games'}`" 
-            class="w-20 bg-transparent border-purple-900 text-right rounded-xl h-8" />
+            class="w-20 text-right" />
         </label>
         <a
           class="border rounded-xl bg-purple-950 px-2 border-purple-800" href="https://streamelements.com/dashboard/account/redemptions"
@@ -133,5 +147,6 @@ const redeemsPerPerson = computed(()=>{
   b { @apply px-1 }
   .people::after{content:'🧑‍🤝‍🧑'}
   .games::after{content:'👾'}
-  button { @apply rounded-xl }
+  button { @apply rounded-xl py-1 }
+  input { @apply bg-transparent border-purple-900 rounded-xl h-8 }
 </style>
