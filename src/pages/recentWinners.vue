@@ -108,9 +108,14 @@ const findWins = u => {
       </div>
       <apexcharts :options="pieChart" :series="pieData" class="w-full" />
     </div>
+    <label v-text="`games redeemed by the community per hour`" />
+    <ReedeemsHeatMap />
+    <label v-text="`!hitsquads by the community per hour`" />
+    <EntriesHeatMap />
   </div>
 </template>
 
 <style scoped>
 input { @apply bg-transparent text-purple-500 underline w-16 border-0 p-0 text-right }
+label { @apply px-2 opacity-75 }
 </style>
