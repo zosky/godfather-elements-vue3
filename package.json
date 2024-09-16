@@ -8,7 +8,8 @@
     "cacheLOG": "node ./script/logGiveAways.js",
     "cacheSplit": "node ./script/dbThisWeek.js",
     "cacheMap": "node ./script/dbHashMap.js",
-    "cacheUP": "npm run cacheSplit ; npm run cacheMap ; npm run gitJSON",
+    "inventorySnap": "node ./script/inventoryRestock.js",
+    "cacheUP": "npm run cacheSplit ; npm run cacheMap ; npm run inventorySnap; npm run gitJSON",
     "gitJSON": "git add ./public/json/*.json ; git commit -m \"gaCache+=$(date +%b%d.%H)\" ; git push",
     "hourly": "while true ; do npm run cacheUP ; sleep 1h ; done",
     "gitKeyRoll": "ssh-keygen -R github.com; curl -L https://api.github.com/meta | jq -r '.ssh_keys | .[]' | sed -e 's/^/github.com /' >> ~/.ssh/known_hosts"
@@ -37,6 +38,7 @@
     "autoprefixer": "^10.4.8",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-vue": "^9.7.0",
+    "node-fetch": "^2.6.7",
     "mdue": "^0.1.4",
     "mysql2": "^3.9.2",
     "prettier": "^2.7.1",
