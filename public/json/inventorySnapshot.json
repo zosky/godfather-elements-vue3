@@ -546,11 +546,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Creepy Tale",
-    "qty": 19
-  },
-  {
-    "time": 1726443781,
     "what": "Cris Tales",
     "qty": 3
   },
@@ -738,11 +733,6 @@
     "time": 1726443781,
     "what": "Dog Sled Saga",
     "qty": 9
-  },
-  {
-    "time": 1726443781,
-    "what": "Double Cross",
-    "qty": 2
   },
   {
     "time": 1726443781,
@@ -1318,11 +1308,6 @@
     "time": 1726443781,
     "what": "Keywe",
     "qty": 6
-  },
-  {
-    "time": 1726443781,
-    "what": "Killer Frequency",
-    "qty": 1
   },
   {
     "time": 1726443781,
@@ -3373,5 +3358,55 @@
     "time": 1727809055,
     "what": "The Gunk",
     "qty": 20
+  },
+  {
+    "time": 1727958452,
+    "what": "Creepy Tale",
+    "qty": 50
+  },
+  {
+    "time": 1727958452,
+    "what": "Double Cross",
+    "qty": 3
+  },
+  {
+    "time": 1727958452,
+    "what": "Hitsquad Special #4",
+    "qty": 186
+  },
+  {
+    "time": 1727958452,
+    "what": "Hitsquad Special #5",
+    "qty": 183
+  },
+  {
+    "time": 1727958452,
+    "what": "Hitsquad Special #6",
+    "qty": 99
+  },
+  {
+    "time": 1727958452,
+    "what": "Hitsquad Special #7",
+    "qty": 88
+  },
+  {
+    "time": 1727958452,
+    "what": "Hitsquad Special #8",
+    "qty": 199
+  },
+  {
+    "time": 1727958452,
+    "what": "Hitsquad Special #9",
+    "qty": 273
+  },
+  {
+    "time": 1727958452,
+    "what": "Killer Frequency",
+    "qty": 3
+  },
+  {
+    "time": 1727958452,
+    "what": "Ultra Street Fighter 4",
+    "qty": 21
   }
 ]
