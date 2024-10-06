@@ -3051,11 +3051,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Yakuza 4 Remastered",
-    "qty": 2
-  },
-  {
-    "time": 1726443781,
     "what": "Yakuza Like A Dragon",
     "qty": 7
   },
@@ -3413,5 +3408,10 @@
     "time": 1728144342,
     "what": "Hitsquad Heist 10-05",
     "qty": 24
+  },
+  {
+    "time": 1728250529,
+    "what": "Yakuza 4 Remastered",
+    "qty": 10
   }
 ]
