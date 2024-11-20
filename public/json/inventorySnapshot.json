@@ -236,11 +236,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Batora Lost Haven",
-    "qty": 17
-  },
-  {
-    "time": 1726443781,
     "what": "Battle Academy",
     "qty": 13
   },
@@ -811,11 +806,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Forgotten City",
-    "qty": 8
-  },
-  {
-    "time": 1726443781,
     "what": "Forspoken",
     "qty": 2
   },
@@ -898,11 +888,6 @@
     "time": 1726443781,
     "what": "Going Under",
     "qty": 11
-  },
-  {
-    "time": 1726443781,
-    "what": "Gold Rush Classic",
-    "qty": 34
   },
   {
     "time": 1726443781,
@@ -1846,11 +1831,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Retrowave",
-    "qty": 6
-  },
-  {
-    "time": 1726443781,
     "what": "Revita",
     "qty": 13
   },
@@ -2193,11 +2173,6 @@
     "time": 1726443781,
     "what": "Stray Gods The Roleplaying Musical",
     "qty": 37
-  },
-  {
-    "time": 1726443781,
-    "what": "Stubbs the Zombie in Rebel Without a Pulse",
-    "qty": 3
   },
   {
     "time": 1726443781,
@@ -2673,11 +2648,6 @@
     "time": 1726443781,
     "what": "XCOM 2",
     "qty": 249
-  },
-  {
-    "time": 1726443781,
-    "what": "XCOM Chimera Squad",
-    "qty": 2
   },
   {
     "time": 1726443781,
@@ -3578,5 +3548,35 @@
     "time": 1732045665,
     "what": "The Deed",
     "qty": 509
+  },
+  {
+    "time": 1732082181,
+    "what": "Batora Lost Haven",
+    "qty": 20
+  },
+  {
+    "time": 1732082181,
+    "what": "Forgotten City",
+    "qty": 10
+  },
+  {
+    "time": 1732082181,
+    "what": "Gold Rush Classic",
+    "qty": 50
+  },
+  {
+    "time": 1732082181,
+    "what": "Retrowave",
+    "qty": 19
+  },
+  {
+    "time": 1732082181,
+    "what": "Stubbs the Zombie in Rebel Without a Pulse",
+    "qty": 10
+  },
+  {
+    "time": 1732082181,
+    "what": "XCOM Chimera Squad",
+    "qty": 10
   }
 ]
