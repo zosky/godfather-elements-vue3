@@ -1766,11 +1766,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Rebel Inc Escalation",
-    "qty": 4
-  },
-  {
-    "time": 1726443781,
     "what": "Redeemer Enhanced Edition",
     "qty": 1
   },
@@ -3578,5 +3573,10 @@
     "time": 1732082181,
     "what": "XCOM Chimera Squad",
     "qty": 10
+  },
+  {
+    "time": 1732085837,
+    "what": "Rebel Inc Escalation",
+    "qty": 20
   }
 ]
