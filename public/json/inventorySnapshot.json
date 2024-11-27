@@ -2705,11 +2705,6 @@
     "qty": 10
   },
   {
-    "time": 1726960148,
-    "what": "Pawnbarian",
-    "qty": 10
-  },
-  {
     "time": 1727360927,
     "what": "A Plague Tale Requiem",
     "qty": 3
@@ -3588,5 +3583,10 @@
     "time": 1732492320,
     "what": "Symphony of War The Nephilim Saga",
     "qty": 10
+  },
+  {
+    "time": 1732704027,
+    "what": "Pawnbarian",
+    "qty": 50
   }
 ]
