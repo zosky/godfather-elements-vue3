@@ -2571,11 +2571,6 @@
   },
   {
     "time": 1726683633,
-    "what": "Dream Stone",
-    "qty": 50
-  },
-  {
-    "time": 1726683633,
     "what": "God Eater 3",
     "qty": 3
   },
@@ -2908,11 +2903,6 @@
     "time": 1728400026,
     "what": "John Wick Hex",
     "qty": 10
-  },
-  {
-    "time": 1728400026,
-    "what": "McPixel 3",
-    "qty": 94
   },
   {
     "time": 1728400026,
@@ -3638,5 +3628,15 @@
     "time": 1733332356,
     "what": "Venba",
     "qty": 187
+  },
+  {
+    "time": 1733566283,
+    "what": "Dream Stone",
+    "qty": 99
+  },
+  {
+    "time": 1733566283,
+    "what": "McPixel 3",
+    "qty": 100
   }
 ]
