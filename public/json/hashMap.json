@@ -603,13 +603,20 @@
     "redeemsGames": 234
   },
   "202449": {
-    "entriesPeople": 1276,
-    "entriesCount": 150231,
-    "giveawaysPeople": 965,
-    "giveawaysCount": 25031,
-    "giveawaysClams": 4638500,
-    "redeemsCount": 1337,
-    "redeemsPeople": 605,
+    "entriesPeople": 1277,
+    "entriesCount": 150656,
+    "giveawaysPeople": 967,
+    "giveawaysCount": 25111,
+    "giveawaysClams": 4657800,
+    "redeemsCount": 1339,
+    "redeemsPeople": 606,
     "redeemsGames": 236
+  },
+  "202450": {
+    "entriesPeople": 124,
+    "entriesCount": 364,
+    "giveawaysPeople": 49,
+    "giveawaysCount": 63,
+    "giveawaysClams": 9650
   }
 }
