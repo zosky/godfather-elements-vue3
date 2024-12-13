@@ -251,11 +251,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Beyond a Steel Sky",
-    "qty": 8
-  },
-  {
-    "time": 1726443781,
     "what": "Beyond Two Souls",
     "qty": 3
   },
@@ -1378,11 +1373,6 @@
     "time": 1726443781,
     "what": "Mortal Kombat 11",
     "qty": 24
-  },
-  {
-    "time": 1726443781,
-    "what": "Mortal Kombat XL",
-    "qty": 2
   },
   {
     "time": 1726443781,
@@ -3638,5 +3628,15 @@
     "time": 1733932438,
     "what": "Twin Mirror",
     "qty": 10
+  },
+  {
+    "time": 1734121669,
+    "what": "Beyond a Steel Sky",
+    "qty": 20
+  },
+  {
+    "time": 1734121669,
+    "what": "Mortal Kombat XL",
+    "qty": 3
   }
 ]
