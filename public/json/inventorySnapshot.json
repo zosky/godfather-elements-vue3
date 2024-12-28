@@ -2316,11 +2316,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Wayout",
-    "qty": 75
-  },
-  {
-    "time": 1726443781,
     "what": "Wayout 2",
     "qty": 65
   },
@@ -2448,11 +2443,6 @@
     "time": 1726683633,
     "what": "Gotham Knights",
     "qty": 21
-  },
-  {
-    "time": 1726683633,
-    "what": "Hitsquad Special",
-    "qty": 164
   },
   {
     "time": 1726683633,
@@ -2671,11 +2661,6 @@
   },
   {
     "time": 1727958452,
-    "what": "Hitsquad Special #5",
-    "qty": 183
-  },
-  {
-    "time": 1727958452,
     "what": "Hitsquad Special #6",
     "qty": 99
   },
@@ -2688,11 +2673,6 @@
     "time": 1727958452,
     "what": "Hitsquad Special #8",
     "qty": 199
-  },
-  {
-    "time": 1727958452,
-    "what": "Hitsquad Special #9",
-    "qty": 273
   },
   {
     "time": 1727958452,
@@ -3181,11 +3161,6 @@
   },
   {
     "time": 1731512310,
-    "what": "Rhinos Rage",
-    "qty": 100
-  },
-  {
-    "time": 1731512310,
     "what": "Warhammer 40000 Darktide",
     "qty": 10
   },
@@ -3441,11 +3416,6 @@
   },
   {
     "time": 1733153315,
-    "what": "Mini Thief",
-    "qty": 99
-  },
-  {
-    "time": 1733153315,
     "what": "Reignmaker",
     "qty": 50
   },
@@ -3668,5 +3638,40 @@
     "time": 1735268602,
     "what": "Miasma Chronicles",
     "qty": 20
+  },
+  {
+    "time": 1735389249,
+    "what": "Hitsquad Special",
+    "qty": 201
+  },
+  {
+    "time": 1735389249,
+    "what": "Hitsquad Special #5",
+    "qty": 210
+  },
+  {
+    "time": 1735389249,
+    "what": "Hitsquad Special #9",
+    "qty": 403
+  },
+  {
+    "time": 1735389249,
+    "what": "Killing Floor 2",
+    "qty": 135
+  },
+  {
+    "time": 1735389249,
+    "what": "Mini Thief",
+    "qty": 389
+  },
+  {
+    "time": 1735389249,
+    "what": "Rhinos Rage",
+    "qty": 283
+  },
+  {
+    "time": 1735389249,
+    "what": "Wayout",
+    "qty": 224
   }
 ]
