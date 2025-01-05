@@ -2296,11 +2296,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Yakuza Like A Dragon",
-    "qty": 7
-  },
-  {
-    "time": 1726443781,
     "what": "Yes Your Grace",
     "qty": 3
   },
@@ -3687,6 +3682,11 @@
   {
     "time": 1736102356,
     "what": "Lego The Lord of the Rings",
+    "qty": 10
+  },
+  {
+    "time": 1736106007,
+    "what": "Yakuza Like A Dragon",
     "qty": 10
   }
 ]
