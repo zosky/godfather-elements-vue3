@@ -3466,11 +3466,6 @@
   },
   {
     "time": 1735389249,
-    "what": "Hitsquad Special #5",
-    "qty": 210
-  },
-  {
-    "time": 1735389249,
     "what": "Hitsquad Special #9",
     "qty": 403
   },
@@ -3713,5 +3708,10 @@
     "time": 1736779476,
     "what": "The Pegasus Expedition",
     "qty": 200
+  },
+  {
+    "time": 1736944243,
+    "what": "Hitsquad Special #5",
+    "qty": 430
   }
 ]
