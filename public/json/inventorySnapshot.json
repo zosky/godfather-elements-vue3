@@ -1086,11 +1086,6 @@
   },
   {
     "time": 1726443781,
-    "what": "LISA Complete Edition",
-    "qty": 9
-  },
-  {
-    "time": 1726443781,
     "what": "Little Nightmares 2",
     "qty": 3
   },
@@ -1153,11 +1148,6 @@
     "time": 1726443781,
     "what": "Magnifico",
     "qty": 36
-  },
-  {
-    "time": 1726443781,
-    "what": "Mail Time",
-    "qty": 3
   },
   {
     "time": 1726443781,
@@ -3713,5 +3703,15 @@
     "time": 1736944243,
     "what": "Hitsquad Special #5",
     "qty": 430
+  },
+  {
+    "time": 1737050429,
+    "what": "LISA Complete Edition",
+    "qty": 10
+  },
+  {
+    "time": 1737050429,
+    "what": "Mail Time",
+    "qty": 10
   }
 ]
