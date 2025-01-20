@@ -2436,11 +2436,6 @@
   },
   {
     "time": 1727809055,
-    "what": "Hitsquad Special #3",
-    "qty": 472
-  },
-  {
-    "time": 1727809055,
     "what": "Metal Gear Solid V The Definitive Experience",
     "qty": 2
   },
@@ -2478,11 +2473,6 @@
     "time": 1727958452,
     "what": "Hitsquad Special #6",
     "qty": 99
-  },
-  {
-    "time": 1727958452,
-    "what": "Hitsquad Special #7",
-    "qty": 88
   },
   {
     "time": 1727958452,
@@ -3718,5 +3708,15 @@
     "time": 1737295886,
     "what": "Noita",
     "qty": 3
+  },
+  {
+    "time": 1737402060,
+    "what": "Hitsquad Special #3",
+    "qty": 788
+  },
+  {
+    "time": 1737402060,
+    "what": "Hitsquad Special #7",
+    "qty": 845
   }
 ]
