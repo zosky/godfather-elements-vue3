@@ -401,11 +401,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Cris Tales",
-    "qty": 3
-  },
-  {
-    "time": 1726443781,
     "what": "Crying Suns",
     "qty": 10
   },
@@ -1433,11 +1428,6 @@
     "time": 1726443781,
     "what": "Project Highrise",
     "qty": 8
-  },
-  {
-    "time": 1726443781,
-    "what": "Psychonaughts in the Rhombus of Ruin",
-    "qty": 1
   },
   {
     "time": 1726443781,
@@ -3718,5 +3708,20 @@
     "time": 1737827321,
     "what": "The Curious Tale of the Stolen Pets",
     "qty": 20
+  },
+  {
+    "time": 1737830992,
+    "what": "Cris Tales",
+    "qty": 19
+  },
+  {
+    "time": 1737830992,
+    "what": "Have A Nice Death",
+    "qty": 10
+  },
+  {
+    "time": 1737830992,
+    "what": "Psychonaughts in the Rhombus of Ruin",
+    "qty": 2
   }
 ]
