@@ -674,12 +674,22 @@
   },
   "202504": {
     "entriesPeople": 1255,
-    "entriesCount": 118332,
+    "entriesCount": 118335,
     "giveawaysPeople": 946,
     "giveawaysCount": 20462,
     "giveawaysClams": 3053300,
     "redeemsCount": 1277,
     "redeemsPeople": 579,
     "redeemsGames": 193
+  },
+  "202505": {
+    "entriesPeople": 156,
+    "entriesCount": 516,
+    "giveawaysPeople": 71,
+    "giveawaysCount": 125,
+    "giveawaysClams": 19850,
+    "redeemsCount": 2,
+    "redeemsPeople": 2,
+    "redeemsGames": 2
   }
 }
