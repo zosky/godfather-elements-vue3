@@ -441,11 +441,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Darksiders Warmastered",
-    "qty": 7
-  },
-  {
-    "time": 1726443781,
     "what": "Dead by Daylight",
     "qty": 2
   },
@@ -3746,16 +3741,6 @@
   },
   {
     "time": 1738282216,
-    "what": "Beholder 2",
-    "qty": 19
-  },
-  {
-    "time": 1738282216,
-    "what": "Blasphemous 2",
-    "qty": 8
-  },
-  {
-    "time": 1738282216,
     "what": "Deadly Days",
     "qty": 8
   },
@@ -3773,5 +3758,20 @@
     "time": 1738315284,
     "what": "Random Steam Key Giveaway",
     "qty": 2253
+  },
+  {
+    "time": 1738451175,
+    "what": "Beholder 2",
+    "qty": 20
+  },
+  {
+    "time": 1738451175,
+    "what": "Blasphemous 2",
+    "qty": 10
+  },
+  {
+    "time": 1738451175,
+    "what": "Darksiders Warmastered",
+    "qty": 10
   }
 ]
