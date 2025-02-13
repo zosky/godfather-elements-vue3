@@ -3806,11 +3806,6 @@
   },
   {
     "time": 1739190999,
-    "what": "Fabledom",
-    "qty": 9
-  },
-  {
-    "time": 1739190999,
     "what": "ORIGIN KEY: Immortals of Aveum",
     "qty": 27
   },
@@ -3818,5 +3813,30 @@
     "time": 1739301120,
     "what": "Inkulinati",
     "qty": 547
+  },
+  {
+    "time": 1739458605,
+    "what": "Battletoads",
+    "qty": 10
+  },
+  {
+    "time": 1739458605,
+    "what": "Beneath Oresa",
+    "qty": 48
+  },
+  {
+    "time": 1739458605,
+    "what": "Door Kickers 2 Task Force North",
+    "qty": 2
+  },
+  {
+    "time": 1739458605,
+    "what": "Dordogne",
+    "qty": 41
+  },
+  {
+    "time": 1739458605,
+    "what": "Fabledom",
+    "qty": 10
   }
 ]
