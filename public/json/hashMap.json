@@ -703,13 +703,20 @@
     "redeemsGames": 283
   },
   "202507": {
-    "entriesPeople": 1261,
-    "entriesCount": 106776,
-    "giveawaysPeople": 982,
-    "giveawaysCount": 24195,
-    "giveawaysClams": 3231050,
-    "redeemsCount": 906,
+    "entriesPeople": 1263,
+    "entriesCount": 107160,
+    "giveawaysPeople": 984,
+    "giveawaysCount": 24347,
+    "giveawaysClams": 3251000,
+    "redeemsCount": 907,
     "redeemsPeople": 482,
     "redeemsGames": 254
+  },
+  "202508": {
+    "entriesPeople": 6,
+    "entriesCount": 6,
+    "giveawaysPeople": 3,
+    "giveawaysCount": 3,
+    "giveawaysClams": 150
   }
 }
