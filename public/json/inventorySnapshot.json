@@ -2081,11 +2081,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Wall World",
-    "qty": 9
-  },
-  {
-    "time": 1726443781,
     "what": "Warhammer Age of Sigmar Realms of Ruin Ultimate",
     "qty": 14
   },
@@ -3858,5 +3853,15 @@
     "time": 1740023082,
     "what": "Silent Hill 2",
     "qty": 1
+  },
+  {
+    "time": 1740330851,
+    "what": "Dying Light 2 Stay Human Reloaded Edition",
+    "qty": 1
+  },
+  {
+    "time": 1740330851,
+    "what": "Wall World",
+    "qty": 20
   }
 ]
