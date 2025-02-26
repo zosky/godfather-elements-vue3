@@ -1146,11 +1146,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Mega Man Legacy Collection",
-    "qty": 9
-  },
-  {
-    "time": 1726443781,
     "what": "Memories of a Vagabond",
     "qty": 76
   },
@@ -1833,11 +1828,6 @@
     "time": 1726443781,
     "what": "Sword Legacy Omen",
     "qty": 4
-  },
-  {
-    "time": 1726443781,
-    "what": "Symmetry",
-    "qty": 35
   },
   {
     "time": 1726443781,
@@ -3801,18 +3791,8 @@
   },
   {
     "time": 1739458605,
-    "what": "Beneath Oresa",
-    "qty": 48
-  },
-  {
-    "time": 1739458605,
     "what": "Door Kickers 2 Task Force North",
     "qty": 2
-  },
-  {
-    "time": 1739458605,
-    "what": "Fabledom",
-    "qty": 10
   },
   {
     "time": 1739645468,
@@ -3863,5 +3843,25 @@
     "time": 1740330851,
     "what": "Wall World",
     "qty": 20
+  },
+  {
+    "time": 1740554249,
+    "what": "Beneath Oresa",
+    "qty": 49
+  },
+  {
+    "time": 1740554249,
+    "what": "Fabledom",
+    "qty": 20
+  },
+  {
+    "time": 1740554249,
+    "what": "Mega Man Legacy Collection",
+    "qty": 10
+  },
+  {
+    "time": 1740554249,
+    "what": "Symmetry",
+    "qty": 50
   }
 ]
