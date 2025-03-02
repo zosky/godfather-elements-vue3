@@ -1146,11 +1146,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Merchant of the Skies",
-    "qty": 15
-  },
-  {
-    "time": 1726443781,
     "what": "Midnight Fight Express",
     "qty": 7
   },
@@ -1511,11 +1506,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Roguebook",
-    "qty": 3
-  },
-  {
-    "time": 1726443781,
     "what": "Rover Rescue",
     "qty": 37
   },
@@ -1683,11 +1673,6 @@
     "time": 1726443781,
     "what": "Sonic Adventure 2",
     "qty": 9
-  },
-  {
-    "time": 1726443781,
-    "what": "Soulstice",
-    "qty": 38
   },
   {
     "time": 1726443781,
@@ -2128,11 +2113,6 @@
     "time": 1726443781,
     "what": "XCOM 2",
     "qty": 249
-  },
-  {
-    "time": 1726443781,
-    "what": "Xel",
-    "qty": 24
   },
   {
     "time": 1726443781,
@@ -3923,5 +3903,25 @@
     "time": 1740906076,
     "what": "Trek To Yomi",
     "qty": 56
+  },
+  {
+    "time": 1740909744,
+    "what": "Merchant of the Skies",
+    "qty": 21
+  },
+  {
+    "time": 1740909744,
+    "what": "Roguebook",
+    "qty": 29
+  },
+  {
+    "time": 1740909744,
+    "what": "Soulstice",
+    "qty": 86
+  },
+  {
+    "time": 1740909744,
+    "what": "Xel",
+    "qty": 46
   }
 ]
