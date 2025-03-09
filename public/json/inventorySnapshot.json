@@ -421,11 +421,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Dark Pictures Anthology House of Ashes",
-    "qty": 2
-  },
-  {
-    "time": 1726443781,
     "what": "Darkest Dungeon",
     "qty": 10
   },
@@ -1968,11 +1963,6 @@
     "time": 1726443781,
     "what": "Tribes of Midgard",
     "qty": 3
-  },
-  {
-    "time": 1726443781,
-    "what": "Trine 4: The Nightmare Prince",
-    "qty": 2
   },
   {
     "time": 1726443781,
@@ -3928,5 +3918,50 @@
     "time": 1741409082,
     "what": "Sir Whoopass Immortal Death",
     "qty": 93
+  },
+  {
+    "time": 1741555998,
+    "what": "Autonauts vs Piratebots",
+    "qty": 10
+  },
+  {
+    "time": 1741555998,
+    "what": "Beat Stickman Infinity Clones",
+    "qty": 10
+  },
+  {
+    "time": 1741555998,
+    "what": "Dark Pictures Anthology House of Ashes",
+    "qty": 3
+  },
+  {
+    "time": 1741555998,
+    "what": "Gravity Circuit",
+    "qty": 14
+  },
+  {
+    "time": 1741555998,
+    "what": "Homeworld 3",
+    "qty": 9
+  },
+  {
+    "time": 1741555998,
+    "what": "Lamp Head",
+    "qty": 10
+  },
+  {
+    "time": 1741555998,
+    "what": "The Shapeshifting Detective",
+    "qty": 1
+  },
+  {
+    "time": 1741555998,
+    "what": "Trine 4: The Nightmare Prince",
+    "qty": 11
+  },
+  {
+    "time": 1741555998,
+    "what": "Wordle 2",
+    "qty": 9
   }
 ]
