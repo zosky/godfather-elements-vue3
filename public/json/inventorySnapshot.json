@@ -2091,11 +2091,6 @@
   },
   {
     "time": 1726443781,
-    "what": "XCOM 2",
-    "qty": 249
-  },
-  {
-    "time": 1726443781,
     "what": "Yes Your Grace",
     "qty": 3
   },
@@ -2593,11 +2588,6 @@
     "time": 1729646538,
     "what": "Red Solstice 2: Survivors",
     "qty": 3
-  },
-  {
-    "time": 1729646538,
-    "what": "Where The Water Tastes Like Wine",
-    "qty": 20
   },
   {
     "time": 1729901952,
@@ -3963,5 +3953,15 @@
     "time": 1741555998,
     "what": "Wordle 2",
     "qty": 9
+  },
+  {
+    "time": 1741703016,
+    "what": "Where The Water Tastes Like Wine",
+    "qty": 58
+  },
+  {
+    "time": 1741703016,
+    "what": "XCOM 2",
+    "qty": 285
   }
 ]
