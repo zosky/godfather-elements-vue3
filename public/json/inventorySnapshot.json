@@ -3926,11 +3926,6 @@
   },
   {
     "time": 1741555998,
-    "what": "Gravity Circuit",
-    "qty": 14
-  },
-  {
-    "time": 1741555998,
     "what": "Homeworld 3",
     "qty": 9
   },
@@ -3963,5 +3958,10 @@
     "time": 1741703016,
     "what": "XCOM 2",
     "qty": 285
+  },
+  {
+    "time": 1741813540,
+    "what": "Gravity Circuit",
+    "qty": 20
   }
 ]
