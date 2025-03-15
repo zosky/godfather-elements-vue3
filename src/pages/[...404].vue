@@ -1,10 +1,9 @@
 <script setup>
 import { Loading } from 'mdue'
 useHead({ title: '404=>302',})
-const route = useRoute()
 const router = useRouter()
-const redirect = route.path.includes('/frame/') 
-  ? route.path.match(/(\/frame\/.*)/)?.[1]
+const redirect = window.location.href.includes('/frame/') 
+  ? window.location.href.match(/(\/frame\/.*)/)?.[1]
   : '/giveaways'
 router.replace(redirect)
 </script>
