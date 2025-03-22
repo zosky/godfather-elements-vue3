@@ -5,15 +5,31 @@ import advancedFormat from 'dayjs/plugin/advancedFormat'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(advancedFormat)
 dayjs.extend(relativeTime)
+const dataStore = inject('$dataStore')
 const props = defineProps({
   p: { type: Object, default: ()=>{return {}}},
   w: { type: Object, default: ()=>{return []}},
+  maxHours: { type: Number, default: 24 },
   bigHits: { type: Number, default: 60*60 } // 1hr in seconds
 })
+const myAnticheat = computed(()=>{ 
+  const thisD = dataStore?.anticheat?.[props.p?.user] ?? {}
+  const dArr = Object.entries(thisD)
+    .map(([k,v])=>{ return { 
+      anticheat: v, 
+      time: parseInt(k,10), 
+      date: dayjs.unix(k).format('YYMMDD'),
+      hrsAgo: parseInt(dayjs().diff(dayjs.unix(k),'hours'),10)
+    } })
+    .filter(d=> d.hrsAgo < props.maxHours )
+  return dArr ?? []
+})
+const anticheatCounts = computed(()=> [1,0,2].map(n=>myAnticheat.value?.filter(g=>g.anticheat==n)?.length??0) )
 const allD = computed(()=>{
   const newD = []
   if (props?.p?.arr?.length) newD.push(...props.p.arr)
   if (props?.w?.length) newD.push(...props.w)
+  if (myAnticheat.value.length) newD.push(...myAnticheat.value)
   return newD?.sort((a,b)=>a.time<b.time?-1:1)
 })
 const hits = computed(()=>{
@@ -68,6 +84,9 @@ const myParticipation = computed(()=>Object.entries(clamMap)
           </h6>
           <span v-if="w.length" class="min-w-max">{{ w.length }}🎁 </span>
           <Clams v-if="w.length" :clams="w.reduce((a,c)=>a+=c.clams,0)" class="clams min-w-max" />
+          <span v-if="anticheatCounts?.[0]" class="min-w-max" v-text="`${anticheatCounts?.[0]}🙋`" :title="`passed ${anticheatCounts?.[0]} antiCheat`" />
+          <span v-if="anticheatCounts?.[1]" class="min-w-max" v-text="`${anticheatCounts?.[1]}🤖`" :title="`failed ${anticheatCounts?.[0]} antiCheat`" />
+          <span v-if="anticheatCounts?.[2]" class="min-w-max" v-text="`${anticheatCounts?.[2]}💣`" :title="`notAsked ${anticheatCounts?.[0]} antiCheat`" />
           <h6
             v-if="Object.keys(p?.games??{}).length"
             class="min-w-max" 
@@ -89,6 +108,10 @@ const myParticipation = computed(()=>Object.entries(clamMap)
           <span v-if="h.dist>bigHits" v-text="'💤'"/>
           <span v-else class="opacity-25" v-text="'🕳️'"/>
         </label>
+        <label
+          v-else-if="h?.hasOwnProperty('anticheat')"
+          :title="`anticheat @ ${dayjs.unix(h.time).format('HH:mm')} ${h.anticheat==1?'passed':h.anticheat==2?'notAsked?':'failed :('}`"
+          v-text="` ${h.anticheat == 1 ? '🙋' : h.anticheat == 2 ? '💣' : '🤖'}`" />
         <template v-else-if="h?.clams">
           <label :title="`+${h.clams}🐚 @ ${dayjs.unix(h.time).format('HH:mm')}`" class="bg-purple-900 bg-opacity-60 rounded-xl pl-2 pr-1">
             <Clams :clams="h?.clams" class="clams" />

@@ -77,6 +77,7 @@ const myWins = computed(()=>{
       <UserScatter :user="me" />
       <EngPlayer
         :p="myEntries" :w="myWins"
+        :maxHours="maxHours"
         class="max-w-prose ml-2" open
         disabled />
     </div>

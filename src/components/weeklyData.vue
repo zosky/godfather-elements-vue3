@@ -89,7 +89,7 @@ const hashMap = computed(()=>{
 })
 cache('hashMap') // getData
 
-const dataFiles = ['gaEntries','gaHistory', 'redeems']
+const dataFiles = ['gaEntries','gaHistory', 'redeems','anticheat']
 const fields = [ 
   'week',
   'redeemsGames', 'redeemsPeople', 'redeemsCount',
@@ -131,7 +131,7 @@ const mergeData = (p,r) => {
       // merge obj(hist) or array (entries)
       if(u[0] != 'hitsquadgodfather') { // tgfBanned :p
         const ua = dataStore?.[p]?.[u[0]]
-        const d = ua ? p=='gaHistory' ? {...ua, ...u[1]} : [...ua, ...u[1]] : null
+        const d = ua ? ['gaHistory','anticheat'].includes(p) ? {...ua, ...u[1]} : [...ua, ...u[1]] : null
         dataStore[p][u[0]] = ua ? d : u[1] 
       }
     }
