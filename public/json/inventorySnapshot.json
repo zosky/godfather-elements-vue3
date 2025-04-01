@@ -116,11 +116,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Aragami 2",
-    "qty": 7
-  },
-  {
-    "time": 1726443781,
     "what": "Arcade Spirits",
     "qty": 12
   },
@@ -976,11 +971,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Kraken Academy",
-    "qty": 27
-  },
-  {
-    "time": 1726443781,
     "what": "Last Train Home",
     "qty": 3
   },
@@ -1013,11 +1003,6 @@
     "time": 1726443781,
     "what": "Lego Worlds",
     "qty": 27
-  },
-  {
-    "time": 1726443781,
-    "what": "Life and Suffering of Sir Brante",
-    "qty": 14
   },
   {
     "time": 1726443781,
@@ -1158,11 +1143,6 @@
     "time": 1726443781,
     "what": "Monster Hunter World",
     "qty": 2
-  },
-  {
-    "time": 1726443781,
-    "what": "Monster Prom 2",
-    "qty": 14
   },
   {
     "time": 1726443781,
@@ -1496,11 +1476,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Sable",
-    "qty": 10
-  },
-  {
-    "time": 1726443781,
     "what": "Satellite Repairman",
     "qty": 41
   },
@@ -1693,11 +1668,6 @@
     "time": 1726443781,
     "what": "Starsand",
     "qty": 17
-  },
-  {
-    "time": 1726443781,
-    "what": "Steelrising",
-    "qty": 29
   },
   {
     "time": 1726443781,
@@ -4053,5 +4023,40 @@
     "time": 1743359699,
     "what": "Wife Quest",
     "qty": 43
+  },
+  {
+    "time": 1743498129,
+    "what": "Aragami 2",
+    "qty": 14
+  },
+  {
+    "time": 1743498129,
+    "what": "Kraken Academy",
+    "qty": 59
+  },
+  {
+    "time": 1743498129,
+    "what": "Life and Suffering of Sir Brante",
+    "qty": 34
+  },
+  {
+    "time": 1743498129,
+    "what": "Lighthouse Keeper",
+    "qty": 62
+  },
+  {
+    "time": 1743498129,
+    "what": "Monster Prom 2",
+    "qty": 37
+  },
+  {
+    "time": 1743498129,
+    "what": "Sable",
+    "qty": 34
+  },
+  {
+    "time": 1743498129,
+    "what": "Steelrising",
+    "qty": 52
   }
 ]
