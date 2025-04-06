@@ -774,9 +774,16 @@
   },
   "202514": {
     "entriesPeople": 974,
-    "entriesCount": 80924,
+    "entriesCount": 81194,
     "giveawaysPeople": 828,
-    "giveawaysCount": 27995,
-    "giveawaysClams": 3085010
+    "giveawaysCount": 28115,
+    "giveawaysClams": 3100149
+  },
+  "202515": {
+    "entriesPeople": 81,
+    "entriesCount": 124,
+    "giveawaysPeople": 39,
+    "giveawaysCount": 52,
+    "giveawaysClams": 5790
   }
 }
