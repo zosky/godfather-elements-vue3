@@ -4051,11 +4051,6 @@
   },
   {
     "time": 1743811574,
-    "what": "1000xRESIST",
-    "qty": 17
-  },
-  {
-    "time": 1743811574,
     "what": "Diplomacy is Not an Option",
     "qty": 23
   },
@@ -4063,5 +4058,25 @@
     "time": 1743811574,
     "what": "Dredge",
     "qty": 10
+  },
+  {
+    "time": 1744067384,
+    "what": "1000xRESIST",
+    "qty": 20
+  },
+  {
+    "time": 1744067384,
+    "what": "Aliens Dark Decent",
+    "qty": 10
+  },
+  {
+    "time": 1744067384,
+    "what": "Distant Worlds 2",
+    "qty": 97
+  },
+  {
+    "time": 1744067384,
+    "what": "EA APP KEY: Immortals of Aveum",
+    "qty": 19
   }
 ]
