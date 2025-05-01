@@ -41,11 +41,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Acceleration of Suguri 2",
-    "qty": 4
-  },
-  {
-    "time": 1726443781,
     "what": "Aces and Adventures",
     "qty": 140
   },
@@ -2013,11 +2008,6 @@
     "time": 1726443781,
     "what": "Wrath Aeon of Ruins",
     "qty": 2
-  },
-  {
-    "time": 1726443781,
-    "what": "WWE 2k Battlegrounds",
-    "qty": 15
   },
   {
     "time": 1726443781,
@@ -4126,21 +4116,6 @@
   },
   {
     "time": 1745764959,
-    "what": "Slime Rancher",
-    "qty": 4
-  },
-  {
-    "time": 1745764959,
-    "what": "Slime Rancher 2",
-    "qty": 2
-  },
-  {
-    "time": 1745764959,
-    "what": "Terraria",
-    "qty": 3
-  },
-  {
-    "time": 1745764959,
     "what": "The Pathless",
     "qty": 3
   },
@@ -4163,5 +4138,30 @@
     "time": 1746011624,
     "what": "Clair Obscur Expedition 33",
     "qty": 10
+  },
+  {
+    "time": 1746117787,
+    "what": "Acceleration of Suguri 2",
+    "qty": 7
+  },
+  {
+    "time": 1746117787,
+    "what": "Slime Rancher",
+    "qty": 9
+  },
+  {
+    "time": 1746117787,
+    "what": "Slime Rancher 2",
+    "qty": 3
+  },
+  {
+    "time": 1746117787,
+    "what": "Terraria",
+    "qty": 10
+  },
+  {
+    "time": 1746117787,
+    "what": "WWE 2k Battlegrounds",
+    "qty": 26
   }
 ]
