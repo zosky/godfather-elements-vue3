@@ -1411,11 +1411,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Rogue Lords",
-    "qty": 19
-  },
-  {
-    "time": 1726443781,
     "what": "Rover Rescue",
     "qty": 37
   },
@@ -1438,16 +1433,6 @@
     "time": 1726443781,
     "what": "Satisfactory",
     "qty": 1
-  },
-  {
-    "time": 1726443781,
-    "what": "Scorn",
-    "qty": 7
-  },
-  {
-    "time": 1726443781,
-    "what": "Scourgebringer",
-    "qty": 8
   },
   {
     "time": 1726443781,
@@ -1716,11 +1701,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Tales From The Borderlands",
-    "qty": 8
-  },
-  {
-    "time": 1726443781,
     "what": "Tannenberg",
     "qty": 3
   },
@@ -1911,11 +1891,6 @@
   },
   {
     "time": 1726443781,
-    "what": "VirtuaVerse",
-    "qty": 9
-  },
-  {
-    "time": 1726443781,
     "what": "Vox Machinae",
     "qty": 1
   },
@@ -1928,11 +1903,6 @@
     "time": 1726443781,
     "what": "Warhammer Age of Sigmar Realms of Ruin Ultimate",
     "qty": 14
-  },
-  {
-    "time": 1726443781,
-    "what": "Warhammer Chaosbane Slayer Edition",
-    "qty": 8
   },
   {
     "time": 1726443781,
@@ -3310,11 +3280,6 @@
     "qty": 10
   },
   {
-    "time": 1736106007,
-    "what": "Yakuza Like A Dragon",
-    "qty": 10
-  },
-  {
     "time": 1736332904,
     "what": "From Space",
     "qty": 100
@@ -4293,5 +4258,45 @@
     "time": 1746713846,
     "what": "The Thaumaturge Deluxe Edition",
     "qty": 8
+  },
+  {
+    "time": 1746789787,
+    "what": "Pathologic 2",
+    "qty": 4
+  },
+  {
+    "time": 1746789787,
+    "what": "Rogue Lords",
+    "qty": 38
+  },
+  {
+    "time": 1746789787,
+    "what": "Scorn",
+    "qty": 12
+  },
+  {
+    "time": 1746789787,
+    "what": "Scourgebringer",
+    "qty": 16
+  },
+  {
+    "time": 1746789787,
+    "what": "Tales From The Borderlands",
+    "qty": 12
+  },
+  {
+    "time": 1746789787,
+    "what": "VirtuaVerse",
+    "qty": 17
+  },
+  {
+    "time": 1746789787,
+    "what": "Warhammer Chaosbane Slayer Edition",
+    "qty": 12
+  },
+  {
+    "time": 1746789787,
+    "what": "Yakuza Like A Dragon",
+    "qty": 13
   }
 ]
