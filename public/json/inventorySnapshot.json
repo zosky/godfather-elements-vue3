@@ -4255,11 +4255,6 @@
     "qty": 10
   },
   {
-    "time": 1746713846,
-    "what": "The Thaumaturge Deluxe Edition",
-    "qty": 8
-  },
-  {
     "time": 1746789787,
     "what": "Pathologic 2",
     "qty": 4
@@ -4298,5 +4293,10 @@
     "time": 1746789787,
     "what": "Yakuza Like A Dragon",
     "qty": 13
+  },
+  {
+    "time": 1746934782,
+    "what": "The Thaumaturge Deluxe Edition",
+    "qty": 10
   }
 ]
