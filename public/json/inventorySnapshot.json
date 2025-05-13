@@ -4046,11 +4046,6 @@
   },
   {
     "time": 1745764959,
-    "what": "Ravenswatch",
-    "qty": 2
-  },
-  {
-    "time": 1745764959,
     "what": "The Pathless",
     "qty": 3
   },
@@ -4298,5 +4293,10 @@
     "time": 1746934782,
     "what": "The Thaumaturge Deluxe Edition",
     "qty": 10
+  },
+  {
+    "time": 1747135698,
+    "what": "Ravenswatch",
+    "qty": 3
   }
 ]
