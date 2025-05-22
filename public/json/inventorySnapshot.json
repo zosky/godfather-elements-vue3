@@ -3536,11 +3536,6 @@
   },
   {
     "time": 1739458605,
-    "what": "Battletoads",
-    "qty": 10
-  },
-  {
-    "time": 1739458605,
     "what": "Door Kickers 2 Task Force North",
     "qty": 2
   },
@@ -4343,5 +4338,10 @@
     "time": 1747818859,
     "what": "Empyrion Galactic Survival",
     "qty": 18
+  },
+  {
+    "time": 1747921446,
+    "what": "Battletoads",
+    "qty": 14
   }
 ]
