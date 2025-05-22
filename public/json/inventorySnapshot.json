@@ -2051,11 +2051,6 @@
   },
   {
     "time": 1727360927,
-    "what": "Dead Rising 4",
-    "qty": 10
-  },
-  {
-    "time": 1727360927,
     "what": "Doors Paradox",
     "qty": 90
   },
@@ -4343,5 +4338,10 @@
     "time": 1747921446,
     "what": "Battletoads",
     "qty": 14
+  },
+  {
+    "time": 1747940362,
+    "what": "Dead Rising 4",
+    "qty": 25
   }
 ]
