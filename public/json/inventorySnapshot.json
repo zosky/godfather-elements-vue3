@@ -141,11 +141,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Ball of Wonder",
-    "qty": 49
-  },
-  {
-    "time": 1726443781,
     "what": "Batman Arkham Knight Premium Edition",
     "qty": 8
   },
@@ -4353,5 +4348,10 @@
     "time": 1748201710,
     "what": "Wasteland 3",
     "qty": 22
+  },
+  {
+    "time": 1748463633,
+    "what": "Ball of Wonder",
+    "qty": 50
   }
 ]
