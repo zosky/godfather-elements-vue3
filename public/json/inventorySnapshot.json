@@ -4331,11 +4331,6 @@
   },
   {
     "time": 1748201710,
-    "what": "Battletoads",
-    "qty": 18
-  },
-  {
-    "time": 1748201710,
     "what": "Quantum Break",
     "qty": 18
   },
@@ -4353,5 +4348,10 @@
     "time": 1748463633,
     "what": "Ball of Wonder",
     "qty": 50
+  },
+  {
+    "time": 1748630753,
+    "what": "Battletoads",
+    "qty": 150
   }
 ]
