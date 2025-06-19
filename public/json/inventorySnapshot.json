@@ -4450,11 +4450,6 @@
     "qty": 2
   },
   {
-    "time": 1750083419,
-    "what": "Ori and the Will of the Wisps",
-    "qty": 7
-  },
-  {
     "time": 1750167299,
     "what": "Warcana",
     "qty": 300
@@ -4473,5 +4468,15 @@
     "time": 1750182488,
     "what": "Griftlands",
     "qty": 48
+  },
+  {
+    "time": 1750338362,
+    "what": "Army of Ruin",
+    "qty": 72
+  },
+  {
+    "time": 1750338362,
+    "what": "Ori and the Will of the Wisps",
+    "qty": 10
   }
 ]
