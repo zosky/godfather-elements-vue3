@@ -1326,11 +1326,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Rage in Peace",
-    "qty": 10
-  },
-  {
-    "time": 1726443781,
     "what": "Railroad Tycoon 2 Platinum",
     "qty": 114
   },
@@ -4568,5 +4563,15 @@
     "time": 1752330610,
     "what": "Hitsquad Special Thymesia",
     "qty": 10
+  },
+  {
+    "time": 1752403630,
+    "what": "Hitsquad Special Tentacular",
+    "qty": 17
+  },
+  {
+    "time": 1752403630,
+    "what": "Rage in Peace",
+    "qty": 20
   }
 ]
