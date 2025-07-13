@@ -920,10 +920,13 @@
     "redeemsGames": 254
   },
   "202529": {
-    "entriesPeople": 252,
-    "entriesCount": 1696,
-    "giveawaysPeople": 130,
-    "giveawaysCount": 235,
-    "giveawaysClams": 227722
+    "entriesPeople": 329,
+    "entriesCount": 3114,
+    "giveawaysPeople": 191,
+    "giveawaysCount": 450,
+    "giveawaysClams": 467600,
+    "redeemsCount": 1,
+    "redeemsPeople": 1,
+    "redeemsGames": 1
   }
 }
