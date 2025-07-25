@@ -1301,11 +1301,6 @@
   },
   {
     "time": 1726443781,
-    "what": "Purrfect Date",
-    "qty": 7
-  },
-  {
-    "time": 1726443781,
     "what": "Quadrata",
     "qty": 56
   },
@@ -4683,5 +4678,10 @@
     "time": 1753444952,
     "what": "Steam Wallet BRL 19",
     "qty": 2
+  },
+  {
+    "time": 1753467937,
+    "what": "Purrfect Date",
+    "qty": 10
   }
 ]
