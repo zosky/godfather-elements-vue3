@@ -930,13 +930,23 @@
     "redeemsGames": 219
   },
   "202530": {
-    "entriesPeople": 1100,
-    "entriesCount": 111558,
-    "giveawaysPeople": 879,
-    "giveawaysCount": 27365,
-    "giveawaysClams": 2948704,
-    "redeemsCount": 713,
+    "entriesPeople": 1101,
+    "entriesCount": 111828,
+    "giveawaysPeople": 880,
+    "giveawaysCount": 27442,
+    "giveawaysClams": 2957204,
+    "redeemsCount": 714,
     "redeemsPeople": 413,
     "redeemsGames": 259
+  },
+  "202531": {
+    "entriesPeople": 107,
+    "entriesCount": 236,
+    "giveawaysPeople": 50,
+    "giveawaysCount": 70,
+    "giveawaysClams": 7000,
+    "redeemsCount": 1,
+    "redeemsPeople": 1,
+    "redeemsGames": 1
   }
 }
