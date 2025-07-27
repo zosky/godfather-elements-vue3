@@ -4616,11 +4616,6 @@
   },
   {
     "time": 1753196923,
-    "what": "Steam Wallet TR 200",
-    "qty": 3
-  },
-  {
-    "time": 1753196923,
     "what": "Steam Wallet TWD 150",
     "qty": 3
   },
@@ -4633,11 +4628,6 @@
     "time": 1753276267,
     "what": "Steam US $5 Wallet Code",
     "qty": 10
-  },
-  {
-    "time": 1753276267,
-    "what": "Steam Wallet CA $8",
-    "qty": 3
   },
   {
     "time": 1753276267,
@@ -4665,11 +4655,6 @@
     "qty": 2
   },
   {
-    "time": 1753444952,
-    "what": "Steam Wallet BRL 19",
-    "qty": 2
-  },
-  {
     "time": 1753467937,
     "what": "Purrfect Date",
     "qty": 10
@@ -4683,5 +4668,25 @@
     "time": 1753556216,
     "what": "Steam Wallet PLN 20",
     "qty": 3
+  },
+  {
+    "time": 1753643924,
+    "what": "Steam Wallet BRL 19",
+    "qty": 8
+  },
+  {
+    "time": 1753643924,
+    "what": "Steam Wallet CA $8",
+    "qty": 10
+  },
+  {
+    "time": 1753643924,
+    "what": "Steam Wallet TR 200",
+    "qty": 10
+  },
+  {
+    "time": 1753643924,
+    "what": "Steam Wallet UAH 225",
+    "qty": 1
   }
 ]
