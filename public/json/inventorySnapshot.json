@@ -2181,11 +2181,6 @@
   },
   {
     "time": 1728254170,
-    "what": "Dune Imperium",
-    "qty": 3
-  },
-  {
-    "time": 1728254170,
     "what": "Nascar Heat 5",
     "qty": 10
   },
@@ -4136,11 +4131,6 @@
   },
   {
     "time": 1746789787,
-    "what": "Tales From The Borderlands",
-    "qty": 12
-  },
-  {
-    "time": 1746789787,
     "what": "VirtuaVerse",
     "qty": 17
   },
@@ -4620,11 +4610,6 @@
     "qty": 298
   },
   {
-    "time": 1753376034,
-    "what": "Steam Wallet IDR 100000",
-    "qty": 3
-  },
-  {
     "time": 1753467937,
     "what": "Purrfect Date",
     "qty": 10
@@ -4693,5 +4678,30 @@
     "time": 1753877410,
     "what": "Steam Wallet UAH 200",
     "qty": 3
+  },
+  {
+    "time": 1753974927,
+    "what": "Buckshot Roulette",
+    "qty": 19
+  },
+  {
+    "time": 1753974927,
+    "what": "Daemon X Machina",
+    "qty": 47
+  },
+  {
+    "time": 1753974927,
+    "what": "Dune Imperium",
+    "qty": 4
+  },
+  {
+    "time": 1753974927,
+    "what": "Steam Wallet IDR 100000",
+    "qty": 9
+  },
+  {
+    "time": 1753974927,
+    "what": "Tales From The Borderlands",
+    "qty": 20
   }
 ]
