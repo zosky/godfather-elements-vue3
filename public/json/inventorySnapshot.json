@@ -4686,11 +4686,6 @@
   },
   {
     "time": 1753974927,
-    "what": "Daemon X Machina",
-    "qty": 47
-  },
-  {
-    "time": 1753974927,
     "what": "Dune Imperium",
     "qty": 4
   },
@@ -4703,5 +4698,10 @@
     "time": 1753974927,
     "what": "Tales From The Borderlands",
     "qty": 20
+  },
+  {
+    "time": 1754072432,
+    "what": "Daemon X Machina",
+    "qty": 50
   }
 ]
