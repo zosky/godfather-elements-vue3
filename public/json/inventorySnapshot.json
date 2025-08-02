@@ -1691,11 +1691,6 @@
   },
   {
     "time": 1726443781,
-    "what": "The Coma 2 Vicious Sisters",
-    "qty": 6
-  },
-  {
-    "time": 1726443781,
     "what": "The Evil Within",
     "qty": 9
   },
@@ -4703,5 +4698,10 @@
     "time": 1754072432,
     "what": "Daemon X Machina",
     "qty": 50
+  },
+  {
+    "time": 1754128635,
+    "what": "The Coma 2 Vicious Sisters",
+    "qty": 10
   }
 ]
